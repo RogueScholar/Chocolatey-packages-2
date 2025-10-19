@@ -1,0 +1,267 @@
+%YAML 1.1
+# SPDX-FileCopyrightText: © 2020–2025, Fabian Clerbois <fabian@bowlman.org>
+# SPDX-FileCopyrightText: 🄯 2025, Peter J. Mello <admin@petermello.net>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# ---------------------------------------------------------------------------- #
+# AU template: <https://github.com/majkinetor/au-packages-template>
+# Build configuration reference: <https://www.appveyor.com/docs/appveyor-yml/>
+---
+version: '{build}'
+image: 'Visual Studio 2022'
+max_jobs: 1
+pull_requests:
+  do_not_increment_build_number: true
+
+environment:
+  # Chocolatey API key to push updated packages.
+  chocoApiKey:
+    secure: 3Z5hXaa3LHocn8BX5rHyxlK5VzcQbPvCtPElli3plDCCi2hll3nW9LJI3wMIsvIk
+  ErrorActionPreference: '2'
+  hash_algo: 'sha256'
+  scripts_dir: "$(APPVEYOR_BUILD_FOLDER)\\scripts"
+
+  # AutomaticUpdates PowerShell module.
+  au_push: true
+  # Use "1" to test all, or "n > 1" to split testing into "n" groups.
+  au_test_groups: 4
+  # Version to use or branch name to clone from GitHub; omit for latest release.
+  # au_version: master
+
+  # Chocolatey version to use when checking for updates (usually latest).
+  choco_version: '2.5.1'
+  choco_version_pr: '2.4.0'  # Should be kept at version available one year ago.
+  nupkg_cache: 'C:\packages'
+  pkg_url: 'https://chocolatey.org/api/v2/package'
+
+  # GitHub token for committing updated packages to repository.
+  github_user_repo: $(APPVEYOR_REPO_NAME)
+  github_api_key:
+    secure: ga07eh66JYcaeYH4ej8+B09v1ddRJ+DfDtb7hCFKdp4WlEJwX1QA9fMCExcQx1SDhlF+Lsa3vfCeL0ynaPEdx2jxzqeAiwkjucU3Va6prsthc1uLIBfJ3fCcm9gGTd5J
+  # IDs of the Gists used to save run and test run results.
+  gist_id: 7032dea203873812b435f152ee3794bf
+  gist_id_test: 90d63f6b99678e483a3669aaf2b51a1f
+
+  # GitLab information.
+  gitlab_user: tunisiano187
+  gitlab_api_key:
+    secure: o13URdKLLBlzgwn/CDQc8UMLnsiOEw/hIMmO3SdxvuM=
+  # GitLab URL to push to; must be HTTP/HTTPS.
+  gitlab_PushURL: https://gitlab.com/chocolatey-packages/automatic-updating.git
+  gitlab_commit_strategy: atomictag
+
+  # Mail credentials for error notifications.
+  mail_user: 'helpdesk.choc@gmail.com'
+
+  # VirusTotal API key.
+  VT_APIKEY:
+    secure: L/54pv851SIun4fRQsrx3kbmvBjuPRYE0bwuH/tDwSZCDbqSsHFE2udKIXnGLNL9AFRz9bBLJmVPUqXabn3tBqO45DJpCq0XjUSDDseoBCg=
+
+init:
+  - cmd: |2
+      git.exe config --global user.email $(mail_user)
+      git.exe config --global user.name $(gitlab_user)
+      git.exe config --global core.safecrlf false
+
+cache:
+  - '%nupkg_cache% -> appveyor.yml'
+
+install:
+  - ps: |2
+      if (($null -eq $Env:APPVEYOR_PULL_REQUEST_NUMBER) -or ($Env:APPVEYOR_PULL_REQUEST_NUMBER -eq '')) {
+        Set-Variable -Name chocoVersion -Value "${Env:choco_version}" -Scope Global -Option AllScope,ReadOnly
+      } else {
+        Set-Variable -Name chocoVersion -Value "${Env:choco_version_pr}" -Scope Global -Option AllScope,ReadOnly
+      }
+      if (-not (Test-Path "$Env:nupkg_cache")) {
+        Set-Variable -Name firstrun -Value 'yes'
+        New-Item -ItemType Directory -Path "${Env:nupkg_cache}" -Force
+      }
+      Import-Module -FullyQualifiedName "${Env:ChocolateyInstall}\helpers\chocolateyProfile.psm1" -Global -Force
+      Set-Variable -Name pkgDependencies -Value [ordered]@{
+        chocolatey                         = "${chocoVersion}"
+        chocolatey-compatibility.extension = '1.0.0'
+        chocolatey-core.extension          = '1.4.0'
+        chocolatey-misc-helpers.extension  = '0.0.4'
+        7zip.install                       = '25.1.0'
+        autohotkey.install                 = '1.1.37.1'
+        checksum                           = '0.3.1'
+        jpegoptim                          = '1.5.6.1'
+        keepass.install                    = '2.59.0'
+        pngquant                           = '3.0.3'
+        powershell                         = '5.1.14409.20180811'
+        vt-cli                             = '1.2.0'
+        wormies-au-helpers                 = '0.4.1'
+      }
+      ${pkgDependencies}.GetEnumerator() | ForEach-Object {
+        if (Test-Path -Path "${Env:nupkg_cache}\$($_.Key).$($_.Value).nupkg" -PathType Leaf) {
+          Remove-Item -Path "${Env:nupkg_cache}" -Name "$($_.Key)*.nupkg" -Force
+        }
+        Invoke-WebRequest -Uri "${Env:pkg_url}/$($_.Key)/$($_.Value)" -OutFile "${Env:nupkg_cache}\$($_.Key).$($_.Value).nupkg"
+        if ($_.Key -eq 'chocolatey') {
+          choco upgrade chocolatey --yes --source=${Env:nupkg_cache} --version=$_.Value --prerelease --allow-downgrade
+          refreshenv
+        } else {
+          choco upgrade $_.Key --yes --source=${Env:nupkg_cache} --version=$_.Value --prerelease --allow-downgrade --ignore-dependencies
+          refreshenv
+        }
+      }
+      Remove-Item -Path "${Env:ChocolateyInstall}\logs" -Name *.log -Force
+      Get-CimInstance -ClassName Win32_OperatingSystem | Format-List -Property Caption,OSArchitecture,Version
+      "${PSVersionTable}"
+      & git.exe --version
+      & choco.exe --version
+      Install-Module -Name Chocolatey-AU -Repository PSGallery -Scope AllUsers -AllowClobber -Force
+      Install-Module -Name Wormies-AU-Helpers -Repository PSGallery -Scope AllUsers -AllowClobber -Force
+      Copy-Item -Path "${Env:APPVEYOR_BUILD_FOLDER}\setup\AU" -Destination "${Env:TEMP}\au" -Force -Recurse
+      Copy-Item -Path "${Env:APPVEYOR_BUILD_FOLDER}\setup\build.ps1" -Destination "${Env:TEMP}\au" -Force
+      Import-Module -FullyQualifiedName "${Env:scripts_dir}\au_extensions.psm1" -Global -Force
+      "Build info:"
+      '  {0,-20} {1}' -f 'SCHEDULED BUILD:', ($Env:APPVEYOR_SCHEDULED_BUILD -eq 'true')
+      '  {0,-20} {1}' -f 'FORCED BUILD:'   , ($Env:APPVEYOR_FORCED_BUILD    -eq 'true')
+      '  {0,-20} {1}' -f 'RE BUILD:'       , ($Env:APPVEYOR_RE_BUILD        -eq 'true')
+
+build_script:
+  - ps: |2
+      Write-Information -MessageData "Installing prerequisites…"
+      Invoke-Expression -Command "${Env:APPVEYOR_BUILD_FOLDER}\setup\requisites.ps1"
+      . "${Env:scripts_dir}\EventLogs.ps1"
+      Clear-EventLogs
+      if (($null -ne ${Env:APPVEYOR_PULL_REQUEST_NUMBER}) -and (${Env:APPVEYOR_PULL_REQUEST_NUMBER} -ne '')) {
+        Set-Service -Name wuauserv -StartupType Manual
+        Invoke-Command -FilePath "${Env:scripts_dir}\Test-RepoPackage.ps1" -ArgumentList '-CleanFiles','-TakeScreenshots' -NoNewScope
+        return
+      } else {
+        # Clean the Chocolatey logs as they're quite large.
+        Remove-Item -Path "${Env:ChocolateyInstall}\logs" -Name *.log -Force
+      }
+      if ((${Env:APPVEYOR_SCHEDULED_BUILD} -ne 'true') -and (${Env:APPVEYOR_FORCED_BUILD} -ne 'true')) {
+        switch -Regex (${Env:APPVEYOR_REPO_COMMIT_MESSAGE}) {
+          '\[AU (.+?)\]' {
+            Set-Variable -Name forced -Value $Matches[1] -Global -Option AllScope
+          }
+          '\[PUSH (.+?)\]' {
+            Set-Variable -Name packages -Value ($Matches[1] -split ' ')
+            Write-Information -MessageData "PUSHING PACKAGES: ${packages}…"
+            foreach (${package} in ${packages}) {
+              Write-Information -MessageData ("{0}`n{1}`n" -f ('-' * 60), "PACKAGE: ${package}")
+              Set-Variable -Name package_dir -Value (Get-ChildItem -Path "${Env:APPVEYOR_BUILD_FOLDER}" -Recurse |
+                Where-Object -Property Name -Value "${package}.nuspec" -EQ |
+                  Select-Object -First 1 | ForEach-Object -MemberName Directory)
+              if (-not ${package_dir}) {
+                Write-Warning -Message "Can't find package '${package}'."
+                continue
+              }
+              Push-Location -Path "${package_dir}"
+              if (Test-Path -Path "${package_dir}\update.ps1" -PathType Leaf -ErrorAction SilentlyContinue) {
+                Invoke-Expression -Command "${package_dir}\update.ps1"
+              }
+              choco pack
+              Push-Package -All
+              Pop-Location
+            }
+            return
+          }
+        }
+        Set-Variable -Name lastupdated -Value ($(git.exe log --max-count=1 --stat) |
+          Where-Object { $_ -match 'automatic' } | Where-Object { $_ -notmatch "'automatic" }) -Global -Option AllScope
+        if ((${lastupdated}.Count -ne 0) -and (${Env:APPVEYOR_SCHEDULED_BUILD} -ne 'true')) {
+          ${Env:au_push} = 'false'
+          Set-Variables -Name packages -Value ${lastupdated}.split('/').split(' ')
+          Write-Information -MessageData "PUSHING PACKAGES: ${packages}…"
+          foreach (${line} in ${packages}) {
+            Set-Variable -Name package -Value ${line}.split(' ')
+            if ((${package} -ne 'automatic') -and (${package} -notmatch '^\-|\+|update\.ps1')) {
+              Write-Information -MessageData ("{0}`n{1}`n" -f ('-' * 60), "PACKAGE: ${package}")
+              Set-Variable -Name package_dir -Value (Get-ChildItem -Path "${Env:APPVEYOR_BUILD_FOLDER}" -Recurse |
+                Where-Object -Property Name -Value "${package}.nuspec" -EQ |
+                  Select-Object -First 1 | ForEach-Object -MemberName Directory)
+              if (-not ${package_dir}) {
+                Write-Warning -Message "Can't find package '${package}'."
+                continue
+              }
+              Push-Location -Path "${package_dir}"
+              if (Test-Path -Path "${package_dir}\update.ps1" -PathType Leaf -ErrorAction SilentlyContinue) {
+                Invoke-Expression -Command "${package_dir}\update.ps1"
+              }
+              choco pack
+              Push-Package -All
+              Pop-Location
+            }
+          }
+          return
+        } else {
+          Write-Information -MessageData "No packages forced."
+        }
+      }
+      git.exe remote set-url origin "https://${Env:github_api_key}@github.com/${Env:APPVEYOR_REPO_NAME}.git"
+      git.exe config --global user.email $(mail_user)
+      git.exe config --global user.name $(gitlab_user)
+      git.exe checkout origin/master
+      Import-Module -FullyQualifiedName "${Env:scripts_dir}\au_extensions.psm1" -Global -Force
+      Set-Variable -Name moduleWormiesPath -Value (Resolve-Path -Path "${Env:ProgramFiles}\WindowsPowerShell\Modules\Wormies-AU-Helpers\public\Update-Metadata.ps1") -Global -Option AllScope,ReadOnly
+      Copy-Item -Path "${Env:scripts_dir}\Update-Metadata.ps1" -Destination "${moduleWormiesPath}" -Force
+      Write-Information -MessageData "Checking nuspec errors…"
+      Invoke-Expression -Command "${Env:scripts_dir}\Find-NuspecError.ps1"
+      git.exe commit --all --message="Nuspec errors"
+      Write-Information -MessageData "Updating packageSourceUrl…"
+      Invoke-Command -FilePath "${Env:scripts_dir}\Update-PackageSourceUrl.ps1" -ArgumentList '-GithubRepository:${Env:APPVEYOR_REPO_NAME}','-UseStopwatch'
+      git.exe commit --all --message="PackageSourceUrl"
+      Write-Information -MessageData "Updating variables in ps1…"
+      Invoke-Expression -Command "${Env:scripts_dir}\Update-Variables.ps1"
+      git.exe commit --all --message="ps1 variables"
+      Write-Information -MessageData "Updating IconUrl in nuspec…"
+      Invoke-Command -FilePath "${Env:scripts_dir}\Update-IconUrl.ps1" -ArgumentList '-Quiet','-GithubRepository:${Env:APPVEYOR_REPO_NAME}','-UseStopwatch'
+      git.exe commit --all --message="Update icons"
+      Write-Information -MessageData "Updating owners in nuspec…"
+      Import-Module -Name Wormies-AU-Helpers -Global -Force
+      Set-Variable -Name nuspec -Value (Get-ChildItem -Path "${Env:APPVEYOR_BUILD_FOLDER}/*.nuspec" -Recurse)
+      foreach (${file} in ${nuspec}) {
+        Update-Metadata -key owners -value "tunisiano" -NuspecFile ${file}.FullName
+      }
+      git.exe commit --all --message="Update owner"
+      Write-Information -MessageData "Updating Packages.md…"
+      Invoke-Expression -Command "${Env:scripts_dir}\ListPackages.ps1"
+      git.exe commit --all --message="List packages"
+      Write-Information -MessageData "Check broken packages…"
+      Invoke-Expression -Command "${Env:APPVEYOR_BUILD_FOLDER}\tools\looknewer.ps1"
+      git.exe commit --all --message="Broken packages"
+      Write-Information -MessageData "Removing NoCheckChocoVersion…"
+      Invoke-Expression -Command "${Env:scripts_dir}\Remove-Nocheck.ps1"
+      git.exe commit --all --message="Remove NoCheckChocoVersion"
+      git.exe pull
+      git.exe push
+      Write-Information -MessageData "Updating packages…"
+      if (${firstrun} -ne 'yes') {
+        Invoke-Command -FilePath "${Env:APPVEYOR_BUILD_FOLDER}\au\update_all.ps1" -ArgumentList "-ForcedPackages:${forced}"
+      }
+      Get-EventLogs -EntryType * | Where-Object -Property Source -Value 'SChannel' -EQ |
+        Format-List -Property * | Out-File "${Env:APPVEYOR_BUILD_FOLDER}\eventlogs.txt"
+
+on_finish:
+  - ps: |2
+      if (Test-Path -Path "${Env:TEMP}\chocolatey\au" -PathType Container) {
+        7z.exe a -mx9 "${Env:APPVEYOR_BUILD_FOLDER}\au_temp.7z" "${Env:TEMP}\chocolatey\au\*"
+      }
+      $paths = @(
+        Resolve-Path -Path "${Env:TEMP}\artifacts\*" -ErrorAction SilentlyContinue
+        Resolve-Path -Path "${Env:ChocolateyInstall}\logs\*.log" -ErrorAction SilentlyContinue
+        Resolve-Path -Path "${Env:APPVEYOR_BUILD_FOLDER}\au_temp.7z" -ErrorAction SilentlyContinue
+        Resolve-Path -Path "${Env:APPVEYOR_BUILD_FOLDER}\update_info.xml" -ErrorAction SilentlyContinue
+        Resolve-Path -Path "${Env:APPVEYOR_BUILD_FOLDER}\Update-AUPackages.md" -ErrorAction SilentlyContinue
+        Resolve-Path -Path "${Env:APPVEYOR_BUILD_FOLDER}\Update-History.md" -ErrorAction SilentlyContinue
+        Resolve-Path -Path "${Env:APPVEYOR_BUILD_FOLDER}\eventlogs.txt" -ErrorAction SilentlyContinue
+      )
+      ${paths} | Where-Object { Test-Path $_ } | ForEach-Object { Push-AppveyorArtifact $_ }
+      Remove-Item -Path "${Env:TEMP}" -Force -Recurse -ErrorAction SilentlyContinue
+
+notifications:
+  - provider: Email
+    to:
+      - $(mail_user)
+    on_build_success: false
+    on_build_failure: true
+    on_build_status_changed: true
+  - provider: GitHubPullRequest
+    template: "{{#passed}}:white_check_mark: Package verification completed without issues. PR is now pending human review{{/passed}}{{#failed}}:x: Package verification failed, please review the [Appveyor Logs]({{buildUrl}}) and the provided [Artifacts]({{buildUrl}}/artifacts) before requesting a human reviewer to take a look.{{/failed}}"
+...
