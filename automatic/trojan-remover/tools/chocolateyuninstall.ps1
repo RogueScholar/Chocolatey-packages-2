@@ -1,16 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$processor = Get-WmiObject Win32_Processor
-$is64bit = $processor.AddressWidth -eq 64
-if ($is64bit) {
-  $unpath = "${Env:ProgramFiles(x86)}\Trojan Remover\unins000.exe"
-  } else {
-  $unpath = "${Env:ProgramFiles}\Trojan Remover\unins000.exe"
-  }
-$packageName = 'trojan-remover'
-$softwareName = 'Trojan Remover*'
-$installerType = 'EXE'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-$validExitCodes = @(0)
-
-Uninstall-ChocolateyPackage $packageName $installerType `
-  $silentArgs $unpath -validExitCodes $validExitCodes
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰牯捥獳潲‽⁇整ⵗ浩佢橥捴⁗楮㌲彐牯捥獳潲ਤ楳㘴扩琠㴠⑰牯捥獳潲⹁摤牥獳坩摴栠ⵥ焠㘴੩映⠤楳㘴扩琩⁻ਠ․畮灡瑨‽•⑻䕮瘺偲潧牡浆楬敳⡸㠶⥽屔牯橡渠剥浯癥牜畮楮猰〰⹥硥∊†素敬獥⁻ਠ․畮灡瑨‽•⑻䕮瘺偲潧牡浆楬敳絜呲潪慮⁒敭潶敲屵湩湳〰〮數攢ਠ⁽ਤ灡捫慧敎慭攠㴠❴牯橡渭牥浯癥爧ਤ獯晴睡牥乡浥‽‧呲潪慮⁒敭潶敲⨧ਤ楮獴慬汥牔祰攠㴠❅塅✊⑳楬敮瑁牧猠㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ啮楮獴慬氭䍨潣潬慴敹偡捫慧攠⑰慣歡来乡浥․楮獴慬汥牔祰攠怊†⑳楬敮瑁牧猠⑵湰慴栠⵶慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猊

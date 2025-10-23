@@ -1,17 +1,1 @@
-﻿$packageName  = 'ntttcp'
-$toolsDir     = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url          = 'https://github.com/microsoft/ntttcp/releases/download/v5.40/ntttcp.exe'
-$checksum     = 'F66561D09AF91305412FD60CA4B28D57C7B650035D3C1EDCC00A57B079E2247E'
-$checksumType = 'sha256'
-$file         = Join-Path $toolsDir $($url.Split('/')[-1])
-
-
-$packageArgs = @{
-  packageName   = $packageName
-  FileFullPath  = $file
-  url           = $url
-  checksum      = $checksum
-  checksumType  = $checksumType
-}
-
-Get-ChocolateyWebFile  @packageArgs
+뼤灡捫慧敎慭攠‽‧湴瑴捰✊⑴潯汳䑩爠††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ畲氠††††‽‧桴瑰猺⼯杩瑨畢⹣潭⽭楣牯獯晴⽮瑴瑣瀯牥汥慳敳⽤潷湬潡搯瘵⸴〯湴瑴捰⹥硥✊④桥捫獵洠††㴠❆㘶㔶ㅄ〹䅆㤱㌰㔴ㄲ䙄㘰䍁㑂㈸䐵㝃㝂㘵〰㌵䐳䌱䕄䍃〰䄵㝂〷㥅㈲㐷䔧ਤ捨散歳畭呹灥‽‧獨愲㔶✊⑦楬攠††††㴠䩯楮ⵐ慴栠⑴潯汳䑩爠␨⑵牬⹓灬楴⠧⼧⥛ⴱ崩ਊਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥†‽․灡捫慧敎慭攊†䙩汥䙵汬偡瑨†㴠⑦楬攊†畲氠†††††㴠⑵牬ਠ⁣桥捫獵洠††‽․捨散歳畭ਠ⁣桥捫獵浔祰攠‽․捨散歳畭呹灥੽ਊ䝥琭䍨潣潬慴敹坥扆楬攠⁀灡捫慧敁牧猊

@@ -1,17 +1,1 @@
-﻿$ErrorActionPreference = 'Stop';
-$url          = 'https://github.com/hass-agent/HASS.Agent/releases/download/2.1.1/HASS.Agent.Installer.exe'
-$checksumType = 'sha256'
-$checksum     = '19c96bba6dda99e596c05f55b7b6499aa5af3f3769a530f48c22cea87034a364'
-
-$packageArgs = @{
-  packageName     = $env:ChocolateyPackageName
-  fileType		    = "exe"
-
-  url             = $url
-  checksum        = $checksum
-  checksumType    = $checksumType
-
-  silentArgs	    = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-"
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧㬊⑵牬†††††㴠❨瑴灳㨯⽧楴桵戮捯洯桡獳ⵡ来湴⽈䅓匮䅧敮琯牥汥慳敳⽤潷湬潡搯㈮ㄮㄯ䡁卓⹁来湴⹉湳瑡汬敲⹥硥✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ捨散歳畭††‽‧ㄹ挹㙢扡㙤摡㤹攵㤶挰㕦㔵户戶㐹㥡愵慦㍦㌷㘹愵㌰昴㡣㈲捥愸㜰㌴愳㘴✊ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥††‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊†晩汥呹灥उ††㴠≥硥∊ਠ⁵牬††††††‽․畲氊†捨散歳畭††††㴠④桥捫獵洊†捨散歳畭呹灥††㴠④桥捫獵浔祰攊ਠ⁳楬敮瑁牧猉††㴠∯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭∊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

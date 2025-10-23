@@ -1,4 +1,4 @@
-﻿
+
 $ErrorActionPreference = 'Stop';
 $url            = 'https://clients.chime.aws/win/latest'
 $checksum       = 'b31ef8f7e131c9de5141c0e4f991d4b1fbd5520be630446c372fcc7563685d7d'

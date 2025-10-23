@@ -1,14 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = "$toolsDir\trjsetup.exe"
-
-$packageArgs = @{
-  packageName    = 'trojan-remover'
-  softwareName   = 'Trojan Remover*'
-  fileType       = 'EXE'
-  silentArgs     = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-  file           = $url
-  validExitCodes = @(0)
-  }
-
-Install-ChocolateyInstallPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ瑯潬獄楲†††‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑵牬††††††㴠∤瑯潬獄楲屴牪獥瑵瀮數攢ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†‽‧瑲潪慮⵲敭潶敲✊†獯晴睡牥乡浥†‽‧呲潪慮⁒敭潶敲⨧ਠ⁦楬敔祰攠†††㴠❅塅✊†獩汥湴䅲杳††‽‧⽖䕒奓䥌䕎吠⽓啐偒䕓卍升䉏塅匠⽎佒䕓呁剔 卐ⴧਠ⁦楬攠†††††㴠⑵牬ਠ⁶慬楤䕸楴䍯摥猠㴠䀨〩ਠ⁽ਊ䥮獴慬氭䍨潣潬慴敹䥮獴慬汐慣歡来⁀灡捫慧敁牧猊

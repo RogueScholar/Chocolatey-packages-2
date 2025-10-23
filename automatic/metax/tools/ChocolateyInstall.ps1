@@ -1,18 +1,1 @@
-# https://www.danhinsley.com/downloads/MetaXSetup.msi
-$ErrorActionPreference = 'Stop'
-$packageName = 'metax'
-$toolsDir    = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-$packageArgs = @{
-  packageName    = $packageName
-  fileType       = 'MSI'
-  file           = "$toolsDir\MetaXSetup.msi"
-  silentArgs     = '/quiet /qn /norestart'
-  softwareName   = 'MetaX for Windows'
-  validExitCodes = @(0, 3010, 1641)
-  }
-
-Install-ChocolateyInstallPackage @packageArgs
-Remove-Item $toolsDir\*.msi -Force | Out-Null
-if (Test-path "$env:ProgramFiles\MetaX\MetaX.exe") {Install-ChocolateyPowershellCommand -PackageName 'metax' -PSFileFullPath "$env:ProgramFiles\MetaX\MetaX.exe"}
-if (Test-path ${env:ProgramFiles(x86)}\MetaX\MetaX.exe) {Install-ChocolateyPowershellCommand -PackageName 'metax' -PSFileFullPath ${env:ProgramFiles(x86)}\MetaX\MetaX.exe}
+⌠桴瑰猺⼯睷眮摡湨楮獬敹⹣潭⽤潷湬潡摳⽍整慘卥瑵瀮浳椊⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰慣歡来乡浥‽‧浥瑡砧ਤ瑯潬獄楲††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†‽․灡捫慧敎慭攊†晩汥呹灥†††‽‧䵓䤧ਠ⁦楬攠†††††㴠∤瑯潬獄楲屍整慘卥瑵瀮浳椢ਠ⁳楬敮瑁牧猠††㴠✯煵楥琠⽱渠⽮潲敳瑡牴✊†獯晴睡牥乡浥†‽‧䵥瑡堠景爠坩湤潷猧ਠ⁶慬楤䕸楴䍯摥猠㴠䀨〬″〱〬‱㘴ㄩਠ⁽ਊ䥮獴慬氭䍨潣潬慴敹䥮獴慬汐慣歡来⁀灡捫慧敁牧猊剥浯癥ⵉ瑥洠⑴潯汳䑩牜⨮浳椠ⵆ潲捥⁼⁏畴ⵎ畬氊楦 呥獴⵰慴栠∤敮瘺偲潧牡浆楬敳屍整慘屍整慘⹥硥∩⁻䥮獴慬氭䍨潣潬慴敹偯睥牳桥汬䍯浭慮搠ⵐ慣歡来乡浥‧浥瑡砧‭偓䙩汥䙵汬偡瑨•⑥湶㩐牯杲慭䙩汥獜䵥瑡塜䵥瑡堮數攢紊楦 呥獴⵰慴栠⑻敮瘺偲潧牡浆楬敳⡸㠶⥽屍整慘屍整慘⹥硥⤠等湳瑡汬ⵃ桯捯污瑥祐潷敲獨敬汃潭浡湤‭偡捫慧敎慭攠❭整慸✠ⵐ卆楬敆畬汐慴栠⑻敮瘺偲潧牡浆楬敳⡸㠶⥽屍整慘屍整慘⹥硥紊

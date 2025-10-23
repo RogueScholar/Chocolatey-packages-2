@@ -1,25 +1,1 @@
-# powershell v2 compatibility
-$psVer = $PSVersionTable.PSVersion.Major
-if ($psver -ge 3) {
-  function Get-ChildItemDir {Get-ChildItem -Directory $args}
-} else {
-  function Get-ChildItemDir {Get-ChildItem $args}
-}
-$warningPreference = "Continue"
-$chocoLib = Join-Path $env:ChocolateyInstall "lib"
-if (Test-Path -PathType Container (Join-Path $chocoLib 'mweather.*')) {
-  Write-Warning "Uninstall NOT complete."
-  Write-Host
-@"
-  This package is a metapackage; a chocolatey feature not yet fully implemented.
-  To retain future compatibility this package does not uninstall the dependent
-  package it points to as designated with *.install or *.portable.`n
-"@
-  Write-Warning "To finish removing the program installed by package mweather, please also run the command:"
-  Write-Host " `n`tchoco uninstall " -NoNewLine
-  $list = (Get-ChildItemDir $chocoLib\mweather.*).Name
-  foreach ($i in $list) {
-    Write-Host "$i " -NoNewLine
-  }
-  Write-Host "-y"
-}
+⌠灯睥牳桥汬⁶㈠捯浰慴楢楬楴礊⑰獖敲‽․偓噥牳楯湔慢汥⹐卖敲獩潮⹍慪潲੩映⠤灳癥爠ⵧ攠㌩⁻ਠ⁦畮捴楯渠䝥琭䍨楬摉瑥浄楲⁻䝥琭䍨楬摉瑥洠ⵄ楲散瑯特․慲杳紊素敬獥⁻ਠ⁦畮捴楯渠䝥琭䍨楬摉瑥浄楲⁻䝥琭䍨楬摉瑥洠②牧獽੽ਤ睡牮楮材牥晥牥湣攠㴠≃潮瑩湵攢ਤ捨潣潌楢‽⁊潩渭偡瑨․敮瘺䍨潣潬慴敹䥮獴慬氠≬楢∊楦 呥獴ⵐ慴栠ⵐ慴桔祰攠䍯湴慩湥爠⡊潩渭偡瑨․捨潣潌楢‧海敡瑨敲⸪✩⤠笊†坲楴攭坡牮楮朠≕湩湳瑡汬⁎佔⁣潭灬整攮∊†坲楴攭䡯獴ੀ∊†周楳⁰慣歡来⁩猠愠浥瑡灡捫慧攻⁡⁣桯捯污瑥礠晥慴畲攠湯琠祥琠晵汬礠業灬敭敮瑥搮ਠ⁔漠牥瑡楮⁦畴畲攠捯浰慴楢楬楴礠瑨楳⁰慣歡来⁤潥猠湯琠畮楮獴慬氠瑨攠摥灥湤敮琊†灡捫慧攠楴⁰潩湴猠瑯⁡猠摥獩杮慴敤⁷楴栠⨮楮獴慬氠潲‪⹰潲瑡扬攮恮ਢ䀊†坲楴攭坡牮楮朠≔漠晩湩獨⁲敭潶楮朠瑨攠灲潧牡洠楮獴慬汥搠批⁰慣歡来⁭睥慴桥爬⁰汥慳攠慬獯⁲畮⁴桥⁣潭浡湤㨢ਠ⁗物瑥ⵈ潳琠∠恮恴捨潣漠畮楮獴慬氠∠ⵎ潎敷䱩湥ਠ․汩獴‽ 䝥琭䍨楬摉瑥浄楲․捨潣潌楢屭睥慴桥爮⨩⹎慭攊†景牥慣栠⠤椠楮․汩獴⤠笊††坲楴攭䡯獴•⑩•‭乯乥睌楮攊†紊†坲楴攭䡯獴•⵹∊紊

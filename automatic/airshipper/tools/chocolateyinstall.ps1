@@ -1,19 +1,1 @@
-$ErrorActionPreference = 'Stop' # stop on all errors
-$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-$fileLocation = (Get-ChildItem -Path $toolsDir -Filter "*.msi").FullName
-
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  fileType      = 'MSI' #only one of these: exe, msi, msu
-
-  File          = $fileLocation
-
-  softwareName  = 'airshipper*' #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
-
-  # MSI
-  silentArgs    = "/qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`"" # ALLUSERS=1 DISABLEDESKTOPSHORTCUT=1 ADDDESKTOPICON=0 ADDSTARTMENU=0
-  validExitCodes= @(0, 3010, 1641)
-}
-
-Install-ChocolateyInstallPackage @packageArgs
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✠⌠獴潰⁯渠慬氠敲牯牳ਤ瑯潬獄楲†‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊ਤ晩汥䱯捡瑩潮‽ 䝥琭䍨楬摉瑥洠ⵐ慴栠⑴潯汳䑩爠ⵆ楬瑥爠∪⹭獩∩⹆畬汎慭攊ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊†晩汥呹灥†††㴠❍卉✠⍯湬礠潮攠潦⁴桥獥㨠數攬⁭獩Ⱐ浳甊ਠ⁆楬攠††††‽․晩汥䱯捡瑩潮ਊ†獯晴睡牥乡浥†㴠❡楲獨楰灥爪✠⍰慲琠潲⁡汬⁯映瑨攠䑩獰污礠乡浥⁡猠祯甠獥攠楴⁩渠偲潧牡浳⁡湤⁆敡瑵牥献⁉琠獨潵汤⁢攠敮潵杨⁴漠扥⁵湩煵攊ਠ‣⁍卉ਠ⁳楬敮瑁牧猠†‽•⽱渠⽮潲敳瑡牴 氪瘠怢␨⑥湶㩔䕍倩尤⠤灡捫慧敎慭攩⸤⠤敮瘺捨潣潬慴敹偡捫慧敖敲獩潮⤮䵳楉湳瑡汬⹬潧怢∠⌠䅌䱕卅剓㴱⁄䥓䅂䱅䑅卋呏偓䡏剔䍕吽ㄠ䅄䑄䕓䭔佐䥃低㴰⁁䑄協䅒呍䕎唽《†癡汩摅硩瑃潤敳㴠䀨〬″〱〬‱㘴ㄩ੽ਊ䥮獴慬氭䍨潣潬慴敹䥮獴慬汐慣歡来⁀灡捫慧敁牧猊

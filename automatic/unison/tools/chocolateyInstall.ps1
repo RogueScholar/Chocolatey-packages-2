@@ -1,11 +1,1 @@
-﻿$packageName    = $env:ChocolateyPackageName
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = 'https://github.com/bcpierce00/unison/releases/download/v2.53.5/unison-2.53.5-windows-x86_64.zip'
-$checksum       = '20ac71059a2497ce71b1ab5eb72ac0fb6910526d4c9885fe2aa85dec2edd0850'
-$checksumType   = 'sha256'
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑴潯汳䑩爠†††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ畲氠†††††‽‧桴瑰猺⼯杩瑨畢⹣潭⽢捰楥牣攰〯畮楳潮⽲敬敡獥猯摯睮汯慤⽶㈮㔳⸵⽵湩獯渭㈮㔳⸵⵷楮摯睳⵸㠶弶㐮穩瀧ਤ捨散歳畭†††‽‧㈰慣㜱〵㥡㈴㤷捥㜱戱慢㕥户㉡挰晢㘹㄰㔲㙤㑣㤸㠵晥㉡愸㕤散㉥摤〸㔰✊④桥捫獵浔祰攠†㴠❳桡㈵㘧ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

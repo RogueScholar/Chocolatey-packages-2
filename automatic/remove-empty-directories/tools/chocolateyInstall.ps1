@@ -1,11 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$url = 'https://github.com/hxseven/Remove-Empty-Directories/releases/download/2.3-beta.0/red-v2.3-beta.0-portable-win64.zip'
-$checksum = '311ca2e7aa51124bf004394d6d1495808270f831944e70d1f6ea1e0a240826bc'
-$checksumType = 'sha256'
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                            -Url "$url" `
-                            -UnzipLocation "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)" `
-                            -Checksum "$checksum" `
-                            -ChecksumType "$checksumType"
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ畲氠㴠❨瑴灳㨯⽧楴桵戮捯洯桸獥癥港剥浯癥ⵅ浰瑹ⵄ楲散瑯物敳⽲敬敡獥猯摯睮汯慤⼲⸳ⵢ整愮〯牥搭瘲⸳ⵢ整愮〭灯牴慢汥⵷楮㘴⹺楰✊④桥捫獵洠㴠✳ㄱ捡㉥㝡愵ㄱ㈴扦〰㐳㤴搶搱㐹㔸〸㈷て㠳ㄹ㐴攷つㅦ㙥愱攰愲㐰㠲㙢挧ਤ捨散歳畭呹灥‽‧獨愲㔶✊੉湳瑡汬ⵃ桯捯污瑥祚楰偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††ⵕ湺楰䱯捡瑩潮•␨印汩琭偡瑨‭偡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∠怊††††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

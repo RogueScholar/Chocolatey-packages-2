@@ -1,17 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$installerType = 'exe'
-$silentArgs = '/S'
-$url32       = 'https://download.foldingathome.org/releases/public/fah-client/windows-10-64bit/release/fah-client_8.4.9_AMD64.exe'
-$checksum32 = '9664979343247bddf709538e0af5dea7363d835474ff202aa96c5a40b9718a99'
-$checksumType = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url32" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum32" `
-                          -ChecksumType "$checksumType" `
-
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ楮獴慬汥牔祰攠㴠❥硥✊⑳楬敮瑁牧猠㴠✯匧ਤ畲氳㈠†††㴠❨瑴灳㨯⽤潷湬潡搮景汤楮条瑨潭攮潲术牥汥慳敳⽰畢汩振晡栭捬楥湴⽷楮摯睳ⴱ〭㘴扩琯牥汥慳支晡栭捬楥湴弸⸴⸹彁䵄㘴⹥硥✊④桥捫獵洳㈠㴠✹㘶㐹㜹㌴㌲㐷扤摦㜰㤵㌸攰慦㕤敡㜳㘳搸㌵㐷㑦昲〲慡㤶挵愴ぢ㤷ㄸ愹㤧ਤ捨散歳畭呹灥‽‧獨愲㔶✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ䥮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††††ⵆ楬敔祰攠∤楮獴慬汥牔祰攢⁠ਠ††††††††††††‭卩汥湴䅲杳•⑳楬敮瑁牧猢⁠ਠ††††††††††††‭啲氠∤畲氳㈢⁠ਠ††††††††††††‭噡汩摅硩瑃潤敳․癡汩摅硩瑃潤敳⁠ਠ††††††††††††‭䍨散歳畭•④桥捫獵洳㈢⁠ਠ††††††††††††‭䍨散歳畭呹灥•④桥捫獵浔祰攢⁠ਊ

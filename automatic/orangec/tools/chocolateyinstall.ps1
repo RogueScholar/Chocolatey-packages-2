@@ -1,15 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$toolsDir      = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$installer     = (Get-ChildItem -Path $toolsDir -Filter "*.exe").FullName
-
-$packageArgs = @{
-  packageName   = 'orangec'
-  fileType      = 'EXE'
-  file          = $installer
-  silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-  softwareName  = 'Orange C Version*'
-}
-
-Install-ChocolateyInstallPackage @packageArgs
-Remove-Item $toolsDir\*.exe -Force | Out-Null
-Remove-Item $toolsDir\*.ignore -Force | Out-Null
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑴潯汳䑩爠††‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑩湳瑡汬敲††‽ 䝥琭䍨楬摉瑥洠ⵐ慴栠⑴潯汳䑩爠ⵆ楬瑥爠∪⹥硥∩⹆畬汎慭攊ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥†‽‧潲慮来挧ਠ⁦楬敔祰攠††‽‧䕘䔧ਠ⁦楬攠††††‽․楮獴慬汥爊†獩汥湴䅲杳††㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊†獯晴睡牥乡浥†㴠❏牡湧攠䌠噥牳楯渪✊紊੉湳瑡汬ⵃ桯捯污瑥祉湳瑡汬偡捫慧攠䁰慣歡来䅲杳੒敭潶攭䥴敭․瑯潬獄楲尪⹥硥‭䙯牣攠簠併琭乵汬੒敭潶攭䥴敭․瑯潬獄楲尪⹩杮潲攠ⵆ潲捥⁼⁏畴ⵎ畬氊

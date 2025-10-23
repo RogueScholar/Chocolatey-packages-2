@@ -1,17 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$packageName = '$env:ChocolateyPackageName'
-$packageSearch = $packageName
-$installerType = 'exe'
-$silentArgs = '/S'
-$validExitCodes = @(0)
-
-Get-ItemProperty -Path @( 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                          'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                          'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' ) `
-                 -ErrorAction:SilentlyContinue `
-| Where-Object   { $_.DisplayName -like "$packageSearch*" } `
-| ForEach-Object { Uninstall-ChocolateyPackage -PackageName "$packageName" `
-                                               -FileType "$installerType" `
-                                               -SilentArgs "$($silentArgs)" `
-                                               -File "$($_.UninstallString.Replace('"',''))" `
-                                               -ValidExitCodes $validExitCodes }
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰慣歡来乡浥‽‧⑥湶㩃桯捯污瑥祐慣歡来乡浥✊⑰慣歡来卥慲捨‽․灡捫慧敎慭攊⑩湳瑡汬敲呹灥‽‧數攧ਤ獩汥湴䅲杳‽‧⽓✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ䝥琭䥴敭偲潰敲瑹‭偡瑨⁀⠠❈䭌䴺屓潦瑷慲敜坯眶㐳㉎潤敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਠ††††††††††††‧䡋䱍㩜卯晴睡牥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧Ⰺ†††††††††††††❈䭃唺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✠⤠怊††††††††‭䕲牯牁捴楯渺卩汥湴汹䍯湴楮略⁠੼⁗桥牥ⵏ扪散琠†笠⑟⹄楳灬慹乡浥‭汩步•⑰慣歡来卥慲捨⨢⁽⁠੼⁆潲䕡捨ⵏ扪散琠笠啮楮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††††††††††††‭卩汥湴䅲杳•␨⑳楬敮瑁牧猩∠怊†††††††††††††††††††††††‭䙩汥•␨⑟⹕湩湳瑡汬却物湧⹒数污捥⠧∧Ⱗ✩⤢⁠ਠ†††††††††††††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠紊

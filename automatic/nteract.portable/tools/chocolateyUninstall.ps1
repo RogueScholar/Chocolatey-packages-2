@@ -1,8 +1,1 @@
-﻿$packageName= $env:ChocolateyPackageName
-
-# Remove desktop shortcut
-$desktop = $([System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::DesktopDirectory))
-$link = Join-Path $desktop "$packageName.lnk"
-If (Test-Path $link) {
-    Remove-Item "$link"
-}
+뼤灡捫慧敎慭攽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊ਣ⁒敭潶攠摥獫瑯瀠獨潲瑣畴ਤ摥獫瑯瀠㴠␨孓祳瑥洮䕮癩牯湭敮瑝㨺䝥瑆潬摥牐慴栨孓祳瑥洮䕮癩牯湭敮琫印散楡汆潬摥牝㨺䑥獫瑯灄楲散瑯特⤩ਤ汩湫‽⁊潩渭偡瑨․摥獫瑯瀠∤灡捫慧敎慭攮汮欢੉映⡔敳琭偡瑨․汩湫⤠笊††剥浯癥ⵉ瑥洠∤汩湫∊紊

@@ -1,63 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-# powershell v2 compatibility
-$psVer = $PSVersionTable.PSVersion.Major
-if ($psver -ge 3) {
-  function Get-ChildItemDir {Get-ChildItem -Directory $args}
-} else {
-  function Get-ChildItemDir {Get-ChildItem $args}
-}
-$packageName = $env:ChocolateyPackageName
-$typName = 'OtpKeyProv'
-$packageSearch = 'KeePass Password Safe'
-$url = 'https://keepass.info/extensions/v2/otpkeyprov/OtpKeyProv-2.7.zip'
-$checksum = 'a3e36538b2ee7eb521c903270f436921f177a5f11c5dbe22d185bcecce761481'
-$checksumType = 'sha256'
-# search registry for location of installed KeePass
-$regPath = Get-ItemProperty -Path @('HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                                    'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                                    'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*') `
-                            -ErrorAction:SilentlyContinue `
-           | Where-Object {$_.DisplayName -like "$packageSearch*" `
-                           -and `
-                           $_.DisplayVersion -ge 2.29 `
-                           -and `
-                           $_.DisplayVersion -lt 3.0 } `
-           | ForEach-Object {$_.InstallLocation}
-$installPath = $regPath
-# search for portable install
-if (! $installPath) {
-  Write-Verbose "$($packageSearch) not found installed."
-  $binRoot = Get-BinRoot
-  $portPath = Join-Path $binRoot "keepass"
-  $installPath = Get-ChildItemDir $portPath* -ErrorAction SilentlyContinue
-}
-if (! $installPath) {
-  Write-Verbose "$($packageSearch) not found in $portPath"
-  throw "$($packageSearch) location could not be found."
-}
-$pluginPath = (Get-ChildItemDir $installPath\Plugin*).FullName
-if ($pluginPath.Count -eq 0) {
-  $pluginPath = Join-Path $installPath "Plugins"
-  [System.IO.Directory]::CreateDirectory($pluginPath)
-}
-# download and extract PLGX file into Plugins dir
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$pluginPath" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
-# rename PLGX file so it is clear which plugins are managed via choco
-foreach ($i in Get-ChildItem -Path $pluginPath -Filter $typName*) {
-  Rename-Item -Path $i.Fullname `
-              -NewName $i.Name.Replace($typName,$packageName) `
-              -Force `
-              -ErrorAction Continue
-}
-# report state
-if ( Get-Process -Name "KeePass" `
-                 -ErrorAction SilentlyContinue ) {
-  Write-Warning "$($packageSearch) is currently running. Plugin will be available at next restart of $($packageSearch)."
-} else {
-  Write-Output "$($packageName) will be loaded the next time KeePass is started."
-  Write-Output "Please note this plugin may require additional configuration. Look for a new entry in KeePass' Menu>Tools"
-}
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਣ⁰潷敲獨敬氠瘲⁣潭灡瑩扩汩瑹ਤ灳噥爠㴠⑐卖敲獩潮呡扬攮偓噥牳楯渮䵡橯爊楦 ⑰獶敲‭来″⤠笊†晵湣瑩潮⁇整ⵃ桩汤䥴敭䑩爠筇整ⵃ桩汤䥴敭‭䑩牥捴潲礠②牧獽੽⁥汳攠笊†晵湣瑩潮⁇整ⵃ桩汤䥴敭䑩爠筇整ⵃ桩汤䥴敭․慲杳紊紊⑰慣歡来乡浥‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑴祰乡浥‽‧佴灋敹偲潶✊⑰慣歡来卥慲捨‽‧䭥敐慳猠偡獳睯牤⁓慦攧ਤ畲氠㴠❨瑴灳㨯⽫敥灡獳⹩湦漯數瑥湳楯湳⽶㈯潴火敹灲潶⽏瑰䭥祐牯瘭㈮㜮穩瀧ਤ捨散歳畭‽‧愳攳㘵㌸戲敥㝥戵㈱挹〳㈷て㐳㘹㈱昱㜷愵昱ㅣ㕤扥㈲搱㠵扣散捥㜶ㄴ㠱✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਣ⁳敡牣栠牥杩獴特⁦潲⁬潣慴楯渠潦⁩湳瑡汬敤⁋敥偡獳ਤ牥材慴栠㴠䝥琭䥴敭偲潰敲瑹‭偡瑨⁀⠧䡋䱍㩜卯晴睡牥屗潷㘴㌲乯摥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧Ⰺ††††††††††††††††††❈䭌䴺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਠ†††††††††††††††††‧䡋䍕㩜卯晴睡牥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧⤠怊††††††††††††††ⵅ牲潲䅣瑩潮㩓楬敮瑬祃潮瑩湵攠怊†††††⁼⁗桥牥ⵏ扪散琠笤弮䑩獰污祎慭攠⵬楫攠∤灡捫慧敓敡牣株∠怊†††††††††††††‭慮搠怊†††††††††††††․弮䑩獰污祖敲獩潮‭来′⸲㤠怊†††††††††††††‭慮搠怊†††††††††††††․弮䑩獰污祖敲獩潮‭汴″⸰⁽⁠ਠ†††††簠䙯牅慣栭佢橥捴⁻⑟⹉湳瑡汬䱯捡瑩潮紊⑩湳瑡汬偡瑨‽․牥材慴栊⌠獥慲捨⁦潲⁰潲瑡扬攠楮獴慬氊楦 ℠⑩湳瑡汬偡瑨⤠笊†坲楴攭噥牢潳攠∤⠤灡捫慧敓敡牣栩⁮潴⁦潵湤⁩湳瑡汬敤⸢ਠ․扩湒潯琠㴠䝥琭䉩湒潯琊†⑰潲瑐慴栠㴠䩯楮ⵐ慴栠③楮副潴•步数慳猢ਠ․楮獴慬汐慴栠㴠䝥琭䍨楬摉瑥浄楲․灯牴偡瑨⨠ⵅ牲潲䅣瑩潮⁓楬敮瑬祃潮瑩湵攊紊楦 ℠⑩湳瑡汬偡瑨⤠笊†坲楴攭噥牢潳攠∤⠤灡捫慧敓敡牣栩⁮潴⁦潵湤⁩渠⑰潲瑐慴栢ਠ⁴桲潷•␨⑰慣歡来卥慲捨⤠汯捡瑩潮⁣潵汤⁮潴⁢攠景畮搮∊紊⑰汵杩湐慴栠㴠⡇整ⵃ桩汤䥴敭䑩爠⑩湳瑡汬偡瑨屐汵杩渪⤮䙵汬乡浥੩映⠤灬畧楮偡瑨⹃潵湴‭敱‰⤠笊†⑰汵杩湐慴栠㴠䩯楮ⵐ慴栠⑩湳瑡汬偡瑨•偬畧楮猢ਠ⁛卹獴敭⹉伮䑩牥捴潲祝㨺䍲敡瑥䑩牥捴潲礨⑰汵杩湐慴栩੽ਣ⁤潷湬潡搠慮搠數瑲慣琠偌䝘⁦楬攠楮瑯⁐汵杩湳⁤楲੉湳瑡汬ⵃ桯捯污瑥祚楰偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊††††††††††††††‭啲氠∤畲氢⁠ਠ††††††††††††††ⵕ湺楰䱯捡瑩潮•⑰汵杩湐慴栢⁠ਠ††††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊††††††††††††††‭䍨散歳畭呹灥•④桥捫獵浔祰攢ਣ⁲敮慭攠偌䝘⁦楬攠獯⁩琠楳⁣汥慲⁷桩捨⁰汵杩湳⁡牥⁭慮慧敤⁶楡⁣桯捯੦潲敡捨 ⑩⁩渠䝥琭䍨楬摉瑥洠ⵐ慴栠⑰汵杩湐慴栠ⵆ楬瑥爠⑴祰乡浥⨩⁻ਠ⁒敮慭攭䥴敭‭偡瑨․椮䙵汬湡浥⁠ਠ††††††‭乥睎慭攠⑩⹎慭攮剥灬慣攨⑴祰乡浥Ⱔ灡捫慧敎慭攩⁠ਠ††††††‭䙯牣攠怊†††††††ⵅ牲潲䅣瑩潮⁃潮瑩湵攊紊⌠牥灯牴⁳瑡瑥੩映⠠䝥琭偲潣敳猠ⵎ慭攠≋敥偡獳∠怊††††††††‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略 ⁻ਠ⁗物瑥ⵗ慲湩湧•␨⑰慣歡来卥慲捨⤠楳⁣畲牥湴汹⁲畮湩湧⸠偬畧楮⁷楬氠扥⁡癡楬慢汥⁡琠湥硴⁲敳瑡牴⁯映␨⑰慣歡来卥慲捨⤮∊素敬獥⁻ਠ⁗物瑥ⵏ畴灵琠∤⠤灡捫慧敎慭攩⁷楬氠扥⁬潡摥搠瑨攠湥硴⁴業攠䭥敐慳猠楳⁳瑡牴敤⸢ਠ⁗物瑥ⵏ畴灵琠≐汥慳攠湯瑥⁴桩猠灬畧楮⁭慹⁲敱畩牥⁡摤楴楯湡氠捯湦楧畲慴楯渮⁌潯欠景爠愠湥眠敮瑲礠楮⁋敥偡獳✠䵥湵㹔潯汳∊紊

@@ -1,4 +1,1 @@
-
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-. $toolsdir\chocoUninstall.ps1
+ਤ瑯潬獄楲†††‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊ਮ․瑯潬獤楲屣桯捯啮楮獴慬氮灳ㄊ

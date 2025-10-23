@@ -1,15 +1,1 @@
-﻿$fileType 		= 'exe'
-$silentArgs 	= '/S'
-$validExitCodes = @(0)
-$unPath 		= "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
-$unString 		= (Get-ItemProperty "$unPath\$packageName*" UninstallString).UninstallString
-
-$packageArgs	= @{
-	PackageName     = $env:ChocolateyPackageName
-	FileType		= $fileType
-	SilentArgs		= $silentArgs
-	File			= $unString
-	ValidExitCodes	= $validExitCodes
-}
-
-Uninstall-ChocolateyPackage @packageArgs
+뼤晩汥呹灥 ऽ‧數攧ਤ獩汥湴䅲杳 㴠✯匧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊⑵湐慴栠उ㴠≈䭃唺协䙔坁剅屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬氢ਤ畮却物湧 ऽ 䝥琭䥴敭偲潰敲瑹•⑵湐慴桜⑰慣歡来乡浥⨢⁕湩湳瑡汬却物湧⤮啮楮獴慬汓瑲楮朊ਤ灡捫慧敁牧猉㴠䁻ਉ偡捫慧敎慭攠††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਉ䙩汥呹灥उ㴠⑦楬敔祰攊॓楬敮瑁牧猉ऽ․獩汥湴䅲杳ਉ䙩汥उऽ․畮却物湧ਉ噡汩摅硩瑃潤敳ऽ․癡汩摅硩瑃潤敳੽ਊ啮楮獴慬氭䍨潣潬慴敹偡捫慧攠䁰慣歡来䅲杳

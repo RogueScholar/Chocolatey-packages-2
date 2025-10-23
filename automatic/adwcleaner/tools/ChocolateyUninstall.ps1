@@ -1,7 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName  = 'adwcleaner'
-$shortcutName = 'AdwCleaner.lnk'
-
-Uninstall-BinFile adwcleaner
-remove-item "$ENV:Public\Desktop\$shortcutName" -Force -ErrorAction SilentlyContinue
-remove-item "$ENV:ProgramData\Microsoft\Windows\Start Menu\Programs\$shortcutName" -Force -ErrorAction SilentlyContinue
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠‽‧慤督汥慮敲✊⑳桯牴捵瑎慭攠㴠❁摷䍬敡湥爮汮欧ਊ啮楮獴慬氭䉩湆楬攠慤督汥慮敲ੲ敭潶攭楴敭•⑅乖㩐畢汩捜䑥獫瑯灜⑳桯牴捵瑎慭攢‭䙯牣攠ⵅ牲潲䅣瑩潮⁓楬敮瑬祃潮瑩湵攊牥浯癥⵩瑥洠∤䕎嘺偲潧牡浄慴慜䵩捲潳潦瑜坩湤潷獜却慲琠䵥湵屐牯杲慭獜⑳桯牴捵瑎慭攢‭䙯牣攠ⵅ牲潲䅣瑩潮⁓楬敮瑬祃潮瑩湵攊

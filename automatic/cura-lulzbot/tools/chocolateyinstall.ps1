@@ -1,18 +1,1 @@
-﻿$ErrorActionPreference = 'Stop';
-$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url32      = 'https://software.lulzbot.com/Cura_LulzBot_Edition/Windows/4.13.17/Cura_LulzBot_Edition-4.13.17-amd64.exe'
-$checksum32 = '008b5cdbe4378250dcc1e3341fdab942e844bae1e0b6a0c24c86d0b007c5bcac'
-
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  unzipLocation = $toolsDir
-  fileType      = 'EXE'
-  url           = $url32
-  softwareName  = 'cura-lulzbot*'
-  checksum      = $checksum32
-  checksumType  = 'sha256'
-  silentArgs   = '/S'
-  validExitCodes= @(0)
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧㬊⑴潯汳䑩爠†㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ畲氳㈠††‽‧桴瑰猺⼯獯晴睡牥⹬畬穢潴⹣潭⽃畲慟䱵決䉯瑟䕤楴楯港坩湤潷猯㐮ㄳ⸱㜯䍵牡彌畬穂潴彅摩瑩潮ⴴ⸱㌮ㄷⵡ浤㘴⹥硥✊④桥捫獵洳㈠㴠✰〸戵捤扥㐳㜸㈵つ捣ㅥ㌳㐱晤慢㤴㉥㠴㑢慥ㅥぢ㙡っ㈴挸㙤ぢ〰㝣㕢捡挧ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ⁵湺楰䱯捡瑩潮‽․瑯潬獄楲ਠ⁦楬敔祰攠††‽‧䕘䔧ਠ⁵牬†††††‽․畲氳㈊†獯晴睡牥乡浥†㴠❣畲愭汵決扯琪✊†捨散歳畭†††㴠④桥捫獵洳㈊†捨散歳畭呹灥†㴠❳桡㈵㘧ਠ⁳楬敮瑁牧猠†㴠✯匧ਠ⁶慬楤䕸楴䍯摥猽⁀⠰⤊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

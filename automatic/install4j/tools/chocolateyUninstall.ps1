@@ -1,27 +1,1 @@
-# powershell v2 compatibility
-$psVer = $PSVersionTable.PSVersion.Major
-if ($psver -ge 3) {
-  function Get-ChildItemDir {Get-ChildItem -Directory $args}
-} else {
-  function Get-ChildItemDir {Get-ChildItem $args}
-}
-# MetaPackage
-$warningPreference = "Continue"
-$chocoLib = Join-Path $env:ChocolateyInstall "lib"
-if (Test-Path -PathType Container (Join-Path $chocoLib 'install4j.*')) {
-  Write-Warning "Uninstall NOT complete."
-  Write-Host
-@"
-  This package is a metapackage; a chocolatey feature not yet fully implemented.
-  To retain future compatibility this package does not uninstall the dependent
-  package it points to as designated with *.install or *.portable.`n
-"@
-  Write-Warning "To finish removing the program installed by package install4j, please also run the command:"
-  $text += " `n`tchoco uninstall "
-  $list = (Get-ChildItemDir $chocoLib\install4j.*).Name
-  foreach ($i in $list) {
-    $text += "$i "
-  }
-  $text += "-y`n"
-  Write-Host $text
-}
+⌠灯睥牳桥汬⁶㈠捯浰慴楢楬楴礊⑰獖敲‽․偓噥牳楯湔慢汥⹐卖敲獩潮⹍慪潲੩映⠤灳癥爠ⵧ攠㌩⁻ਠ⁦畮捴楯渠䝥琭䍨楬摉瑥浄楲⁻䝥琭䍨楬摉瑥洠ⵄ楲散瑯特․慲杳紊素敬獥⁻ਠ⁦畮捴楯渠䝥琭䍨楬摉瑥浄楲⁻䝥琭䍨楬摉瑥洠②牧獽੽ਣ⁍整慐慣歡来ਤ睡牮楮材牥晥牥湣攠㴠≃潮瑩湵攢ਤ捨潣潌楢‽⁊潩渭偡瑨․敮瘺䍨潣潬慴敹䥮獴慬氠≬楢∊楦 呥獴ⵐ慴栠ⵐ慴桔祰攠䍯湴慩湥爠⡊潩渭偡瑨․捨潣潌楢‧楮獴慬水樮⨧⤩⁻ਠ⁗物瑥ⵗ慲湩湧•啮楮獴慬氠乏吠捯浰汥瑥⸢ਠ⁗物瑥ⵈ潳琊䀢ਠ⁔桩猠灡捫慧攠楳⁡⁭整慰慣歡来㬠愠捨潣潬慴敹⁦敡瑵牥⁮潴⁹整⁦畬汹⁩浰汥浥湴敤⸊†呯⁲整慩渠晵瑵牥⁣潭灡瑩扩汩瑹⁴桩猠灡捫慧攠摯敳⁮潴⁵湩湳瑡汬⁴桥⁤数敮摥湴ਠ⁰慣歡来⁩琠灯楮瑳⁴漠慳⁤敳楧湡瑥搠睩瑨‪⹩湳瑡汬⁯爠⨮灯牴慢汥⹠渊≀ਠ⁗物瑥ⵗ慲湩湧•呯⁦楮楳栠牥浯癩湧⁴桥⁰牯杲慭⁩湳瑡汬敤⁢礠灡捫慧攠楮獴慬水樬⁰汥慳攠慬獯⁲畮⁴桥⁣潭浡湤㨢ਠ․瑥硴‫㴠∠恮恴捨潣漠畮楮獴慬氠∊†⑬楳琠㴠⡇整ⵃ桩汤䥴敭䑩爠④桯捯䱩扜楮獴慬水樮⨩⹎慭攊†景牥慣栠⠤椠楮․汩獴⤠笊††⑴數琠⬽•⑩•ਠ⁽ਠ․瑥硴‫㴠∭祠渢ਠ⁗物瑥ⵈ潳琠⑴數琊紊

@@ -1,15 +1,1 @@
-﻿$packageName = 'macrocreator.install'
-$installerType = 'exe'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-$url = 'https://github.com/Pulover/PuloversMacroCreator/releases/download/v5.4.1/MacroCreator-setup.exe'
-$checksum = '92ffa6da0bea664f2499cfbec2a578bf882ed861cbb218b384e6af6ea589dde9'
-$checksumType = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum" `
-                          -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠㴠❭慣牯捲敡瑯爮楮獴慬氧ਤ楮獴慬汥牔祰攠㴠❥硥✊⑳楬敮瑁牧猠㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊⑵牬‽‧桴瑰猺⼯杩瑨畢⹣潭⽐畬潶敲⽐畬潶敲獍慣牯䍲敡瑯爯牥汥慳敳⽤潷湬潡搯瘵⸴⸱⽍慣牯䍲敡瑯爭獥瑵瀮數攧ਤ捨散歳畭‽‧㤲晦愶摡ぢ敡㘶㑦㈴㤹捦扥挲愵㜸扦㠸㉥搸㘱换戲ㄸ戳㠴收慦㙥愵㠹摤改✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵕ牬•⑵牬∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊†††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

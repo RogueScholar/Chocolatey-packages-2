@@ -1,33 +1,1 @@
-$ErrorActionPreference = 'Continue';
-#git checkout origin master
-$mdfile = "$PSScriptRoot/../Packages.md"
-Set-Content $mdfile "# Automatic Packages currently maintained here"
-Add-Content $mdfile "| Downloads | Package Name and version | Repology |"
-Add-Content $mdfile "|-----------:|--------------|--------------|"
-$paths = Get-ChildItem -Path "$PSScriptRoot/../automatic/" -Directory | Select-Object FullName
-foreach ($path in $paths) {
-    $package = $path.FullName.split('\')[-1]
-    Add-Content $mdfile "| [![$package](http://img.shields.io/chocolatey/dt/$package.svg)](https://chocolatey.org/packages/$package) | [![$package](https://img.shields.io/chocolatey/v/$($package)?color=green&label=$package)](https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/$package)|[![Chocolatey package](https://repology.org/badge/latest-versions/$package.svg)](https://repology.org/project/$package/versions)|"
-}
-git add $mdfile
-git commit -m "[skip ci] List Packages"
-
-$mdfile = "$PSScriptRoot/../ToCorrect.md"
-Set-Content $mdfile "# To Correct"
-Add-Content $mdfile "| Package Name and version |"
-Add-Content $mdfile "|------------|"
-$paths = Get-ChildItem -Path "$PSScriptRoot/../automatic/" -Directory | Select-Object FullName
-foreach ($path in $paths) {
-    $package = $path.FullName.split('\')[-1]
-    if(Test-Path "$($path.FullName)\tools\") {
-        $ps1s = Get-ChildItem -Path "$($path.FullName)\tools\" -File -Filter ".ps1"
-        foreach ($ps1file in $ps1s) {
-            $content = Get-Content $ps1file | Select-Object {$_ -match 'headers.add'}
-            if($content.Lenght -gt 0) {
-                Add-Content $ps1file "|$package|"
-            }
-        }
-    }
-}
-git add $mdfile
-git commit -m "[skip ci] Deprecate custom WebClient code"
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧䍯湴楮略✻ਣ杩琠捨散歯畴⁯物杩渠浡獴敲ਤ浤晩汥‽•⑐卓捲楰瑒潯琯⸮⽐慣歡来献浤∊卥琭䍯湴敮琠⑭摦楬攠∣⁁畴潭慴楣⁐慣歡来猠捵牲敮瑬礠浡楮瑡楮敤⁨敲攢ੁ摤ⵃ潮瑥湴․浤晩汥•簠䑯睮汯慤猠簠偡捫慧攠乡浥⁡湤⁶敲獩潮⁼⁒数潬潧礠簢ੁ摤ⵃ潮瑥湴․浤晩汥•簭ⴭⴭⴭⴭⴭ㩼ⴭⴭⴭⴭⴭⴭⴭ簭ⴭⴭⴭⴭⴭⴭ⵼∊⑰慴桳‽⁇整ⵃ桩汤䥴敭‭偡瑨•⑐卓捲楰瑒潯琯⸮⽡畴潭慴楣⼢‭䑩牥捴潲礠簠卥汥捴ⵏ扪散琠䙵汬乡浥੦潲敡捨 ⑰慴栠楮․灡瑨猩⁻ਠ†․灡捫慧攠㴠⑰慴栮䙵汬乡浥⹳灬楴⠧尧⥛ⴱ崊††䅤搭䍯湴敮琠⑭摦楬攠≼⁛⅛⑰慣歡来崨桴瑰㨯⽩浧⹳桩敬摳⹩漯捨潣潬慴敹⽤琯⑰慣歡来⹳癧⥝⡨瑴灳㨯⽣桯捯污瑥礮潲术灡捫慧敳⼤灡捫慧攩⁼⁛⅛⑰慣歡来崨桴瑰猺⼯業朮獨楥汤献楯⽣桯捯污瑥礯瘯␨⑰慣歡来⤿捯汯爽杲敥渦污扥氽⑰慣歡来⥝⡨瑴灳㨯⽧楴桵戮捯洯瑵湩獩慮漱㠷⽃桯捯污瑥礭灡捫慧敳⽴牥支浡獴敲⽡畴潭慴楣⼤灡捫慧攩籛⅛䍨潣潬慴敹⁰慣歡来崨桴瑰猺⼯牥灯汯杹⹯牧⽢慤来⽬慴敳琭癥牳楯湳⼤灡捫慧攮獶朩崨桴瑰猺⼯牥灯汯杹⹯牧⽰牯橥捴⼤灡捫慧支癥牳楯湳⥼∊紊杩琠慤搠⑭摦楬攊杩琠捯浭楴‭洠≛獫楰⁣楝⁌楳琠偡捫慧敳∊ਤ浤晩汥‽•⑐卓捲楰瑒潯琯⸮⽔潃潲牥捴⹭搢੓整ⵃ潮瑥湴․浤晩汥•⌠呯⁃潲牥捴∊䅤搭䍯湴敮琠⑭摦楬攠≼⁐慣歡来⁎慭攠慮搠癥牳楯渠簢ੁ摤ⵃ潮瑥湴․浤晩汥•簭ⴭⴭⴭⴭⴭ⵼∊⑰慴桳‽⁇整ⵃ桩汤䥴敭‭偡瑨•⑐卓捲楰瑒潯琯⸮⽡畴潭慴楣⼢‭䑩牥捴潲礠簠卥汥捴ⵏ扪散琠䙵汬乡浥੦潲敡捨 ⑰慴栠楮․灡瑨猩⁻ਠ†․灡捫慧攠㴠⑰慴栮䙵汬乡浥⹳灬楴⠧尧⥛ⴱ崊††楦⡔敳琭偡瑨•␨⑰慴栮䙵汬乡浥⥜瑯潬獜∩⁻ਠ†††․灳ㅳ‽⁇整ⵃ桩汤䥴敭‭偡瑨•␨⑰慴栮䙵汬乡浥⥜瑯潬獜∠ⵆ楬攠ⵆ楬瑥爠∮灳ㄢਠ†††⁦潲敡捨 ⑰猱晩汥⁩渠⑰猱猩⁻ਠ†††††․捯湴敮琠㴠䝥琭䍯湴敮琠⑰猱晩汥⁼⁓敬散琭佢橥捴⁻⑟‭浡瑣栠❨敡摥牳⹡摤❽ਠ†††††⁩昨④潮瑥湴⹌敮杨琠ⵧ琠〩⁻ਠ†††††††⁁摤ⵃ潮瑥湴․灳ㅦ楬攠≼⑰慣歡来簢ਠ†††††⁽ਠ†††⁽ਠ†⁽੽੧楴⁡摤․浤晩汥੧楴⁣潭浩琠⵭•孳歩瀠捩崠䑥灲散慴攠捵獴潭⁗敢䍬楥湴⁣潤攢

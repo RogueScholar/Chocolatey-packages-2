@@ -1,17 +1,1 @@
-﻿$packageName    = $env:ChocolateyPackageName
-$url            = 'https://sourceforge.net/projects/capture2text/files/Capture2Text/Capture2Text_v4.6.3/Capture2Text_v4.6.3_32bit.zip/download'
-$checksum       = '789f2d29f855cfc4533fea71c8dc5ce7dfd58c26e16b83159f77385b8d8f8afe'
-$checksumType   = 'sha256'
-$url64          = 'https://sourceforge.net/projects/capture2text/files/Capture2Text/Capture2Text_v4.6.3/Capture2Text_v4.6.3_64bit.zip/download'
-$checksum64     = 'd33847064c4edf726c61b35f3b753470546be671561cdb35fba85dfd1ad170fa'
-$checksumType64 = 'sha256'
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Url64bit "$url64" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType" `
-                             -Checksum64 "$checksum64" `
-                             -ChecksumType64 "$checksumType64"
+뼤灡捫慧敎慭攠†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑵牬††††††㴠❨瑴灳㨯⽳潵牣敦潲来⹮整⽰牯橥捴猯捡灴畲攲瑥硴⽦楬敳⽃慰瑵牥㉔數琯䍡灴畲攲呥硴彶㐮㘮㌯䍡灴畲攲呥硴彶㐮㘮㍟㌲扩琮穩瀯摯睮汯慤✊④桥捫獵洠†††㴠✷㠹昲搲㥦㠵㕣晣㐵㌳晥愷ㅣ㡤挵捥㝤晤㔸挲㙥ㄶ戸㌱㔹昷㜳㠵戸搸昸慦攧ਤ捨散歳畭呹灥†‽‧獨愲㔶✊⑵牬㘴†††††㴠❨瑴灳㨯⽳潵牣敦潲来⹮整⽰牯橥捴猯捡灴畲攲瑥硴⽦楬敳⽃慰瑵牥㉔數琯䍡灴畲攲呥硴彶㐮㘮㌯䍡灴畲攲呥硴彶㐮㘮㍟㘴扩琮穩瀯摯睮汯慤✊④桥捫獵洶㐠††㴠❤㌳㠴㜰㘴挴敤昷㈶挶ㅢ㌵昳户㔳㐷〵㐶扥㘷ㄵ㘱捤戳㕦扡㠵摦搱慤ㄷて愧ਤ捨散歳畭呹灥㘴‽‧獨愲㔶✊⑴潯汳䑩爠†††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭啲氶㑢楴•⑵牬㘴∠怊††††††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∠怊††††††††††††††‭䍨散歳畭㘴•④桥捫獵洶㐢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰收㐠∤捨散歳畭呹灥㘴∊

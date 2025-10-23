@@ -1,4 +1,1 @@
-﻿$page = Invoke-WebRequest -Uri "https://community.chocolatey.org/profiles/needs_new_maintainer"
-foreach ($packages in $page.Links | Where-Object {$_.href -match "packages/"} | Where-Object {$_.outerHTML -notmatch "Deprecated"} | Where-Object {$_.outerHTML -notmatch "Retired"}) {
-    Write-Output "$($packages.href.split('/')[-1]) 0.0 - New maintainer" | Out-file -FilePath '.\New_maintainer.txt' -Append
-}
+뼤灡来‽⁉湶潫攭坥扒敱略獴‭啲椠≨瑴灳㨯⽣潭浵湩瑹⹣桯捯污瑥礮潲术灲潦楬敳⽮敥摳彮敷彭慩湴慩湥爢੦潲敡捨 ⑰慣歡来猠楮․灡来⹌楮歳⁼⁗桥牥ⵏ扪散琠笤弮桲敦‭浡瑣栠≰慣歡来猯≽⁼⁗桥牥ⵏ扪散琠笤弮潵瑥版呍䰠⵮潴浡瑣栠≄数牥捡瑥搢素簠坨敲攭佢橥捴⁻⑟⹯畴敲䡔䵌‭湯瑭慴捨•剥瑩牥搢紩⁻ਠ†⁗物瑥ⵏ畴灵琠∤⠤灡捫慧敳⹨牥昮獰汩琨✯✩嬭ㅝ⤠〮〠ⴠ乥眠浡楮瑡楮敲∠簠併琭晩汥‭䙩汥偡瑨‧⹜乥睟浡楮瑡楮敲⹴硴✠ⵁ灰敮搊紊

@@ -1,4 +1,4 @@
-﻿SendMode "Input"  ; Recommended for new scripts due to its superior speed and reliability.
+ï»¿SendMode "Input"  ; Recommended for new scripts due to its superior speed and reliability.
 
 WinWait("WinPcap",, 30)
 

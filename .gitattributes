@@ -1,1 +1,34 @@
-* !text !filter !merge !diff
+# SPDX-FileCopyrightText: 🄯 2025, Peter J. Mello <admin@petermello.net>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+*                      text=auto diff merge eol=lf working-tree-encoding=UTF-8
+*.ahk                  text diff merge eol=crlf working-tree-encoding=MS-ANSI linguist-language=AutoHotkey
+*.cmd                  text diff merge eol=crlf working-tree-encoding=CP437 linguist-language=Batchfile
+*.exe                 -text -diff merge=binary linguist-vendored
+*.gif                 -text -diff merge=binary linguist-documentation
+*.gui                  text diff merge linguist-generated eol=crlf working-tree-encoding=MS-ANSI
+*.ico                 -text -diff merge=binary linguist-documentation
+*.ignore               text diff merge linguist-generated eol=crlf working-tree-encoding=MS-ANSI
+*.inf                  text diff merge eol=crlf working-tree-encoding=MS-ANSI linguist-language=INI
+*.jpg                 -text -diff merge=binary linguist-documentation
+*.json                 text diff merge eol=lf working-tree-encoding=UTF-8 linguist-language=JSON
+*.license              text diff merge linguist-documentation eol=lf working-tree-encoding=UTF-8
+*.md                   text diff=markdown merge eol=lf working-tree-encoding=UTF-8 linguist-language=Markdown
+*.nuspec               text diff=html merge eol=crlf working-tree-encoding=UTF-8 linguist-language=XML
+*.pdf                 -text diff=astextplain merge=binary linguist-documentation
+*.png                 -text -diff merge=binary linguist-documentation
+*.ps1                  text diff merge eol=crlf working-tree-encoding=UTF-16LE-BOM linguist-language=PowerShell
+*.ps1.bak              text diff merge eol=crlf working-tree-encoding=UTF-16LE-BOM linguist-language=PowerShell
+*.psd1                 text diff merge eol=crlf working-tree-encoding=UTF-16LE-BOM linguist-language=PowerShell
+*.psm1                 text diff merge eol=crlf working-tree-encoding=UTF-16LE-BOM linguist-language=PowerShell
+*.reg                  text diff merge eol=crlf working-tree-encoding=UCS-2LE-BOM linguist-language=Windows-Registry-Entries
+*.skipAutoUninstall    text diff merge linguist-generated eol=crlf working-tree-encoding=MS-ANSI
+*.skipAutoUninstaller  text diff merge linguist-generated eol=crlf working-tree-encoding=MS-ANSI
+*.svg                  text diff=html merge eol=lf working-tree-encoding=UTF-8 linguist-language=SVG
+*.txt                  text diff merge linguist-detectable
+*.xml                  text diff=html merge eol=crlf working-tree-encoding=UTF-8 linguist-language=XML
+*.yml                  text diff merge eol=lf working-tree-encoding=UTF-8 linguist-language=YAML
+.allcontributorsrc     text diff merge eol=lf working-tree-encoding=UTF-8 linguist-language=JSON
+.gitattributes         text diff merge export-ignore eol=lf working-tree-encoding=UTF-8 linguist-language=gitattributes
+.gitignore             text diff merge export-ignore eol=lf working-tree-encoding=UTF-8 linguist-language=ignore

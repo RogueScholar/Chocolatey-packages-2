@@ -1,16 +1,1 @@
-$packageName = $env:ChocolateyPackageName
-$packageSearch = 'Bitcoin Core*'
-$installerType = 'exe'
-$silentArgs = '/S'
-$validExitCodes = @(0)
-
-Get-ItemProperty -Path @( 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                          'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                          'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' ) `
-                 -ErrorAction:SilentlyContinue `
-| Where-Object   { $_.DisplayName -like $packageSearch } `
-| ForEach-Object { Uninstall-ChocolateyPackage -PackageName "$packageName" `
-                                               -FileType "$installerType" `
-                                               -SilentArgs "$($silentArgs)" `
-                                               -File "$($_.UninstallString.Replace('"',''))" `
-                                               -ValidExitCodes $validExitCodes }
+⑰慣歡来乡浥‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑰慣歡来卥慲捨‽‧䉩瑣潩渠䍯牥⨧ਤ楮獴慬汥牔祰攠㴠❥硥✊⑳楬敮瑁牧猠㴠✯匧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊ੇ整ⵉ瑥浐牯灥牴礠ⵐ慴栠䀨‧䡋䱍㩜卯晴睡牥屗潷㘴㌲乯摥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧Ⰺ†††††††††††††❈䭌䴺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਠ††††††††††††‧䡋䍕㩜卯晴睡牥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧ ⁠ਠ††††††††ⵅ牲潲䅣瑩潮㩓楬敮瑬祃潮瑩湵攠怊簠坨敲攭佢橥捴†⁻․弮䑩獰污祎慭攠⵬楫攠⑰慣歡来卥慲捨⁽⁠੼⁆潲䕡捨ⵏ扪散琠笠啮楮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††††††††††††‭卩汥湴䅲杳•␨⑳楬敮瑁牧猩∠怊†††††††††††††††††††††††‭䙩汥•␨⑟⹕湩湳瑡汬却物湧⹒数污捥⠧∧Ⱗ✩⤢⁠ਠ†††††††††††††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠紊

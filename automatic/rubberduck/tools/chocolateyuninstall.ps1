@@ -1,28 +1,1 @@
-$ErrorActionPreference = 'Stop'; # stop on all errors
-
-$packageName = 'rubberduck'
-$registryUninstallerKeyName = '{979AFF96-DD9E-4FC2-802D-9E0C36A60D09}_is1' #ensure this is the value in the registry
-$shouldUninstall = $true
-
-$local_key       = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\$registryUninstallerKeyName"
-$local_key6432   = "HKCU:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$registryUninstallerKeyName"
-$machine_key     = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$registryUninstallerKeyName"
-$machine_key6432 = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$registryUninstallerKeyName"
-
-$file = @($local_key, $local_key6432, $machine_key, $machine_key6432) `
-    | Where-Object{ Test-Path $_ } `
-    | Get-ItemProperty `
-    | Select-Object -ExpandProperty UninstallString
-
-if ($null -eq $file -or $file -eq '') {
-    Write-Output "$packageName may have been uninstalled by other means."
-    $shouldUninstall = $false
-}
-
-$installerType = 'EXE'
-$silentArgs = '/SILENT'
-$validExitCodes = @(0)
-
-if ($shouldUninstall) {
- Uninstall-ChocolateyPackage -PackageName $packageName -FileType $installerType -SilentArgs $silentArgs -validExitCodes $validExitCodes -File $file
-}
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✻‣⁳瑯瀠潮⁡汬⁥牲潲猊ਤ灡捫慧敎慭攠㴠❲畢扥牤畣欧ਤ牥杩獴特啮楮獴慬汥牋敹乡浥‽‧笹㜹䅆䘹㘭䑄㥅ⴴ䙃㈭㠰㉄ⴹ䔰䌳㙁㘰䐰㥽彩猱✠⍥湳畲攠瑨楳⁩猠瑨攠癡汵攠楮⁴桥⁲敧楳瑲礊⑳桯畬摕湩湳瑡汬‽․瑲略ਊ⑬潣慬彫敹†††‽•䡋䍕㩜卯晴睡牥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⑲敧楳瑲祕湩湳瑡汬敲䭥祎慭攢ਤ汯捡江步礶㐳㈠†㴠≈䭃唺屓潦瑷慲敜坯眶㐳㉎潤敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尤牥杩獴特啮楮獴慬汥牋敹乡浥∊⑭慣桩湥彫敹††‽•䡋䱍㩜协䙔坁剅屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⑲敧楳瑲祕湩湳瑡汬敲䭥祎慭攢ਤ浡捨楮敟步礶㐳㈠㴠≈䭌䴺屓但呗䅒䕜坯眶㐳㉎潤敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尤牥杩獴特啮楮獴慬汥牋敹乡浥∊ਤ晩汥‽⁀⠤汯捡江步礬․汯捡江步礶㐳㈬․浡捨楮敟步礬․浡捨楮敟步礶㐳㈩⁠ਠ†⁼⁗桥牥ⵏ扪散瑻⁔敳琭偡瑨․张素怊††簠䝥琭䥴敭偲潰敲瑹⁠ਠ†⁼⁓敬散琭佢橥捴‭䕸灡湤偲潰敲瑹⁕湩湳瑡汬却物湧ਊ楦 ⑮畬氠ⵥ焠⑦楬攠ⵯ爠⑦楬攠ⵥ焠✧⤠笊††坲楴攭併瑰畴•⑰慣歡来乡浥⁭慹⁨慶攠扥敮⁵湩湳瑡汬敤⁢礠潴桥爠浥慮献∊††⑳桯畬摕湩湳瑡汬‽․晡汳攊紊ਤ楮獴慬汥牔祰攠㴠❅塅✊⑳楬敮瑁牧猠㴠✯卉䱅乔✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ楦 ⑳桯畬摕湩湳瑡汬⤠笊⁕湩湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠⑰慣歡来乡浥‭䙩汥呹灥․楮獴慬汥牔祰攠ⵓ楬敮瑁牧猠⑳楬敮瑁牧猠⵶慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠ⵆ楬攠⑦楬攊紊

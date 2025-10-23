@@ -1,2 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-Start-Process 'sc.exe' -Verb "runas" -ArgumentList 'stop wfcs'
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧੓瑡牴ⵐ牯捥獳‧獣⹥硥✠ⵖ敲戠≲畮慳∠ⵁ牧畭敮瑌楳琠❳瑯瀠睦捳✊

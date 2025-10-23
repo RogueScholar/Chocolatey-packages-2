@@ -1,17 +1,1 @@
-﻿$packageName = 'ntfsinfo'
-$url = 'https://download.sysinternals.com/files/NTFSInfo.zip'
-$checksum = 'c71445a4d8df9ccb21923beb575e315529e264ad672de445110aabdc01bc5a9d'
-$checksumType = 'sha256'
-$url64 = "$url"
-$checksum64 = "$checksum"
-$checksumType64 = "checksumType"
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Url64bit "$url64" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType" `
-                             -Checksum64 "$checksum64" `
-                             -ChecksumType64 "$checksumType64"
+뼤灡捫慧敎慭攠㴠❮瑦獩湦漧ਤ畲氠㴠❨瑴灳㨯⽤潷湬潡搮獹獩湴敲湡汳⹣潭⽦楬敳⽎呆卉湦漮穩瀧ਤ捨散歳畭‽‧挷ㄴ㐵愴搸摦㥣换㈱㤲㍢敢㔷㕥㌱㔵㈹攲㘴慤㘷㉤攴㐵ㄱち慢摣〱扣㕡㥤✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ畲氶㐠㴠∤畲氢ਤ捨散歳畭㘴‽•④桥捫獵洢ਤ捨散歳畭呹灥㘴‽•捨散歳畭呹灥∊⑴潯汳䑩爠㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭啲氶㑢楴•⑵牬㘴∠怊††††††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∠怊††††††††††††††‭䍨散歳畭㘴•④桥捫獵洶㐢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰收㐠∤捨散歳畭呹灥㘴∊

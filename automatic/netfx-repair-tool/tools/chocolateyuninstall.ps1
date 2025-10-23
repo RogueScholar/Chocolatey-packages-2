@@ -1,4 +1,1 @@
-﻿$packageName= 'netfx-repair-tool'
-
-remove-item "$env:Public\Desktop\Microsoft .NET Framework Repair Tool.lnk" -Force -ErrorAction 'SilentlyContinue'
-remove-item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft .NET Framework Repair Tool.lnk" -Force -ErrorAction 'SilentlyContinue'
+뼤灡捫慧敎慭攽‧湥瑦砭牥灡楲⵴潯氧ਊ牥浯癥⵩瑥洠∤敮瘺偵扬楣屄敳歴潰屍楣牯獯晴‮久吠䙲慭敷潲欠剥灡楲⁔潯氮汮欢‭䙯牣攠ⵅ牲潲䅣瑩潮‧卩汥湴汹䍯湴楮略✊牥浯癥⵩瑥洠∤敮瘺偲潧牡浄慴慜䵩捲潳潦瑜坩湤潷獜却慲琠䵥湵屐牯杲慭獜䵩捲潳潦琠⹎䕔⁆牡浥睯牫⁒数慩爠呯潬⹬湫∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧

@@ -1,16 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$installerType = 'exe'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-$url = 'https://files.informer.com/siinst.exe'
-$checksum = '7611250e9cdad845e2cd78135eaa438a52ff695f718fb170d2dca35a0b7bb5cc'
-$checksumType = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum" `
-                          -ChecksumType "$checksumType"
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ楮獴慬汥牔祰攠㴠❥硥✊⑳楬敮瑁牧猠㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊⑵牬‽‧桴瑰猺⼯晩汥献楮景牭敲⹣潭⽳楩湳琮數攧ਤ捨散歳畭‽‧㜶ㄱ㈵づ㥣摡搸㐵攲捤㜸ㄳ㕥慡㐳㡡㔲晦㘹㕦㜱㡦戱㜰搲摣愳㕡ぢ㝢戵捣✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵕ牬•⑵牬∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊†††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

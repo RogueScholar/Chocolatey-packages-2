@@ -1,4 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-Uninstall-ChocolateyFont "Font Awesome 5 Brands-Regular-400.otf"
-Uninstall-ChocolateyFont "Font Awesome 5 Free-Regular-400.otf"
-Uninstall-ChocolateyFont "Font Awesome 5 Free-Solid-900.otf"
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧੕湩湳瑡汬ⵃ桯捯污瑥祆潮琠≆潮琠䅷敳潭攠㔠䉲慮摳ⵒ敧畬慲ⴴ〰⹯瑦∊啮楮獴慬氭䍨潣潬慴敹䙯湴•䙯湴⁁睥獯浥‵⁆牥攭剥杵污爭㐰〮潴昢੕湩湳瑡汬ⵃ桯捯污瑥祆潮琠≆潮琠䅷敳潭攠㔠䙲敥ⵓ潬楤ⴹ〰⹯瑦∊

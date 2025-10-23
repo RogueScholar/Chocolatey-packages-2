@@ -1,40 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-import-module au
-
-$releases = 'https://github.com/bitcoinxt/bitcoinxt/releases'
-
-function global:au_SearchReplace {
-	@{
-		'tools/chocolateyInstall.ps1' = @{
-			"(^[$]url\s*=\s*)('.*')"      			= "`$1'$($Latest.URL32)'"
-			"(^[$]checksum\s*=\s*)('.*')" 			= "`$1'$($Latest.Checksum32)'"
-            "(^[$]checksumtype\s*=\s*)('.*')" 		= "`$1'$($Latest.ChecksumType32)'"
-            "(^[$]url64\s*=\s*)('.*')"      		= "`$1'$($Latest.URL64)'"
-			"(^[$]checksum64\s*=\s*)('.*')" 		= "`$1'$($Latest.Checksum64)'"
-			"(^[$]checksumType64\s*=\s*)('.*')" 	= "`$1'$($Latest.ChecksumType64)'"
-		}
-	}
-}
-
-function global:au_GetLatest {
-	Write-Verbose 'Get files'
-	$installer = ((Invoke-WebRequest -Uri $releases -UseBasicParsing).Links | Where-Object {$_ -match "-win"} | Where-Object {$_ -match '.exe'} | Select-Object -First 2 | Sort-Object ).href
-	Write-Verbose 'Checking version'
-	$v=$($installer[0]).split('/')[-2].replace('v','')
-	foreach ($char in [int[]][char[]]$v) {
-		if($char -gt 65){
-			$ver = $char - 64
-			$version = "$($version).$($ver)"
-		} else {
-			$version = "$($version)$([char[]]$char)"
-		}
-	}
-	Write-Verbose "Version : $version"
-	$url32 = "https://github.com/$($installer[1])";
-	$url64 = "https://github.com/$($installer[0])";
-
-	$Latest = @{ URL32 = $url32; URL64 = $url64; Version = $version }
-	return $Latest
-}
-
-update -NoCheckChocoVersion
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧੩浰潲琭浯摵汥⁡甊ਤ牥汥慳敳‽‧桴瑰猺⼯杩瑨畢⹣潭⽢楴捯楮硴⽢楴捯楮硴⽲敬敡獥猧ਊ晵湣瑩潮⁧汯扡氺慵当敡牣桒数污捥⁻ਉ䁻ਉध瑯潬猯捨潣潬慴敹䥮獴慬氮灳ㄧ‽⁀笊उढ⡞嬤嵵牬屳⨽屳⨩⠧⸪✩∠†† उ㴠≠␱✤⠤䱡瑥獴⹕剌㌲⤧∊उढ⡞嬤嵣桥捫獵浜猪㵜猪⤨✮⨧⤢ उ㴠≠␱✤⠤䱡瑥獴⹃桥捫獵洳㈩✢ਠ†††††•⡞嬤嵣桥捫獵浴祰敜猪㵜猪⤨✮⨧⤢ ऽ•怤ㄧ␨⑌慴敳琮䍨散歳畭呹灥㌲⤧∊††††††∨幛⑝畲氶㑜猪㵜猪⤨✮⨧⤢†††उ㴠≠␱✤⠤䱡瑥獴⹕剌㘴⤧∊उढ⡞嬤嵣桥捫獵洶㑜猪㵜猪⤨✮⨧⤢ ऽ•怤ㄧ␨⑌慴敳琮䍨散歳畭㘴⤧∊उढ⡞嬤嵣桥捫獵浔祰收㑜猪㵜猪⤨✮⨧⤢ 㴠≠␱✤⠤䱡瑥獴⹃桥捫獵浔祰收㐩✢ਉॽਉ紊紊੦畮捴楯渠杬潢慬㩡畟䝥瑌慴敳琠笊ॗ物瑥ⵖ敲扯獥‧䝥琠晩汥猧ਉ⑩湳瑡汬敲‽ ⡉湶潫攭坥扒敱略獴‭啲椠⑲敬敡獥猠ⵕ獥䉡獩捐慲獩湧⤮䱩湫猠簠坨敲攭佢橥捴⁻⑟‭浡瑣栠∭睩渢素簠坨敲攭佢橥捴⁻⑟‭浡瑣栠✮數攧素簠卥汥捴ⵏ扪散琠ⵆ楲獴′⁼⁓潲琭佢橥捴 ⹨牥昊ॗ物瑥ⵖ敲扯獥‧䍨散歩湧⁶敲獩潮✊त瘽␨⑩湳瑡汬敲嬰崩⹳灬楴⠧⼧⥛ⴲ崮牥灬慣攨❶✬✧⤊०潲敡捨 ④桡爠楮⁛楮瑛嵝季桡牛嵝⑶⤠笊उ楦⠤捨慲‭杴‶㔩笊उत癥爠㴠④桡爠ⴠ㘴ਉउ⑶敲獩潮‽•␨⑶敲獩潮⤮␨⑶敲⤢ਉॽ⁥汳攠笊उत癥牳楯渠㴠∤⠤癥牳楯温␨季桡牛嵝④桡爩∊उ紊ॽਉ坲楴攭噥牢潳攠≖敲獩潮›․癥牳楯渢ਉ⑵牬㌲‽•桴瑰猺⼯杩瑨畢⹣潭⼤⠤楮獴慬汥牛ㅝ⤢㬊त畲氶㐠㴠≨瑴灳㨯⽧楴桵戮捯洯␨⑩湳瑡汬敲嬰崩∻ਊत䱡瑥獴‽⁀笠啒䰳㈠㴠⑵牬㌲㬠啒䰶㐠㴠⑵牬㘴㬠噥牳楯渠㴠⑶敲獩潮⁽ਉ牥瑵牮․䱡瑥獴੽ਊ異摡瑥‭乯䍨散歃桯捯噥牳楯渊

@@ -1,16 +1,1 @@
-﻿function Get-UserAgent {
-  # Uses PowerShell's prebuilt UA strings. See
-  # http://goo.gl/9IGloI
-  param (
-        [ValidateSet('Firefox','Chrome','InternetExplorer','Opera','Safari')]
-        [string]$browsertype
-  )
-
-  if (!$browsertype) {
-    $browsers    = @('Firefox','Chrome','InternetExplorer','Opera','Safari')
-    $browsertype = Get-Random -InputObject $browsers
-  }
-
-  [Microsoft.PowerShell.Commands.PSUserAgent]::$browsertype
-
-}
+뽦畮捴楯渠䝥琭啳敲䅧敮琠笊†⌠啳敳⁐潷敲卨敬氧猠灲敢畩汴⁕䄠獴物湧献⁓敥ਠ‣⁨瑴瀺⼯杯漮杬⼹䥇汯䤊†灡牡洠⠊††††孖慬楤慴敓整⠧䙩牥景砧Ⱗ䍨牯浥✬❉湴敲湥瑅硰汯牥爧Ⱗ佰敲愧Ⱗ卡晡物✩崊††††孳瑲楮杝③牯睳敲瑹灥ਠ ਊ†楦 ℤ扲潷獥牴祰攩⁻ਠ†․扲潷獥牳††㴠䀨❆楲敦潸✬❃桲潭攧Ⱗ䥮瑥牮整䕸灬潲敲✬❏灥牡✬❓慦慲椧⤊††③牯睳敲瑹灥‽⁇整ⵒ慮摯洠ⵉ湰畴佢橥捴․扲潷獥牳ਠ⁽ਊ†孍楣牯獯晴⹐潷敲卨敬氮䍯浭慮摳⹐单獥牁来湴崺㨤扲潷獥牴祰攊੽

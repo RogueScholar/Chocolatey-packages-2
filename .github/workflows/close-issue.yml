@@ -1,4 +1,4 @@
-﻿name: check existing issues states
+name: check existing issues states
 
 on:
   workflow_dispatch:

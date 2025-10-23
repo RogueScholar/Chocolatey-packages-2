@@ -1,5 +1,1 @@
-﻿$packageName  = 'frink'
-$ShortcutName = 'Frink.lnk'
-
-Remove-Item "$env:Public\Desktop\$ShortcutName" -Force -ErrorAction 'SilentlyContinue'
-Remove-Item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\$ShortcutName" -Force -ErrorAction 'SilentlyContinue'
+뼤灡捫慧敎慭攠‽‧晲楮欧ਤ卨潲瑣畴乡浥‽‧䙲楮欮汮欧ਊ剥浯癥ⵉ瑥洠∤敮瘺偵扬楣屄敳歴潰尤卨潲瑣畴乡浥∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧੒敭潶攭䥴敭•⑥湶㩐牯杲慭䑡瑡屍楣牯獯晴屗楮摯睳屓瑡牴⁍敮畜偲潧牡浳尤卨潲瑣畴乡浥∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧

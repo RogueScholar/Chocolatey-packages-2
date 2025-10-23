@@ -1,18 +1,1 @@
-$packageName = 'exchange-edb-viewer'
-$toolsDir    = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url         = 'http://www.nucleustechnologies.com/downloads/exchange-edb-viewer.exe'
-$checksum    = '465BC1041EE2C5082F2E26A38B1B61C587423B4D2F032B5BE38CE7D574ADE3ED'
-
-$packageArgs = @{
-  packageName   = $packageName
-  unzipLocation = $toolsDir
-  fileType      = 'exe'
-  url           = $url
-  silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-  softwareName  = 'Kernel Exchange EDB Viewer*'
-  checksum      = $checksum
-  checksumType  = 'sha256'
-  }
-
-Install-ChocolateyPackage @packageArgs
-
+⑰慣歡来乡浥‽‧數捨慮来ⵥ摢⵶楥睥爧ਤ瑯潬獄楲††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ畲氠††††㴠❨瑴瀺⼯睷眮湵捬敵獴散桮潬潧楥献捯洯摯睮汯慤猯數捨慮来ⵥ摢⵶楥睥爮數攧ਤ捨散歳畭††㴠✴㘵䉃㄰㐱䕅㉃㔰㠲䘲䔲㙁㌸䈱䈶ㅃ㔸㜴㈳䈴䐲䘰㌲䈵䉅㌸䍅㝄㔷㑁䑅㍅䐧ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†㴠⑰慣歡来乡浥ਠ⁵湺楰䱯捡瑩潮‽․瑯潬獄楲ਠ⁦楬敔祰攠††‽‧數攧ਠ⁵牬†††††‽․畲氊†獩汥湴䅲杳††㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊†獯晴睡牥乡浥†㴠❋敲湥氠䕸捨慮来⁅䑂⁖楥睥爪✊†捨散歳畭†††㴠④桥捫獵洊†捨散歳畭呹灥†㴠❳桡㈵㘧ਠ⁽ਊ䥮獴慬氭䍨潣潬慴敹偡捫慧攠䁰慣歡来䅲杳ਊ

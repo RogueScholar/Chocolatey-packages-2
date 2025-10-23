@@ -6,10 +6,9 @@ labels: 'update'
 assignees: ''
 
 ---
-<---
-Type the name of the package in the title
-Before submitting please check if the package is in this git
---->
+<!-- Update the title field above with the name of the package needing an
+     update, and please confirm that the package is part of this repository. -->
 
 **Version requested**
-Give the version that should be available.
+_The latest release version available for the package and a link to the download
+site._

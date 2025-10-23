@@ -1,1 +1,1 @@
-Get-Process "TrafficMonitor" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+䝥琭偲潣敳猠≔牡晦楣䵯湩瑯爢‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略⁼⁓瑯瀭偲潣敳猠ⵆ潲捥‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略

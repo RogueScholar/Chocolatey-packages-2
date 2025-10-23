@@ -1,26 +1,1 @@
-﻿$packageName = 'ru'
-$url = 'https://download.sysinternals.com/files/RU.zip'
-$checksum = '14ff3824edd2a4b7ca827a8f52142b0f08b7136e061917734dd7465e56dac666'
-$checksumType = 'sha256'
-$url64 = "$url"
-$checksum64 = "$checksum"
-$checksumType64 = "checksumType"
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Url64bit "$url64" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType" `
-                             -Checksum64 "$checksum64" `
-                             -ChecksumType64 "$checksumType64"
-Write-Verbose "Accepting license..."
-$regRoot = 'HKCU:\Software\Sysinternals'
-$regPkg = 'RegSize'
-$regPath = Join-Path $regRoot $regPkg
-if (!(Test-Path $regRoot)) {New-Item -Path "$regRoot"}
-if (!(Test-Path $regPath)) {New-Item -Path "$regRoot" -Name "$regPkg"}
-Set-ItemProperty -Path "$regPath" -Name EulaAccepted -Value 1
-if ((Get-ItemProperty -Path "$regPath").EulaAccepted -ne 1) {
-  throw "Failed setting registry value."
-}
+뼤灡捫慧敎慭攠㴠❲甧ਤ畲氠㴠❨瑴灳㨯⽤潷湬潡搮獹獩湴敲湡汳⹣潭⽦楬敳⽒售穩瀧ਤ捨散歳畭‽‧ㄴ晦㌸㈴敤搲愴户捡㠲㝡㡦㔲ㄴ㉢て〸户ㄳ㙥〶ㄹㄷ㜳㑤搷㐶㕥㔶摡挶㘶✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ畲氶㐠㴠∤畲氢ਤ捨散歳畭㘴‽•④桥捫獵洢ਤ捨散歳畭呹灥㘴‽•捨散歳畭呹灥∊⑴潯汳䑩爠㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢੉湳瑡汬ⵃ桯捯污瑥祚楰偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊††††††††††††††‭啲氠∤畲氢⁠ਠ††††††††††††††ⵕ湺楰䱯捡瑩潮•⑴潯汳䑩爢⁠ਠ††††††††††††††ⵕ牬㘴扩琠∤畲氶㐢⁠ਠ††††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊††††††††††††††‭䍨散歳畭呹灥•④桥捫獵浔祰攢⁠ਠ††††††††††††††ⵃ桥捫獵洶㐠∤捨散歳畭㘴∠怊††††††††††††††‭䍨散歳畭呹灥㘴•④桥捫獵浔祰收㐢੗物瑥ⵖ敲扯獥•䅣捥灴楮朠汩捥湳攮⸮∊⑲敧副潴‽‧䡋䍕㩜卯晴睡牥屓祳楮瑥牮慬猧ਤ牥材歧‽‧剥杓楺攧ਤ牥材慴栠㴠䩯楮ⵐ慴栠⑲敧副潴․牥材歧੩映⠡⡔敳琭偡瑨․牥杒潯琩⤠筎敷ⵉ瑥洠ⵐ慴栠∤牥杒潯琢紊楦 ℨ呥獴ⵐ慴栠⑲敧偡瑨⤩⁻乥眭䥴敭‭偡瑨•⑲敧副潴∠ⵎ慭攠∤牥材歧≽੓整ⵉ瑥浐牯灥牴礠ⵐ慴栠∤牥材慴栢‭乡浥⁅畬慁捣数瑥搠ⵖ慬略‱੩映⠨䝥琭䥴敭偲潰敲瑹‭偡瑨•⑲敧偡瑨∩⹅畬慁捣数瑥搠⵮攠ㄩ⁻ਠ⁴桲潷•䙡楬敤⁳整瑩湧⁲敧楳瑲礠癡汵攮∊紊

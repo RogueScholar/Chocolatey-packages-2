@@ -1,65 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-# powershell v2 compatibility
-$psVer = $PSVersionTable.PSVersion.Major
-if ($psver -ge 3) {
-  function Get-ChildItemDir {Get-ChildItem -Directory $args}
-} else {
-  function Get-ChildItemDir {Get-ChildItem $args}
-}
-
-$packageName = $env:ChocolateyPackageName
-$packageSearch = 'KeePass Password Safe'
-$url = 'https://github.com/JanisEst/KeePassQuickUnlock/releases/download/v2.4/KeePassQuickUnlock.plgx'
-$checksum = 'feaf3323f30def99448f170e5c39db1f58fc9008fe8d3686fa99c98b9039cd50'
-$checksumType = 'sha256'
-
-Write-Verbose "Searching registry for installed KeePass..."
-$regPath = Get-ItemProperty -Path @('HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                                    'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                                    'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*') `
-                            -ErrorAction:SilentlyContinue `
-           | Where-Object {$_.DisplayName -like "$packageSearch*" `
-                           -and `
-                           $_.DisplayVersion -ge 2.0 `
-                           -and `
-                           $_.DisplayVersion -lt 3.0 } `
-           | ForEach-Object {$_.InstallLocation}
-$installPath = $regPath
-if (! $installPath) {
-  Write-Verbose "Searching $env:ChocolateyBinRoot for portable install..."
-  $binRoot = Get-BinRoot
-  $portPath = Join-Path $binRoot "keepass"
-  $installPath = Get-ChildItemDir $portPath* -ErrorAction SilentlyContinue
-}
-if (! $installPath) {
-  Write-Verbose "Searching $env:Path for unregistered install..."
-  $installFullName = (Get-Command keepass -ErrorAction SilentlyContinue).Path
-  if (! $installFullName) {
-    $installPath = [io.path]::GetDirectoryName($installFullName)
-  }
-}
-if (! $installPath) {
-  Write-Warning "$($packageSearch) not found."
-  throw
-}
-Write-Verbose "`t...found."
-
-Write-Verbose "Searching for plugin directory..."
-$pluginPath = (Get-ChildItemDir $installPath\Plugin*).FullName
-if ($pluginPath.Count -eq 0) {
-  $pluginPath = Join-Path $installPath "Plugins"
-  [System.IO.Directory]::CreateDirectory($pluginPath)
-}
-$installFile = Join-Path $pluginPath "$($packageName).plgx"
-Get-ChocolateyWebFile -PackageName "$packageName" `
-                      -FileFullPath "$installFile" `
-                      -Url "$url" `
-                      -Checksum "$checksum" `
-                      -ChecksumType "$checksumType"
-if ( Get-Process -Name "KeePass" `
-                 -ErrorAction SilentlyContinue ) {
-  Write-Warning "$($packageSearch) is currently running. Plugin will be available at next restart of $($packageSearch)."
-} else {
-  Write-Output "$($packageName) will be loaded the next time KeePass is started."
-  Write-Output "Please note this plugin may require additional configuration. Look for a new entry in KeePass' Menu>Tools"
-}
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਣ⁰潷敲獨敬氠瘲⁣潭灡瑩扩汩瑹ਤ灳噥爠㴠⑐卖敲獩潮呡扬攮偓噥牳楯渮䵡橯爊楦 ⑰獶敲‭来″⤠笊†晵湣瑩潮⁇整ⵃ桩汤䥴敭䑩爠筇整ⵃ桩汤䥴敭‭䑩牥捴潲礠②牧獽੽⁥汳攠笊†晵湣瑩潮⁇整ⵃ桩汤䥴敭䑩爠筇整ⵃ桩汤䥴敭․慲杳紊紊ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ灡捫慧敓敡牣栠㴠❋敥偡獳⁐慳獷潲搠卡晥✊⑵牬‽‧桴瑰猺⼯杩瑨畢⹣潭⽊慮楳䕳琯䭥敐慳獑畩捫啮汯捫⽲敬敡獥猯摯睮汯慤⽶㈮㐯䭥敐慳獑畩捫啮汯捫⹰汧砧ਤ捨散歳畭‽‧晥慦㌳㈳昳つ敦㤹㐴㡦ㄷづ㕣㌹摢ㅦ㔸晣㤰〸晥㡤㌶㠶晡㤹挹㡢㤰㌹捤㔰✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਊ坲楴攭噥牢潳攠≓敡牣桩湧⁲敧楳瑲礠景爠楮獴慬汥搠䭥敐慳献⸮∊⑲敧偡瑨‽⁇整ⵉ瑥浐牯灥牴礠ⵐ慴栠䀨❈䭌䴺屓潦瑷慲敜坯眶㐳㉎潤敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਠ†††††††††††††††††‧䡋䱍㩜卯晴睡牥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧Ⰺ††††††††††††††††††❈䭃唺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✩⁠ਠ†††††††††††††‭䕲牯牁捴楯渺卩汥湴汹䍯湴楮略⁠ਠ†††††簠坨敲攭佢橥捴⁻⑟⹄楳灬慹乡浥‭汩步•⑰慣歡来卥慲捨⨢⁠ਠ†††††††††††††ⵡ湤⁠ਠ†††††††††††††⑟⹄楳灬慹噥牳楯渠ⵧ攠㈮〠怊†††††††††††††‭慮搠怊†††††††††††††․弮䑩獰污祖敲獩潮‭汴″⸰⁽⁠ਠ†††††簠䙯牅慣栭佢橥捴⁻⑟⹉湳瑡汬䱯捡瑩潮紊⑩湳瑡汬偡瑨‽․牥材慴栊楦 ℠⑩湳瑡汬偡瑨⤠笊†坲楴攭噥牢潳攠≓敡牣桩湧․敮瘺䍨潣潬慴敹䉩湒潯琠景爠灯牴慢汥⁩湳瑡汬⸮⸢ਠ․扩湒潯琠㴠䝥琭䉩湒潯琊†⑰潲瑐慴栠㴠䩯楮ⵐ慴栠③楮副潴•步数慳猢ਠ․楮獴慬汐慴栠㴠䝥琭䍨楬摉瑥浄楲․灯牴偡瑨⨠ⵅ牲潲䅣瑩潮⁓楬敮瑬祃潮瑩湵攊紊楦 ℠⑩湳瑡汬偡瑨⤠笊†坲楴攭噥牢潳攠≓敡牣桩湧․敮瘺偡瑨⁦潲⁵湲敧楳瑥牥搠楮獴慬氮⸮∊†⑩湳瑡汬䙵汬乡浥‽ 䝥琭䍯浭慮搠步数慳猠ⵅ牲潲䅣瑩潮⁓楬敮瑬祃潮瑩湵攩⹐慴栊†楦 ℠⑩湳瑡汬䙵汬乡浥⤠笊††⑩湳瑡汬偡瑨‽⁛楯⹰慴桝㨺䝥瑄楲散瑯特乡浥⠤楮獴慬汆畬汎慭攩ਠ⁽੽੩映⠡․楮獴慬汐慴栩⁻ਠ⁗物瑥ⵗ慲湩湧•␨⑰慣歡来卥慲捨⤠湯琠景畮搮∊†瑨牯眊紊坲楴攭噥牢潳攠≠琮⸮景畮搮∊੗物瑥ⵖ敲扯獥•卥慲捨楮朠景爠灬畧楮⁤楲散瑯特⸮⸢ਤ灬畧楮偡瑨‽ 䝥琭䍨楬摉瑥浄楲․楮獴慬汐慴桜偬畧楮⨩⹆畬汎慭攊楦 ⑰汵杩湐慴栮䍯畮琠ⵥ焠〩⁻ਠ․灬畧楮偡瑨‽⁊潩渭偡瑨․楮獴慬汐慴栠≐汵杩湳∊†孓祳瑥洮䥏⹄楲散瑯特崺㩃牥慴敄楲散瑯特⠤灬畧楮偡瑨⤊紊⑩湳瑡汬䙩汥‽⁊潩渭偡瑨․灬畧楮偡瑨•␨⑰慣歡来乡浥⤮灬杸∊䝥琭䍨潣潬慴敹坥扆楬攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††ⵆ楬敆畬汐慴栠∤楮獴慬汆楬攢⁠ਠ††††††††††‭啲氠∤畲氢⁠ਠ††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††‭䍨散歳畭呹灥•④桥捫獵浔祰攢੩映⠠䝥琭偲潣敳猠ⵎ慭攠≋敥偡獳∠怊††††††††‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略 ⁻ਠ⁗物瑥ⵗ慲湩湧•␨⑰慣歡来卥慲捨⤠楳⁣畲牥湴汹⁲畮湩湧⸠偬畧楮⁷楬氠扥⁡癡楬慢汥⁡琠湥硴⁲敳瑡牴⁯映␨⑰慣歡来卥慲捨⤮∊素敬獥⁻ਠ⁗物瑥ⵏ畴灵琠∤⠤灡捫慧敎慭攩⁷楬氠扥⁬潡摥搠瑨攠湥硴⁴業攠䭥敐慳猠楳⁳瑡牴敤⸢ਠ⁗物瑥ⵏ畴灵琠≐汥慳攠湯瑥⁴桩猠灬畧楮⁭慹⁲敱畩牥⁡摤楴楯湡氠捯湦楧畲慴楯渮⁌潯欠景爠愠湥眠敮瑲礠楮⁋敥偡獳✠䵥湵㹔潯汳∊紊

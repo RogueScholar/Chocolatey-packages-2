@@ -1,75 +1,89 @@
 # Contributing to This project
 
-1. [Getting Involved](#getting-involved)
-2. [How To Report Bugs](#how-to-report-bugs)
-3. [Tips For Submitting Code](#tips-for-submitting-code)
+1. [**Getting Involved**](#getting-involved)
+1. [**How To Report Bugs**](#how-to-report-bugs)
+1. [**Tips For Submitting Code**](#tips-for-submitting-code)
 
 ## Getting Involved
 
-There are a number of ways to get involved with this project. Even if you've never contributed code to an Open Source project before, we're always looking for help identifying bugs, cleaning up code, writing documentation and testing.
+There are a number of ways to get involved and help out here. Even if you've
+never contributed code to an open source project before, we're always looking
+for help identifying bugs, cleaning up code, writing documentation and testing
+new packages.
 
-The goal of this guide is to provide the best way to contribute.  
-Please read through the full guide detailing [How to Report Bugs](#how-to-report-bugs).
-
-## Discussion
-
-If you think you've found a bug please [file it in the bug tracker](#how-to-report-bugs).
+The goal of this guide is to familiarize you with some of the best ways to
+help with the work of maintaining the packages here. Please read through the
+full guide, especially the part below that describes
+[how to properly report bugs](#how-to-report-bugs).
 
 ## How to Report Bugs
 
-### Make sure it is a bug related to this project
+If you think you've found an unreported bug, please
+[open an issue for it](#how-to-report-bugs).
 
-The best way is to start a new powershell prompt.
+### Make sure the issue is related to this project
 
-### Check if you have the latest version
+The best way to do this is from a PowerShell session.
 
-We always make our tests based on the latest versions of the script.
+### Verify that you have the latest version installed
 
-If it isn't up-to-date, try to update it before sending a bug repport.
+All testing must be done using the latest versions of the packaging files.
 
 ### Reporting the issue
 
-If the above steps are failing and you are sure its a bug, issues are tracked in the [issue tracker](https://github.com/tunisiano187/chocolatey-ps-validator/issues).
+If the steps above are producing an error and you are sure that the issue is
+with the Chocolatey package (i.e. manually downloading and installing the
+software completes successfully),
+[open an issue about it](/../../../chocolatey-ps-validator/issues).
 
 ## Tips For Submitting Code
 
-### Before going deeper, check if it's not already repported
+### Always check first if someone has already reported it
 
-As this script is shared on Git, another user may already have seen the error and created a report.
-Managing twice the same report can make us to loose time in solving the problem.
+As this script is shared on Git, another user may already have seen the error
+and created a report. Creating an unnecessary duplicate is counter-productive
+and leads to wasted time in responding to and closing it.
 
-#### If the issue is already opened
+#### If an issue already exists
 
-If you find an issue with the same problem, you can subscribe to notifications or send complements.
-If the explaination of the creator of the issue isn't complete, don't hesitate to add what you can. It may help us to find the solution quicker.
+If you find an issue describing the same problem, you can subscribe to be
+notified to updates on it and share your thoughts and observations about it
+there. If the original issue description is incomplete, don't hesitate to add
+what you can; it may help us to find the solution quicker!
 
 ### Code
 
-Every developper can help us enhance this script, i'm still managing the Pull requests and i'll check them all.
+Anyone can help us enhance this script by submitting a Pull Request; we always
+respond to them as soon as we can.
 
 #### Reporting
 
 Please follow these guidelines before reporting a bug:
 
-1. **Update to the latest version** Check if you can reproduce the issue with the latest version.
-
-2. **Use the search on this repo** check if the issue has already been reported. If it has been, please comment on the existing issue.
-
-3. **Provide a means to reproduce the problem** Please provide as much details as possible, and of course the steps to reproduce the problem.
+1. [ ] **Update to the latest version** Ensure that you can reproduce the issue
+       with the latest version.
+1. [ ] **Search this repository** See if the issue has already been reported. If
+       so, please comment on the existing issue.
+1. [ ] **Describe how to reproduce the problem** Please provide as many details
+       as possible on the steps needed to reproduce the problem.
 
 ### Pull requests
 
-[Pull requests](https://help.github.com/articles/using-pull-requests) are welcome and the preferred way of accepting code contributions.
+[Pull requests](https://help.github.com/articles/using-pull-requests) are always
+welcome and the preferred way of submitting code contributions.
 
 Please follow these guidelines before sending a pull request:
 
-1. Update your fork to the latest upstream version.
-
-2. Create a topic-branch for your work. We prefer clear topics that are explaining the updates.
-
-3. Keep your commits as autonomous as possible, i.e. create a new commit for every single bug fix or feature added.
-
-4. Always add meaningful commit messages. We should not have to guess at what your code is supposed to do.
+1. [ ] Update your fork to this repository's `master` branch.
+1. [ ] Make your changes in a new branch named for the issue you're fixing. We
+       prefer short, unambiguous branch names related the work they contain.
+1. [ ] Keep your commits as atomic as possible. The word _atom_ comes to us from
+       the ancient Greeks and roughly means "without a knife," referring to the
+       belief that the atom was the smallest quantity of matter in existence and
+       that it could not be split into anything smaller. In the same way, make
+       your code changes as tightly focused and cohesive as you can, creating a
+       new commit for every distinct issue being fixed or feature added.
+1. [ ] Always add meaningful commit messages. We should not have to guess at what your code is supposed to do.
 
 5. One pull request per feature. If you want multiple features, send multiple PR's
 

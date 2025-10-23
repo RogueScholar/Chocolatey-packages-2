@@ -1,4 +1,4 @@
-﻿name: Package improver
+name: Package improver
 
 on:
   push:

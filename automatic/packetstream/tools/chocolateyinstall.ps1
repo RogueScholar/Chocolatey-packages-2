@@ -1,17 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$url			      = 'https://s3-us-west-2.amazonaws.com/packetstream-releases/latest/PacketStream.exe'
-$checksum		    = 'c36e76b321505a4ef1660d558a08ac572ce7cfd35f256801e1d4cfc765a75998'
-$checksumtype   = 'sha256'
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  unzipLocation = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-  fileType      = 'exe'
-  url           = $url
-  silentArgs    = '/S'
-  validExitCodes= @(0,3010)
-  softwareName  = 'Packetstream*'
-  checksum      = $checksum
-  checksumType  = $checksumtype
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ畲氉उ†††㴠❨瑴灳㨯⽳㌭畳⵷敳琭㈮慭慺潮慷献捯洯灡捫整獴牥慭⵲敬敡獥猯污瑥獴⽐慣步瑓瑲敡洮數攧ਤ捨散歳畭उ††㴠❣㌶攷㙢㌲ㄵ〵愴敦ㄶ㘰搵㔸愰㡡挵㜲捥㝣晤㌵昲㔶㠰ㅥㅤ㑣晣㜶㕡㜵㤹㠧ਤ捨散歳畭瑹灥†‽‧獨愲㔶✊⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ⁵湺楰䱯捡瑩潮‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊†晩汥呹灥†††㴠❥硥✊†畲氠†††††㴠⑵牬ਠ⁳楬敮瑁牧猠†‽‧⽓✊†癡汩摅硩瑃潤敳㴠䀨〬㌰㄰⤊†獯晴睡牥乡浥†㴠❐慣步瑳瑲敡洪✊†捨散歳畭†††㴠④桥捫獵洊†捨散歳畭呹灥†㴠④桥捫獵浴祰攊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

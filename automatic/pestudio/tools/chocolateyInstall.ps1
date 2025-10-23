@@ -1,14 +1,1 @@
-﻿$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = 'https://www.winitor.com/tools/pestudio/current/pestudio.zip'
-$checksum       = '7ebbb5e97644b000aab1af70663e2766b66f5731c677dbd6e40c2ff5d6d2fc57'
-$checksumType   = 'sha256'
-
-$packageArgs = @{
-    packageName     = 'PeStudio'
-    url             = $url
-    UnzipLocation   = $toolsDir
-    Checksum        = $checksum
-    ChecksumType    = $checksumType
-}
-
-Install-ChocolateyZipPackage @packageArgs
+뼤瑯潬獄楲†††‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑵牬††††††㴠❨瑴灳㨯⽷睷⹷楮楴潲⹣潭⽴潯汳⽰敳瑵摩漯捵牲敮琯灥獴畤楯⹺楰✊④桥捫獵洠†††㴠✷敢扢㕥㤷㘴㑢〰ち慢ㅡ昷〶㘳攲㜶㙢㘶昵㜳ㅣ㘷㝤扤㙥㐰挲晦㕤㙤㉦挵㜧ਤ捨散歳畭呹灥†‽‧獨愲㔶✊ਤ灡捫慧敁牧猠㴠䁻ਠ†⁰慣歡来乡浥††‽‧健却畤楯✊††畲氠††††††㴠⑵牬ਠ†⁕湺楰䱯捡瑩潮†‽․瑯潬獄楲ਠ†⁃桥捫獵洠†††‽․捨散歳畭ਠ†⁃桥捫獵浔祰攠†‽․捨散歳畭呹灥੽ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来⁀灡捫慧敁牧猊

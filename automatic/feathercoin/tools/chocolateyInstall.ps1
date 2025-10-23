@@ -1,17 +1,1 @@
-﻿$SilentArgs         = '/S'
-$Url                = 'https://github.com/FeatherCoin/Feathercoin/releases/download/v0.19.1/feathercoin-0.19.1-win64-setup.exe'
-$Checksum           = '23b80ed7f17821b8a4340ddc8154e86774d5dfd77975305b4bcc91b01318969c'
-$Checksumtype       = 'sha256'
-$ValidExitCodes     = @(0)
-
-$packageArgs = @{
-    PackageName     = $env:ChocolateyPackageName
-    FileType        = 'exe'
-    Url             = $Url
-    Checksum        = $Checksum
-    ChecksumType    = $Checksumtype
-    SilentArgs      = $SilentArgs
-    ValidExitCodes  = $ValidExitCodes
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤卩汥湴䅲杳††††‽‧⽓✊⑕牬††††††††㴠❨瑴灳㨯⽧楴桵戮捯洯䙥慴桥牃潩港䙥慴桥牣潩港牥汥慳敳⽤潷湬潡搯瘰⸱㤮ㄯ晥慴桥牣潩渭〮ㄹ⸱⵷楮㘴⵳整異⹥硥✊⑃桥捫獵洠†††††㴠✲㍢㠰敤㝦ㄷ㠲ㅢ㡡㐳㐰摤挸ㄵ㑥㠶㜷㑤㕤晤㜷㤷㔳〵戴扣挹ㅢ〱㌱㠹㘹挧ਤ䍨散歳畭瑹灥†††‽‧獨愲㔶✊⑖慬楤䕸楴䍯摥猠††㴠䀨〩ਊ⑰慣歡来䅲杳‽⁀笊††偡捫慧敎慭攠††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁆楬敔祰攠†††‽‧數攧ਠ†⁕牬††††††‽․啲氊††䍨散歳畭††††㴠⑃桥捫獵洊††䍨散歳畭呹灥††㴠⑃桥捫獵浴祰攊††卩汥湴䅲杳†††㴠⑓楬敮瑁牧猊††噡汩摅硩瑃潤敳†㴠⑖慬楤䕸楴䍯摥猊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

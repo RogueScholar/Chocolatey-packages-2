@@ -1,31 +1,1 @@
-$ErrorActionPreference = 'Stop';
-$packageArgs = @{
-  packageName   = 'advanced-renamer.install'
-  softwareName  = 'Advanced Renamer*'
-  fileType      = 'EXE'
-  silentArgs    = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-"
-  validExitCodes= @(0)
-}
-
-$uninstalled = $false
-[array]$key = Get-UninstallRegistryKey -SoftwareName $packageArgs['softwareName']
-
-if ($key.Count -eq 1) {
-  $key | ForEach-Object {
-    $packageArgs['file'] = "$($_.UninstallString)"
-    if ($packageArgs['fileType'] -eq 'MSI') {
-      $packageArgs['silentArgs'] = "$($_.PSChildName) $($packageArgs['silentArgs'])"
-
-      $packageArgs['file'] = ''
-    }
-
-    Uninstall-ChocolateyPackage @packageArgs
-  }
-} elseif ($key.Count -eq 0) {
-  Write-Warning "$packageName has already been uninstalled by other means."
-} elseif ($key.Count -gt 1) {
-  Write-Warning "$($key.Count) matches found!"
-  Write-Warning "To prevent accidental data loss, no programs will be uninstalled."
-  Write-Warning "Please alert package maintainer the following keys were matched:"
-  $key | ForEach-Object {Write-Warning "- $($_.DisplayName)"}
-}
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✻ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥†‽‧慤癡湣敤⵲敮慭敲⹩湳瑡汬✊†獯晴睡牥乡浥†㴠❁摶慮捥搠剥湡浥爪✊†晩汥呹灥†††㴠❅塅✊†獩汥湴䅲杳††㴠∯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭∊†癡汩摅硩瑃潤敳㴠䀨〩੽ਊ⑵湩湳瑡汬敤‽․晡汳攊孡牲慹崤步礠㴠䝥琭啮楮獴慬汒敧楳瑲祋敹‭卯晴睡牥乡浥․灡捫慧敁牧獛❳潦瑷慲敎慭攧崊੩映⠤步礮䍯畮琠ⵥ焠ㄩ⁻ਠ․步礠簠䙯牅慣栭佢橥捴⁻ਠ†․灡捫慧敁牧獛❦楬攧崠㴠∤⠤弮啮楮獴慬汓瑲楮朩∊††楦 ⑰慣歡来䅲杳嬧晩汥呹灥❝‭敱‧䵓䤧⤠笊†††⑰慣歡来䅲杳嬧獩汥湴䅲杳❝‽•␨⑟⹐千桩汤乡浥⤠␨⑰慣歡来䅲杳嬧獩汥湴䅲杳❝⤢ਊ†††⑰慣歡来䅲杳嬧晩汥❝‽‧✊††紊ਠ†⁕湩湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊†紊素敬獥楦 ⑫敹⹃潵湴‭敱‰⤠笊†坲楴攭坡牮楮朠∤灡捫慧敎慭攠桡猠慬牥慤礠扥敮⁵湩湳瑡汬敤⁢礠潴桥爠浥慮献∊素敬獥楦 ⑫敹⹃潵湴‭杴‱⤠笊†坲楴攭坡牮楮朠∤⠤步礮䍯畮琩⁭慴捨敳⁦潵湤™ਠ⁗物瑥ⵗ慲湩湧•呯⁰牥癥湴⁡捣楤敮瑡氠摡瑡⁬潳猬⁮漠灲潧牡浳⁷楬氠扥⁵湩湳瑡汬敤⸢ਠ⁗物瑥ⵗ慲湩湧•偬敡獥⁡汥牴⁰慣歡来⁭慩湴慩湥爠瑨攠景汬潷楮朠步祳⁷敲攠浡瑣桥携∊†⑫敹⁼⁆潲䕡捨ⵏ扪散琠筗物瑥ⵗ慲湩湧•ⴠ␨⑟⹄楳灬慹乡浥⤢紊紊

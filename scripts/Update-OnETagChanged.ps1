@@ -1,50 +1,1 @@
-# NOTE: No documentation will be written for this script.
-# This is only a temporary script until a generic version
-# have been added to the wormies-au-helpers powershell package
-
-function Update-OnETagChanged() {
-  param(
-    [uri]$execUrl,
-    [string]$saveFile = ".\info",
-    [scriptblock]$OnETagChanged,
-    [scriptblock]$OnUpdated
-  )
-
-  $request = [System.Net.WebRequest]::CreateDefault($execUrl)
-
-  try {
-    $response = $request.GetResponse()
-    $etag = $response.Headers.Get("ETag")
-  }
-  finally {
-    $response.Dispose()
-    $response = $null
-  }
-
-  $saveResult = $false
-  if (!(Test-Path $saveFile) -or ($global:au_Force -eq $true)) {
-    $result = . $OnETagChanged
-    $saveResult = $true
-  }
-  else {
-    $existingInfo = (Get-Content $saveFile -Encoding UTF8 -TotalCount 1) -split '\|'
-
-    if ($existingInfo[0] -ne $etag) {
-      $result = . $OnETagChanged
-      $saveResult = $true
-    }
-    else {
-      $result = . $OnUpdated
-      $result["Version"] = $existingInfo[1]
-      $result["ETAG"] = $existingInfo[0]
-      $saveResult = $false
-    }
-  }
-
-  if ($saveResult) {
-    $result["ETAG"] = $etag
-    "$($result["ETAG"])|$($result["Version"])" | Out-File $saveFile -Encoding utf8 -NoNewline
-  }
-
-  return $result
-}
+⌠乏呅㨠乯⁤潣畭敮瑡瑩潮⁷楬氠扥⁷物瑴敮⁦潲⁴桩猠獣物灴⸊⌠周楳⁩猠潮汹⁡⁴敭灯牡特⁳捲楰琠畮瑩氠愠来湥物挠癥牳楯渊⌠桡癥⁢敥渠慤摥搠瑯⁴桥⁷潲浩敳ⵡ甭桥汰敲猠灯睥牳桥汬⁰慣歡来ਊ晵湣瑩潮⁕灤慴攭佮䕔慧䍨慮来搨⤠笊†灡牡洨ਠ†⁛畲楝⑥硥捕牬Ⰺ††孳瑲楮杝⑳慶敆楬攠㴠∮屩湦漢Ⰺ††孳捲楰瑢汯捫崤佮䕔慧䍨慮来搬ਠ†⁛獣物灴扬潣歝⑏湕灤慴敤ਠ ਊ†⑲敱略獴‽⁛卹獴敭⹎整⹗敢剥煵敳瑝㨺䍲敡瑥䑥晡畬琨⑥硥捕牬⤊ਠ⁴特⁻ਠ†․牥獰潮獥‽․牥煵敳琮䝥瑒敳灯湳攨⤊††⑥瑡朠㴠⑲敳灯湳攮䡥慤敲献䝥琨≅呡朢⤊†紊†晩湡汬礠笊††⑲敳灯湳攮䑩獰潳攨⤊††⑲敳灯湳攠㴠⑮畬氊†紊ਠ․獡癥剥獵汴‽․晡汳攊†楦 ℨ呥獴ⵐ慴栠⑳慶敆楬攩‭潲 ⑧汯扡氺慵彆潲捥‭敱․瑲略⤩⁻ਠ†․牥獵汴‽‮․佮䕔慧䍨慮来搊††⑳慶敒敳畬琠㴠⑴牵攊†紊†敬獥⁻ਠ†․數楳瑩湧䥮景‽ 䝥琭䍯湴敮琠⑳慶敆楬攠ⵅ湣潤楮朠啔䘸‭呯瑡汃潵湴‱⤠⵳灬楴‧屼✊ਠ†⁩映⠤數楳瑩湧䥮景嬰崠⵮攠⑥瑡朩⁻ਠ††․牥獵汴‽‮․佮䕔慧䍨慮来搊†††⑳慶敒敳畬琠㴠⑴牵攊††紊††敬獥⁻ਠ††․牥獵汴‽‮․佮啰摡瑥搊†††⑲敳畬瑛≖敲獩潮≝‽․數楳瑩湧䥮景嬱崊†††⑲敳畬瑛≅呁䜢崠㴠⑥硩獴楮杉湦潛そਠ††․獡癥剥獵汴‽․晡汳攊††紊†紊ਠ⁩映⠤獡癥剥獵汴⤠笊††⑲敳畬瑛≅呁䜢崠㴠⑥瑡朊††∤⠤牥獵汴嬢䕔䅇≝⥼␨⑲敳畬瑛≖敲獩潮≝⤢⁼⁏畴ⵆ楬攠⑳慶敆楬攠ⵅ湣潤楮朠畴昸‭乯乥睬楮攊†紊ਠ⁲整畲渠⑲敳畬琊紊

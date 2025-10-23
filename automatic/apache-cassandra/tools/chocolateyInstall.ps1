@@ -1,17 +1,1 @@
-﻿$packageName    = 'Cassandra'
-$url            = 'https://dlcdn.apache.org/cassandra/5.0.5/apache-cassandra-5.0.5-bin.tar.gz'
-$checksum       = '17097f52fe9627a45867efefd8eee42d5fa4c4cbab6e2a92474aa1d370ea0aca'
-$checksumType   = 'sha256'
-$installDir     = (Get-ToolsLocation +"/$packageName")
-$unzipFolder    = Join-Path $env:TEMP "chocolatey\$packageName"
-
-$packageArgs = @{
-    packageName     = $env:ChocolateyPackageName
-    url             = $url
-    checksum        = $checksum
-    checksumType    = $checksumType
-    unzipLocation   = $unzipFolder
-}
-
-Install-ChocolateyZipPackage @packageArgs
-Get-ChocolateyUnzip -fileFullPath $unzipFolder -destination "$installDir"
+뼤灡捫慧敎慭攠†‽‧䍡獳慮摲愧ਤ畲氠†††††‽‧桴瑰猺⼯摬捤渮慰慣桥⹯牧⽣慳獡湤牡⼵⸰⸵⽡灡捨攭捡獳慮摲愭㔮〮㔭扩渮瑡爮杺✊④桥捫獵洠†††㴠✱㜰㤷昵㉦改㘲㝡㐵㠶㝥晥晤㡥敥㐲搵晡㑣㑣扡戶攲愹㈴㜴慡ㅤ㌷づ愰慣愧ਤ捨散歳畭呹灥†‽‧獨愲㔶✊⑩湳瑡汬䑩爠††㴠⡇整ⵔ潯汳䱯捡瑩潮‫∯⑰慣歡来乡浥∩ਤ畮穩灆潬摥爠†‽⁊潩渭偡瑨․敮瘺呅䵐•捨潣潬慴敹尤灡捫慧敎慭攢ਊ⑰慣歡来䅲杳‽⁀笊††灡捫慧敎慭攠††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁵牬††††††‽․畲氊††捨散歳畭††††㴠④桥捫獵洊††捨散歳畭呹灥††㴠④桥捫獵浔祰攊††畮穩灌潣慴楯渠†㴠⑵湺楰䙯汤敲੽ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来⁀灡捫慧敁牧猊䝥琭䍨潣潬慴敹啮穩瀠ⵦ楬敆畬汐慴栠⑵湺楰䙯汤敲‭摥獴楮慴楯渠∤楮獴慬汄楲∊

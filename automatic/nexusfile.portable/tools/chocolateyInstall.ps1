@@ -1,11 +1,1 @@
-﻿$packageName        = $env:ChocolateyPackageName
-$url                = 'https://s3.ap-northeast-2.amazonaws.com/net.xiles.public/download/nexusfile_5.4.1.zip'
-$checksum           = 'eec39d8987a681da1cb9a48727167328edc30ea29c6acebb900fafb3e7dd7907'
-$checksumType       = 'sha256'
-$toolsDir           = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠†††‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑵牬††††††††㴠❨瑴灳㨯⽳㌮慰⵮潲瑨敡獴ⴲ⹡浡穯湡睳⹣潭⽮整⹸楬敳⹰畢汩振摯睮汯慤⽮數畳晩汥張⸴⸱⹺楰✊④桥捫獵洠†††††㴠❥散㌹搸㤸㝡㘸ㅤ愱换㥡㐸㜲㜱㘷㌲㡥摣㌰敡㈹挶慣敢戹〰晡晢㍥㝤搷㤰㜧ਤ捨散歳畭呹灥†††‽‧獨愲㔶✊⑴潯汳䑩爠†††††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

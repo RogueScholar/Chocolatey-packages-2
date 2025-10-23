@@ -1,15 +1,1 @@
-﻿$packageName = 'powderplayer'
-$softwareName = "Powder Player*"
-$installerType = 'exe'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-$validExitCodes = @(0)
-
-[array]$key = Get-UninstallRegistryKey -SoftwareName $softwareName
-
-$key | ForEach-Object {
-  Uninstall-ChocolateyPackage -PackageName $packageName `
-                              -FileType $installerType `
-                              -SilentArgs $($silentArgs) `
-                              -File $($_.UninstallString.Replace('"','')) `
-                              -ValidExitCodes $validExitCodes
-}
+뼤灡捫慧敎慭攠㴠❰潷摥牰污祥爧ਤ獯晴睡牥乡浥‽•偯睤敲⁐污祥爪∊⑩湳瑡汬敲呹灥‽‧數攧ਤ獩汥湴䅲杳‽‧⽖䕒奓䥌䕎吠⽓啐偒䕓卍升䉏塅匠⽎佒䕓呁剔 卐ⴧਤ癡汩摅硩瑃潤敳‽⁀⠰⤊ਜ਼慲牡祝⑫敹‽⁇整ⵕ湩湳瑡汬剥杩獴特䭥礠ⵓ潦瑷慲敎慭攠⑳潦瑷慲敎慭攊ਤ步礠簠䙯牅慣栭佢橥捴⁻ૂꃂꁕ湩湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠⑰慣歡来乡浥⁠ૂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꀭ䙩汥呹灥․楮獴慬汥牔祰攠怊슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠슠ⵓ楬敮瑁牧猠␨⑳楬敮瑁牧猩⁠ૂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꀭ䙩汥․⠤弮啮楮獴慬汓瑲楮朮剥灬慣攨✢✬✧⤩⁠ૂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꃂꀭ噡汩摅硩瑃潤敳․癡汩摅硩瑃潤敳੽

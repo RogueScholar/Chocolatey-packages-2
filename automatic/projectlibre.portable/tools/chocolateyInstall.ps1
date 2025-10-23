@@ -1,15 +1,1 @@
-﻿$toolsDir     = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url          = 'https://psychz.dl.sourceforge.net/project/projectlibre/ProjectLibre/1.9.8/projectlibre-1.9.8.zip?viasf=1'
-$checksum     = '380c569399cfd54471bf45f33f8df08818b3a0d12a1f8724b96dade0ebfcce9a'
-$checksumType = 'sha256'
-
-$packageArgs = @{
-    packageName   = $env:ChocolateyPackageName
-    url           = $url
-    checksum      = $checksum
-    checksumType  = $checksumType
-
-    UnzipLocation = $toolsDir
-  }
-
-  Install-ChocolateyZipPackage @packageArgs
+뼤瑯潬獄楲††‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑵牬†††††㴠❨瑴灳㨯⽰獹捨種摬⹳潵牣敦潲来⹮整⽰牯橥捴⽰牯橥捴汩扲支偲潪散瑌楢牥⼱⸹⸸⽰牯橥捴汩扲攭ㄮ㤮㠮穩瀿癩慳昽ㄧਤ捨散歳畭††‽‧㌸っ㔶㤳㤹捦搵㐴㜱扦㐵昳㍦㡤昰㠸ㄸ戳愰搱㉡ㅦ㠷㈴戹㙤慤攰敢晣捥㥡✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਊ⑰慣歡来䅲杳‽⁀笊††灡捫慧敎慭攠†㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁵牬†††††‽․畲氊††捨散歳畭†††㴠④桥捫獵洊††捨散歳畭呹灥†㴠④桥捫獵浔祰攊ਠ†⁕湺楰䱯捡瑩潮‽․瑯潬獄楲ਠ⁽ਊ†䥮獴慬氭䍨潣潬慴敹婩灐慣歡来⁀灡捫慧敁牧猊

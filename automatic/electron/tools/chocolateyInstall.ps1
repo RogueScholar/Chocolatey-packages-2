@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 $packageName = $env:ChocolateyPackageName
 $url = 'https://github.com/electron/electron/releases/download/v38.4.0/electron-v38.4.0-win32-ia32.zip'
 $checksum = '0c795af59adbcc8ed9cc321f0a3d717ee2ee65a57a60dc4fb6907d514acfa8cc'

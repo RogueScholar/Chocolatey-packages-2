@@ -1,15 +1,1 @@
-﻿$packageName    = $env:ChocolateyPackageName
-$installerType  = 'exe'
-$silentArgs     = '/S'
-$url64          = 'https://bitcoincore.org/bin/bitcoin-core-30.0/bitcoin-30.0-win64-setup.exe'
-$checksum64     = '3065d43b57f967687399f9c00d424556d16d33997e1653fdb5bf1934b95168e6'
-$checksumType64 = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url64bit "$url64" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum64 "$checksum64" `
-                          -ChecksumType64 "$checksumType64"
+뼤灡捫慧敎慭攠†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑩湳瑡汬敲呹灥†㴠❥硥✊⑳楬敮瑁牧猠††㴠✯匧ਤ畲氶㐠††††‽‧桴瑰猺⼯扩瑣潩湣潲攮潲术扩港扩瑣潩渭捯牥ⴳ〮〯扩瑣潩渭㌰⸰⵷楮㘴⵳整異⹥硥✊④桥捫獵洶㐠††㴠✳〶㕤㐳戵㝦㤶㜶㠷㌹㥦㥣〰搴㈴㔵㙤ㄶ搳㌹㤷攱㘵㍦摢㕢昱㤳㑢㤵ㄶ㡥㘧ਤ捨散歳畭呹灥㘴‽‧獨愲㔶✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ䥮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††††ⵆ楬敔祰攠∤楮獴慬汥牔祰攢⁠ਠ††††††††††††‭卩汥湴䅲杳•⑳楬敮瑁牧猢⁠ਠ††††††††††††‭啲氶㑢楴•⑵牬㘴∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洶㐠∤捨散歳畭㘴∠怊†††††††††††††ⵃ桥捫獵浔祰收㐠∤捨散歳畭呹灥㘴∊

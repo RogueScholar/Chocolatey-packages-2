@@ -1,4 +1,4 @@
-﻿name: Get new request
+name: Get new request
 
 on:
   workflow_dispatch:

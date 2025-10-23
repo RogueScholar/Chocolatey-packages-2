@@ -1,4 +1,4 @@
-﻿name: Check exception
+name: Check exception
 
 on:
   issues:

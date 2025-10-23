@@ -1,18 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-$checksumType   = 'sha256'
-$checksum       = 'ba857966401c6b9e24ee5cdd1ddb0133a3f7e95f8602353eed1f9043c19b4905'
-$url            = 'https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.15.6.817.zip'
-
-$packageArgs = @{
-    packageName   = 'sdio'
-    unzipLocation = $toolsDir
-    fileType      = 'ZIP'
-    url           = $url
-    checksum      = $checksum
-    checksumType  = $checksumType
-}
-
-Remove-Item "$ToolsDir\SDIO_*" -Force -Recurse # Cleanup old versions
-Install-ChocolateyZipPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ瑯潬獄楲‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊ਤ捨散歳畭呹灥†‽‧獨愲㔶✊④桥捫獵洠†††㴠❢愸㔷㤶㘴〱挶戹攲㑥攵捤搱摤戰ㄳ㍡㍦㝥㤵昸㘰㈳㔳敥搱昹〴㍣ㄹ戴㤰㔧ਤ畲氠†††††‽‧桴瑰猺⼯睷眮杬敮渮摥污桯礮捯洯摯睮汯慤猯獤楯⽓䑉佟ㄮㄵ⸶⸸ㄷ⹺楰✊ਤ灡捫慧敁牧猠㴠䁻ਠ†⁰慣歡来乡浥†‽‧獤楯✊††畮穩灌潣慴楯渠㴠⑴潯汳䑩爊††晩汥呹灥†††㴠❚䥐✊††畲氠†††††㴠⑵牬ਠ†⁣桥捫獵洠††‽․捨散歳畭ਠ†⁣桥捫獵浔祰攠‽․捨散歳畭呹灥੽ਊ剥浯癥ⵉ瑥洠∤呯潬獄楲屓䑉佟⨢‭䙯牣攠ⵒ散畲獥‣⁃汥慮異⁯汤⁶敲獩潮猊䥮獴慬氭䍨潣潬慴敹婩灐慣歡来⁀灡捫慧敁牧猊

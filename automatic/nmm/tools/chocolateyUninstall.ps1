@@ -1,19 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-
-$packageName = 'nmm'
-$programUninstallEntryName = 'Nexus Mod Manager*'
-
-$toolsDir = Split-Path $MyInvocation.MyCommand.Definition
-$registry = Get-UninstallRegistryKey -SoftwareName $programUninstallEntryName
-$file = $registry.UninstallString -replace ('/SILENT', '')
-
-$packageArgs = @{
-  packageName    = $packageName
-  fileType       = 'exe'
-  silentArgs     = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-  validExitCodes = @(0)
-  file           = $file
-}
-
-Start-Process 'AutoHotkey' "$toolsDir\uninstall.ahk"
-Uninstall-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਊ⑰慣歡来乡浥‽‧湭洧ਤ灲潧牡浕湩湳瑡汬䕮瑲祎慭攠㴠❎數畳⁍潤⁍慮慧敲⨧ਊ⑴潯汳䑩爠㴠印汩琭偡瑨․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯渊⑲敧楳瑲礠㴠䝥琭啮楮獴慬汒敧楳瑲祋敹‭卯晴睡牥乡浥․灲潧牡浕湩湳瑡汬䕮瑲祎慭攊⑦楬攠㴠⑲敧楳瑲礮啮楮獴慬汓瑲楮朠⵲数污捥 ✯卉䱅乔✬‧✩ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†‽․灡捫慧敎慭攊†晩汥呹灥†††‽‧數攧ਠ⁳楬敮瑁牧猠††㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊†癡汩摅硩瑃潤敳‽⁀⠰⤊†晩汥†††††‽․晩汥੽ਊ却慲琭偲潣敳猠❁畴潈潴步礧•⑴潯汳䑩牜畮楮獴慬氮慨欢੕湩湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

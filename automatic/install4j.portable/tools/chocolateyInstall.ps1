@@ -1,11 +1,1 @@
-﻿$packageName = 'install4j.portable'
-$url = 'https://download.ej-technologies.com/install4j/install4j_windows-x64_11_0_5.zip'
-$checksum = '8b97e2602cdd61b298da332e3020a44527ceaa3394e33e7041a6c898b0e7ad86'
-$checksumType = 'sha256'
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠㴠❩湳瑡汬㑪⹰潲瑡扬攧ਤ畲氠㴠❨瑴灳㨯⽤潷湬潡搮敪⵴散桮潬潧楥献捯洯楮獴慬水樯楮獴慬水機睩湤潷猭砶㑟ㄱ弰張⹺楰✊④桥捫獵洠㴠✸戹㝥㈶〲捤搶ㅢ㈹㡤愳㌲攳〲ち㐴㔲㝣敡愳㌹㑥㌳攷〴ㅡ㙣㠹㡢づ㝡搸㘧ਤ捨散歳畭呹灥‽‧獨愲㔶✊⑴潯汳䑩爠㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਊ䥮獴慬氭䍨潣潬慴敹婩灐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

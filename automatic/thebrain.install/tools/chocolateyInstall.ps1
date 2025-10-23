@@ -1,15 +1,1 @@
-﻿$packageName    = $env:ChocolateyPackageName
-$installerType  = 'exe'
-$silentArgs     = '-q -overwrite'
-$url            = 'https://updater.thebrain.com/files/TheBrain%2014.0.112.0%20Installer.exe'
-$checksum       = '7e59532b2526bbc08794246cc4b63f607e3e09c450eaf2d5e0bc9da3cf793ae9'
-$checksumType   = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum" `
-                          -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑩湳瑡汬敲呹灥†㴠❥硥✊⑳楬敮瑁牧猠††㴠✭焠ⵯ癥牷物瑥✊⑵牬††††††㴠❨瑴灳㨯⽵灤慴敲⹴桥扲慩渮捯洯晩汥猯周敂牡楮┲〱㐮〮ㄱ㈮〥㈰䥮獴慬汥爮數攧ਤ捨散歳畭†††‽‧㝥㔹㔳㉢㈵㈶扢挰㠷㤴㈴㙣挴戶㍦㘰㝥㍥〹挴㔰敡昲搵攰扣㥤愳捦㜹㍡改✊④桥捫獵浔祰攠†㴠❳桡㈵㘧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵕ牬•⑵牬∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊†††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

@@ -1,18 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$installerType  = 'msi'
-$url            = 'https://omnipacket.com/current/WireEdit-3.14.421.msi'
-$silentArgs     = '/quiet'
-$checksum       = '04e1e54eba6d0b891e2f50076b369c9ae0cbc73a850cec8074c51eec3a5974fb'
-$checksumType   = 'sha256'
-
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  fileType      = $installerType
-  url           = $url
-  checksum      = $checksum
-  checksumType  = $checksumType
-  silentArgs    = $silentArgs
-  validExitCodes= @(0)
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ楮獴慬汥牔祰攠‽‧浳椧ਤ畲氠†††††‽‧桴瑰猺⼯潭湩灡捫整⹣潭⽣畲牥湴⽗楲故摩琭㌮ㄴ⸴㈱⹭獩✊⑳楬敮瑁牧猠††㴠✯煵楥琧ਤ捨散歳畭†††‽‧〴攱攵㑥扡㙤ぢ㠹ㅥ㉦㔰〷㙢㌶㥣㥡攰换挷㍡㠵っ散㠰㜴挵ㅥ散㍡㔹㜴晢✊④桥捫獵浔祰攠†㴠❳桡㈵㘧ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ⁦楬敔祰攠††‽․楮獴慬汥牔祰攊†畲氠†††††㴠⑵牬ਠ⁣桥捫獵洠††‽․捨散歳畭ਠ⁣桥捫獵浔祰攠‽․捨散歳畭呹灥ਠ⁳楬敮瑁牧猠†‽․獩汥湴䅲杳ਠ⁶慬楤䕸楴䍯摥猽⁀⠰⤊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

@@ -1,15 +1,1 @@
-﻿$packageName = $env:ChocolateyPackageName
-$installerType = 'exe'
-$silentArgs = '/S /v/qn'
-$url = 'https://boinc-client.oss-accelerate.aliyuncs.com/SUNET%20Setup.exe'
-$checksum = 'dae8e554d1db46552ee28bf22362cb47047385c9e822d5eff096e560ca8bdb5b'
-$checksumType = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum" `
-                          -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ楮獴慬汥牔祰攠㴠❥硥✊⑳楬敮瑁牧猠㴠✯匠⽶⽱渧ਤ畲氠㴠❨瑴灳㨯⽢潩湣ⵣ汩敮琮潳猭慣捥汥牡瑥⹡汩祵湣献捯洯单久吥㈰卥瑵瀮數攧ਤ捨散歳畭‽‧摡攸攵㔴搱摢㐶㔵㉥攲㡢昲㈳㘲换㐷〴㜳㠵挹攸㈲搵敦昰㤶攵㘰捡㡢摢㕢✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵕ牬•⑵牬∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊†††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

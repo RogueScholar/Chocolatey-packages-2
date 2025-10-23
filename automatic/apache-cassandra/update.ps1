@@ -1,35 +1,1 @@
-$ErrorActionPreference = 'Stop'
-import-module chocolatey-AU
-Import-Module ..\..\scripts\au_extensions.psm1
-
-$releases = 'https://cassandra.apache.org/_/download.html'
-
-function global:au_SearchReplace {
-	@{
-		'tools/chocolateyInstall.ps1' = @{
-			"(^[$]url\s*=\s*)('.*')"      		= "`$1'$($Latest.URL32)'"
-			"(^[$]checksum\s*=\s*)('.*')" 		= "`$1'$($Latest.Checksum32)'"
-			"(^[$]checksumType\s*=\s*)('.*')" 	= "`$1'$($Latest.ChecksumType32)'"
-		}
-	}
-}
-
-function global:au_AfterUpdate($Package) {
-	Invoke-VirusTotalScan $Package
-}
-
-function global:au_GetLatest {
-	$page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url32 = ($page.Links | Where-Object {$_.href -match ".tar.gz$"} | Where-Object {$_.href -notmatch 'beta'} | Select-Object -First 1).href
-	$checksumurl = ($page.Links | Where-Object {$_.href -match ".tar.gz.sha"} | Where-Object {$_.href -notmatch 'beta'} | Select-Object -First 1).href
-	$page = Invoke-WebRequest -Uri $url32 -UseBasicParsing
-	$url32 = ($page.Links | Where-Object {$_.href -match ".tar.gz$"} | Where-Object {$_.href -notmatch 'beta'} | Select-Object -First 1).href
-	$checksumType = ($checksumurl.split('.'))[-1]
-	$checksum = (Invoke-WebRequest -Uri $checksumurl -UseBasicParsing).Content.trim()
-	$version = $url32.split('/') | Where-Object {$_ -Match "[0-9].[0-9]"} | Where-Object {$_ -notmatch 'tar'}
-
-	$Latest = @{ URL32 = $url32; Version = $version; Checksum32 = $checksum; ChecksumType32 = $checksumType }
-	return $Latest
-}
-
-update -ChecksumFor none -NoCheckChocoVersion
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊業灯牴⵭潤畬攠捨潣潬慴敹ⵁ唊䥭灯牴ⵍ潤畬攠⸮尮⹜獣物灴獜慵彥硴敮獩潮献灳洱ਊ⑲敬敡獥猠㴠❨瑴灳㨯⽣慳獡湤牡⹡灡捨攮潲术弯摯睮汯慤⹨瑭氧ਊ晵湣瑩潮⁧汯扡氺慵当敡牣桒数污捥⁻ਉ䁻ਉध瑯潬猯捨潣潬慴敹䥮獴慬氮灳ㄧ‽⁀笊उढ⡞嬤嵵牬屳⨽屳⨩⠧⸪✩∠†† ऽ•怤ㄧ␨⑌慴敳琮啒䰳㈩✢ਉउ∨幛⑝捨散歳畭屳⨽屳⨩⠧⸪✩∠उ㴠≠␱✤⠤䱡瑥獴⹃桥捫獵洳㈩✢ਉउ∨幛⑝捨散歳畭呹灥屳⨽屳⨩⠧⸪✩∠ऽ•怤ㄧ␨⑌慴敳琮䍨散歳畭呹灥㌲⤧∊उ紊ॽ੽ਊ晵湣瑩潮⁧汯扡氺慵彁晴敲啰摡瑥⠤偡捫慧攩⁻ਉ䥮癯步ⵖ楲畳呯瑡汓捡渠⑐慣歡来੽ਊ晵湣瑩潮⁧汯扡氺慵彇整䱡瑥獴⁻ਉ⑰慧攠㴠䥮癯步ⵗ敢剥煵敳琠ⵕ物․牥汥慳敳‭啳敂慳楣偡牳楮朊त畲氳㈠㴠⠤灡来⹌楮歳⁼⁗桥牥ⵏ扪散琠笤弮桲敦‭浡瑣栠∮瑡爮杺␢素簠坨敲攭佢橥捴⁻⑟⹨牥映⵮潴浡瑣栠❢整愧素簠卥汥捴ⵏ扪散琠ⵆ楲獴‱⤮桲敦ਉ④桥捫獵浵牬‽ ⑰慧攮䱩湫猠簠坨敲攭佢橥捴⁻⑟⹨牥映⵭慴捨•⹴慲⹧種獨愢素簠坨敲攭佢橥捴⁻⑟⹨牥映⵮潴浡瑣栠❢整愧素簠卥汥捴ⵏ扪散琠ⵆ楲獴‱⤮桲敦ਉ⑰慧攠㴠䥮癯步ⵗ敢剥煵敳琠ⵕ物․畲氳㈠ⵕ獥䉡獩捐慲獩湧ਉ⑵牬㌲‽ ⑰慧攮䱩湫猠簠坨敲攭佢橥捴⁻⑟⹨牥映⵭慴捨•⹴慲⹧稤≽⁼⁗桥牥ⵏ扪散琠笤弮桲敦‭湯瑭慴捨‧扥瑡❽⁼⁓敬散琭佢橥捴‭䙩牳琠ㄩ⹨牥昊त捨散歳畭呹灥‽ ④桥捫獵浵牬⹳灬楴⠧⸧⤩嬭ㅝਉ④桥捫獵洠㴠⡉湶潫攭坥扒敱略獴‭啲椠④桥捫獵浵牬‭啳敂慳楣偡牳楮朩⹃潮瑥湴⹴物洨⤊त癥牳楯渠㴠⑵牬㌲⹳灬楴⠧⼧⤠簠坨敲攭佢橥捴⁻⑟‭䵡瑣栠≛〭㥝⹛〭㥝≽⁼⁗桥牥ⵏ扪散琠笤张⵮潴浡瑣栠❴慲❽ਊत䱡瑥獴‽⁀笠啒䰳㈠㴠⑵牬㌲㬠噥牳楯渠㴠⑶敲獩潮㬠䍨散歳畭㌲‽․捨散歳畭㬠䍨散歳畭呹灥㌲‽․捨散歳畭呹灥⁽ਉ牥瑵牮․䱡瑥獴੽ਊ異摡瑥‭䍨散歳畭䙯爠湯湥‭乯䍨散歃桯捯噥牳楯渊

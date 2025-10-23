@@ -1,20 +1,1 @@
-﻿$packageName = $env:ChocolateyPackageName
-$url = 'https://download.sysinternals.com/files/Procdump.zip'
-$checksum = 'd58e81b96d53ded74570ad028d605fcfa1bfcc2e7cb2f5ab24bd64901b0c8783'
-$checksumType = 'sha256'
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
-Write-Verbose "Accepting license..."
-$regRoot = 'HKCU:\Software\Sysinternals'
-$regPkg = 'ProcDump'
-$regPath = Join-Path $regRoot $regPkg
-if (!(Test-Path $regRoot)) {New-Item -Path "$regRoot"}
-if (!(Test-Path $regPath)) {New-Item -Path "$regRoot" -Name "$regPkg"}
-Set-ItemProperty -Path "$regPath" -Name EulaAccepted -Value 1
-if ((Get-ItemProperty -Path "$regPath").EulaAccepted -ne 1) {
-  throw "Failed setting registry value."
-}
+뼤灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ畲氠㴠❨瑴灳㨯⽤潷湬潡搮獹獩湴敲湡汳⹣潭⽦楬敳⽐牯捤畭瀮穩瀧ਤ捨散歳畭‽‧搵㡥㠱戹㙤㔳摥搷㐵㜰慤〲㡤㘰㕦捦愱扦捣㉥㝣戲昵慢㈴扤㘴㤰ㅢっ㠷㠳✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ瑯潬獄楲‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊䥮獴慬氭䍨潣潬慴敹婩灐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††††ⵕ牬•⑵牬∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭䍨散歳畭•④桥捫獵洢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊坲楴攭噥牢潳攠≁捣数瑩湧⁬楣敮獥⸮⸢ਤ牥杒潯琠㴠❈䭃唺屓潦瑷慲敜卹獩湴敲湡汳✊⑲敧偫朠㴠❐牯捄畭瀧ਤ牥材慴栠㴠䩯楮ⵐ慴栠⑲敧副潴․牥材歧੩映⠡⡔敳琭偡瑨․牥杒潯琩⤠筎敷ⵉ瑥洠ⵐ慴栠∤牥杒潯琢紊楦 ℨ呥獴ⵐ慴栠⑲敧偡瑨⤩⁻乥眭䥴敭‭偡瑨•⑲敧副潴∠ⵎ慭攠∤牥材歧≽੓整ⵉ瑥浐牯灥牴礠ⵐ慴栠∤牥材慴栢‭乡浥⁅畬慁捣数瑥搠ⵖ慬略‱੩映⠨䝥琭䥴敭偲潰敲瑹‭偡瑨•⑲敧偡瑨∩⹅畬慁捣数瑥搠⵮攠ㄩ⁻ਠ⁴桲潷•䙡楬敤⁳整瑩湧⁲敧楳瑲礠癡汵攮∊紊

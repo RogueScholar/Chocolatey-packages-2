@@ -1,6 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$packageName = 'eduactiv8'
-$Shortcut    = 'eduActiv8.lnk'
-
-remove-item "$env:Public\Desktop\$Shortcut" -Force -ErrorAction 'SilentlyContinue'
-remove-item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\$Shortcut" -Force -ErrorAction 'SilentlyContinue'
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰慣歡来乡浥‽‧敤畡捴楶㠧ਤ卨潲瑣畴††㴠❥摵䅣瑩瘸⹬湫✊ੲ敭潶攭楴敭•⑥湶㩐畢汩捜䑥獫瑯灜⑓桯牴捵琢‭䙯牣攠ⵅ牲潲䅣瑩潮‧卩汥湴汹䍯湴楮略✊牥浯癥⵩瑥洠∤敮瘺偲潧牡浄慴慜䵩捲潳潦瑜坩湤潷獜却慲琠䵥湵屐牯杲慭獜⑓桯牴捵琢‭䙯牣攠ⵅ牲潲䅣瑩潮‧卩汥湴汹䍯湴楮略✊

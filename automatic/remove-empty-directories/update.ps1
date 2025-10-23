@@ -1,28 +1,1 @@
-$ErrorActionPreference = 'Stop'
-import-module chocolatey-AU
-
-$releases = 'https://www.jonasjohn.de/red.htm'
-
-function global:au_SearchReplace {
-	@{
-		'tools/chocolateyInstall.ps1' = @{
-			"(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"
-			"(^[$]checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
-			"(^[$]checksumType\s*=\s*)('.*')" = "`$1'$($Latest.checksumType32)'"
-		}
-	}
-}
-
-function global:au_AfterUpdate($Package) {
-	Invoke-VirusTotalScan $Package
-}
-
-function global:au_GetLatest {
-	$url32 = (((Invoke-WebRequest -Uri $releases -UseBasicParsing).Links | Where-Object {$_ -match '.zip'}).href)[0].replace('http://','https://')
-	$version = ($url32.split('/') | Where-Object {$_ -match '\.'})[1].replace('beta.0','beta0')
-
-	$Latest = @{ URL32 = $url32; Version = $version }
-	return $Latest
-}
-
-update -ChecksumFor 32
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊業灯牴⵭潤畬攠捨潣潬慴敹ⵁ唊ਤ牥汥慳敳‽‧桴瑰猺⼯睷眮橯湡獪潨渮摥⽲敤⹨瑭✊੦畮捴楯渠杬潢慬㩡畟卥慲捨剥灬慣攠笊ी笊उ❴潯汳⽣桯捯污瑥祉湳瑡汬⹰猱✠㴠䁻ਉउ∨幛⑝畲汜猪㵜猪⤨✮⨧⤢†††㴠≠␱✤⠤䱡瑥獴⹕剌㌲⤧∊उढ⡞嬤嵣桥捫獵浜猪㵜猪⤨✮⨧⤢‽•怤ㄧ␨⑌慴敳琮䍨散歳畭㌲⤧∊उढ⡞嬤嵣桥捫獵浔祰敜猪㵜猪⤨✮⨧⤢‽•怤ㄧ␨⑌慴敳琮捨散歳畭呹灥㌲⤧∊उ紊ॽ੽ਊ晵湣瑩潮⁧汯扡氺慵彁晴敲啰摡瑥⠤偡捫慧攩⁻ਉ䥮癯步ⵖ楲畳呯瑡汓捡渠⑐慣歡来੽ਊ晵湣瑩潮⁧汯扡氺慵彇整䱡瑥獴⁻ਉ⑵牬㌲‽ ⠨䥮癯步ⵗ敢剥煵敳琠ⵕ物․牥汥慳敳‭啳敂慳楣偡牳楮朩⹌楮歳⁼⁗桥牥ⵏ扪散琠笤张⵭慴捨‧⹺楰❽⤮桲敦⥛そ⹲数污捥⠧桴瑰㨯⼧Ⱗ桴瑰猺⼯✩ਉ⑶敲獩潮‽ ⑵牬㌲⹳灬楴⠧⼧⤠簠坨敲攭佢橥捴⁻⑟‭浡瑣栠❜⸧紩嬱崮牥灬慣攨❢整愮〧Ⱗ扥瑡〧⤊ਉ⑌慴敳琠㴠䁻⁕剌㌲‽․畲氳㈻⁖敲獩潮‽․癥牳楯渠紊ॲ整畲渠⑌慴敳琊紊ੵ灤慴攠ⵃ桥捫獵浆潲″㈊

@@ -1,33 +1,1 @@
-﻿Set-Location C:\Users\fabia\Documents\Git\Chocolatey-package\Chocolatey-packages\
-
-# Nom partiel de l'interface réseau que vous voulez surveiller
-$interfaceNameFilter = "netxtreme gigabit ethernet _3"
-
-# Récupérer les données réseau avant l'exécution du script pour l'interface spécifiée
-$networkStatsBefore = Get-WmiObject -Query "SELECT * FROM Win32_PerfRawData_Tcpip_NetworkInterface" | Where-Object { $_.Name -like "*$interfaceNameFilter*" }
-
-if (-not $networkStatsBefore) {
-    Write-Output "Interface réseau non trouvée."
-    exit
-}
-
-# Exécuter votre script (ou simuler l'exécution avec une pause)
-.\au\update_all.ps1
-
-# Récupérer les données réseau après l'exécution du script pour l'interface spécifiée
-$networkStatsAfter = Get-WmiObject -Query "SELECT * FROM Win32_PerfRawData_Tcpip_NetworkInterface" | Where-Object { $_.Name -like "*$interfaceNameFilter*" }
-
-# Calculer la quantité de données transférées
-$bytesSentBefore = ($networkStatsBefore | Measure-Object -Sum -Property BytesSentPersec).Sum
-$bytesSentAfter = ($networkStatsAfter | Measure-Object -Sum -Property BytesSentPersec).Sum
-$bytesReceivedBefore = ($networkStatsBefore | Measure-Object -Sum -Property BytesReceivedPersec).Sum
-$bytesReceivedAfter = ($networkStatsAfter | Measure-Object -Sum -Property BytesReceivedPersec).Sum
-
-$totalBytesSent = $bytesSentAfter - $bytesSentBefore
-$totalBytesReceived = $bytesReceivedAfter - $bytesReceivedBefore
-
-$totalBytesTransferred = $totalBytesSent + $totalBytesReceived
-
-# Afficher la quantité transférée en Mo
-$totalMBTransferred = [math]::round($totalBytesTransferred / 1MB, 2)
-Write-Output "Total data transferred on interface '$interfaceNameFilter': $totalMBTransferred MB"
+뽓整ⵌ潣慴楯渠䌺展獥牳屦慢楡屄潣畭敮瑳屇楴屃桯捯污瑥礭灡捫慧敜䍨潣潬慴敹⵰慣歡来獜ਊ⌠乯洠灡牴楥氠摥⁬❩湴敲晡捥⁲쎩獥慵ⁱ略⁶潵猠癯畬敺⁳畲癥楬汥爊⑩湴敲晡捥乡浥䙩汴敲‽•湥瑸瑲敭攠杩条扩琠整桥牮整 ㌢ਊ⌠勃ꥣ異쎩牥爠汥猠摯湮쎩敳⁲쎩獥慵⁡癡湴⁬❥磃ꥣ畴楯渠摵⁳捲楰琠灯畲⁬❩湴敲晡捥⁳烃ꥣ楦槃ꥥਤ湥瑷潲歓瑡瑳䉥景牥‽⁇整ⵗ浩佢橥捴‭兵敲礠≓䕌䕃吠⨠䙒位⁗楮㌲彐敲晒慷䑡瑡彔捰楰彎整睯牫䥮瑥牦慣攢⁼⁗桥牥ⵏ扪散琠笠⑟⹎慭攠⵬楫攠∪⑩湴敲晡捥乡浥䙩汴敲⨢⁽ਊ楦 ⵮潴․湥瑷潲歓瑡瑳䉥景牥⤠笊††坲楴攭併瑰畴•䥮瑥牦慣攠狃ꥳ敡甠湯渠瑲潵盃ꥥ⸢ਠ†⁥硩琊紊ਣ⁅磃ꥣ畴敲⁶潴牥⁳捲楰琠⡯甠獩浵汥爠氧數쎩捵瑩潮⁡癥挠畮攠灡畳攩ਮ屡畜異摡瑥彡汬⹰猱ਊ⌠勃ꥣ異쎩牥爠汥猠摯湮쎩敳⁲쎩獥慵⁡灲쎨猠氧數쎩捵瑩潮⁤甠獣物灴⁰潵爠氧楮瑥牦慣攠獰쎩捩晩쎩攊⑮整睯牫却慴獁晴敲‽⁇整ⵗ浩佢橥捴‭兵敲礠≓䕌䕃吠⨠䙒位⁗楮㌲彐敲晒慷䑡瑡彔捰楰彎整睯牫䥮瑥牦慣攢⁼⁗桥牥ⵏ扪散琠笠⑟⹎慭攠⵬楫攠∪⑩湴敲晡捥乡浥䙩汴敲⨢⁽ਊ⌠䍡汣畬敲⁬愠煵慮瑩瓃ꤠ摥⁤潮滃ꥥ猠瑲慮獦쎩狃ꥥ猊③祴敳卥湴䉥景牥‽ ⑮整睯牫却慴獂敦潲攠簠䵥慳畲攭佢橥捴‭卵洠ⵐ牯灥牴礠䉹瑥獓敮瑐敲獥挩⹓畭ਤ批瑥獓敮瑁晴敲‽ ⑮整睯牫却慴獁晴敲⁼⁍敡獵牥ⵏ扪散琠ⵓ畭‭偲潰敲瑹⁂祴敳卥湴健牳散⤮卵洊③祴敳剥捥楶敤䉥景牥‽ ⑮整睯牫却慴獂敦潲攠簠䵥慳畲攭佢橥捴‭卵洠ⵐ牯灥牴礠䉹瑥獒散敩癥摐敲獥挩⹓畭ਤ批瑥獒散敩癥摁晴敲‽ ⑮整睯牫却慴獁晴敲⁼⁍敡獵牥ⵏ扪散琠ⵓ畭‭偲潰敲瑹⁂祴敳剥捥楶敤健牳散⤮卵洊ਤ瑯瑡求祴敳卥湴‽․批瑥獓敮瑁晴敲‭․批瑥獓敮瑂敦潲攊⑴潴慬䉹瑥獒散敩癥搠㴠③祴敳剥捥楶敤䅦瑥爠ⴠ③祴敳剥捥楶敤䉥景牥ਊ⑴潴慬䉹瑥獔牡湳晥牲敤‽․瑯瑡求祴敳卥湴‫․瑯瑡求祴敳剥捥楶敤ਊ⌠䅦晩捨敲⁬愠煵慮瑩瓃ꤠ瑲慮獦쎩狃ꥥ⁥渠䵯ਤ瑯瑡汍䉔牡湳晥牲敤‽⁛浡瑨崺㩲潵湤⠤瑯瑡求祴敳呲慮獦敲牥搠⼠ㅍ䈬′⤊坲楴攭併瑰畴•呯瑡氠摡瑡⁴牡湳晥牲敤⁯渠楮瑥牦慣攠✤楮瑥牦慣敎慭敆楬瑥爧㨠⑴潴慬䵂呲慮獦敲牥搠䵂∊

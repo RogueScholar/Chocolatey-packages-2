@@ -1,25 +1,1 @@
-$ErrorActionPreference = 'Stop';
-
-[array]$key = Get-UninstallRegistryKey -SoftwareName 'Proton Pass'
-$packageName = $env:ChocolateyPackageName
-
-if ($key.Count -eq 1) {
-    $key | ForEach-Object {
-        $packageArgs = @{
-            packageName    = $packageName
-            fileType       = 'EXE'
-            silentArgs     = '--uninstall -s'
-            validExitCodes = @(0)
-            file           = "$($_.UninstallString -replace ' --uninstall')"
-        }
-
-        Uninstall-ChocolateyPackage @packageArgs
-    }
-} elseif ($key.Count -eq 0) {
-    Write-Warning "$packageName has already been uninstalled by other means."
-} elseif ($key.Count -gt 1) {
-    Write-Warning "$($key.Count) matches found!"
-    Write-Warning "To prevent accidental data loss, no programs will be uninstalled."
-    Write-Warning "Please alert package maintainer the following keys were matched:"
-    $key | ForEach-Object {Write-Warning "- $($_.DisplayName)"}
-}
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✻ਊ孡牲慹崤步礠㴠䝥琭啮楮獴慬汒敧楳瑲祋敹‭卯晴睡牥乡浥‧偲潴潮⁐慳猧ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਊ楦 ⑫敹⹃潵湴‭敱‱⤠笊††⑫敹⁼⁆潲䕡捨ⵏ扪散琠笊††††⑰慣歡来䅲杳‽⁀笊††††††灡捫慧敎慭攠†‽․灡捫慧敎慭攊††††††晩汥呹灥†††‽‧䕘䔧ਠ†††††⁳楬敮瑁牧猠††㴠✭⵵湩湳瑡汬‭猧ਠ†††††⁶慬楤䕸楴䍯摥猠㴠䀨〩ਠ†††††⁦楬攠†††††㴠∤⠤弮啮楮獴慬汓瑲楮朠⵲数污捥‧‭⵵湩湳瑡汬✩∊††††紊ਠ†††⁕湩湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊††紊素敬獥楦 ⑫敹⹃潵湴‭敱‰⤠笊††坲楴攭坡牮楮朠∤灡捫慧敎慭攠桡猠慬牥慤礠扥敮⁵湩湳瑡汬敤⁢礠潴桥爠浥慮献∊素敬獥楦 ⑫敹⹃潵湴‭杴‱⤠笊††坲楴攭坡牮楮朠∤⠤步礮䍯畮琩⁭慴捨敳⁦潵湤™ਠ†⁗物瑥ⵗ慲湩湧•呯⁰牥癥湴⁡捣楤敮瑡氠摡瑡⁬潳猬⁮漠灲潧牡浳⁷楬氠扥⁵湩湳瑡汬敤⸢ਠ†⁗物瑥ⵗ慲湩湧•偬敡獥⁡汥牴⁰慣歡来⁭慩湴慩湥爠瑨攠景汬潷楮朠步祳⁷敲攠浡瑣桥携∊††⑫敹⁼⁆潲䕡捨ⵏ扪散琠筗物瑥ⵗ慲湩湧•ⴠ␨⑟⹄楳灬慹乡浥⤢紊紊

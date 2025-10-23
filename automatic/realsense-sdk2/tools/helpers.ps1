@@ -1,29 +1,1 @@
-function Get-InstallComponent( [HashTable]$pp )
-{
-    if($pp.Components){
-        $res += $pp.Components
-    }
-
-    if ($res.Length -eq 0) { return }
-    return '/COMPONENTS="{0}"' -f ($res -join ",")
-}
-
-function Get-InstallOption( [HashTable]$pp )
-{
-
-    if ($pp.Full -And $pp.Components) {
-        throw "Invalid argument /Components used with /Full, please use only one"
-    }
-
-    if ($pp.NoIcons) {
-        $res += '/NOICONS', '/TASKS=""'
-    }
-
-    if ($pp.Full) {
-        $res += "/TYPE=full"
-    }
-
-#    $tasks += "desktopicon", "quicklaunchicon"
-#    return '/TASKS="{0}"' -f ($res -join ",")
-    return $res
-}
+晵湣瑩潮⁇整ⵉ湳瑡汬䍯浰潮敮琨⁛䡡獨呡扬敝⑰瀠⤊笊††楦⠤灰⹃潭灯湥湴猩笊††††⑲敳‫㴠⑰瀮䍯浰潮敮瑳ਠ†⁽ਊ††楦 ⑲敳⹌敮杴栠ⵥ焠〩⁻⁲整畲渠紊††牥瑵牮‧⽃位偏久乔匽≻ぽ∧‭映⠤牥猠⵪潩渠∬∩੽ਊ晵湣瑩潮⁇整ⵉ湳瑡汬佰瑩潮⠠孈慳桔慢汥崤灰 ੻ਊ††楦 ⑰瀮䙵汬‭䅮搠⑰瀮䍯浰潮敮瑳⤠笊††††瑨牯眠≉湶慬楤⁡牧畭敮琠⽃潭灯湥湴猠畳敤⁷楴栠⽆畬氬⁰汥慳攠畳攠潮汹⁯湥∊††紊ਠ†⁩映⠤灰⹎潉捯湳⤠笊††††⑲敳‫㴠✯乏䥃低匧Ⱐ✯呁卋匽∢✊††紊ਠ†⁩映⠤灰⹆畬氩⁻ਠ†††․牥猠⬽•⽔奐䔽晵汬∊††紊ਣ††⑴慳歳‫㴠≤敳歴潰楣潮∬•煵楣歬慵湣桩捯渢ਣ††牥瑵牮‧⽔䅓䭓㴢笰索✠ⵦ ⑲敳‭橯楮•Ⱒ⤊††牥瑵牮․牥猊紊

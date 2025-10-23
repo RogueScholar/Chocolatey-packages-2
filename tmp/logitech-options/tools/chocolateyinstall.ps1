@@ -1,17 +1,1 @@
-$ErrorActionPreference = 'Stop'
-#$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = 'https://download01.logi.com/web/ftp/pub/techsupport/options/options_installer.exe'
-$checksum       = '8A8882C14F4ABBEF7756A2E58A69E26AF7D2191A26195C51F4325029552C96AE'
-$checksumType   = 'sha256'
-
-$packageArgs = @{
-    packageName    = $env:ChocolateyPackageName
-    url            = $url
-    checkum        = $checksum
-    checksumType   = $checksumType
-    fileType       = 'EXE'
-    silentArgs     = '/quiet /update:false'
-    validExitCodes = @(0)
-}
-
-Install-ChocolateyPackage @packageArgs
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⌤瑯潬獄楲‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑵牬††††††㴠❨瑴灳㨯⽤潷湬潡搰ㄮ汯杩⹣潭⽷敢⽦瑰⽰畢⽴散桳異灯牴⽯灴楯湳⽯灴楯湳彩湳瑡汬敲⹥硥✊④桥捫獵洠†††㴠✸䄸㠸㉃ㄴ䘴䅂䉅䘷㜵㙁㉅㔸䄶㥅㈶䅆㝄㈱㤱䄲㘱㤵䌵ㅆ㐳㈵〲㤵㔲䌹㙁䔧ਤ捨散歳畭呹灥†‽‧獨愲㔶✊ਤ灡捫慧敁牧猠㴠䁻ਠ†⁰慣歡来乡浥††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁵牬††††††㴠⑵牬ਠ†⁣桥捫畭††††㴠④桥捫獵洊††捨散歳畭呹灥†‽․捨散歳畭呹灥ਠ†⁦楬敔祰攠†††㴠❅塅✊††獩汥湴䅲杳††‽‧⽱畩整 異摡瑥㩦慬獥✊††癡汩摅硩瑃潤敳‽⁀⠰⤊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

@@ -1,4 +1,4 @@
-﻿$url            = 'https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v1/wam/download?sapCode=KCCC&productName=Creative%20Cloud&os=win&environment=prod' # download url
+$url            = 'https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v1/wam/download?sapCode=KCCC&productName=Creative%20Cloud&os=win&environment=prod' # download url
 $checksum       = '949206d370d0b92aef5b6730734dacc939a3ba5bc9c7d0001782cab839e97e16'
 $checksumType   = 'sha256'
 

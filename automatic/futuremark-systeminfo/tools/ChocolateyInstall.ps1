@@ -1,18 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName    = 'futuremark-systeminfo'
-$url            = 'https://d1ejs5fxm96rib.cloudfront.net/Futuremark_SystemInfo_5_88_1377.msi'
-$checksum       = 'de217cea3a3d995089474cce3c1df5708f1beb38c6dafb755e4c8befc324fce3'
-$checksumType   = 'sha256'
-
-$packageArgs = @{
-  packageName    = $packageName
-  fileType       = 'MSI'
-  url            = $url
-  validExitCodes = @(0, 3010, 1641)
-  silentArgs     = '/quiet /qn /norestart'
-  softwareName   = 'Futuremark SystemInfo*'
-  checksum       = $checksum
-  checksumType   = $checksumType
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠†‽‧晵瑵牥浡牫⵳祳瑥浩湦漧ਤ畲氠†††††‽‧桴瑰猺⼯搱敪猵晸洹㙲楢⹣汯畤晲潮琮湥琯䙵瑵牥浡牫当祳瑥浉湦潟㕟㠸弱㌷㜮浳椧ਤ捨散歳畭†††‽‧摥㈱㝣敡㍡㍤㤹㔰㠹㐷㑣捥㍣ㅤ昵㜰㡦ㅢ敢㌸挶摡晢㜵㕥㑣㡢敦挳㈴晣攳✊④桥捫獵浔祰攠†㴠❳桡㈵㘧ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†‽․灡捫慧敎慭攊†晩汥呹灥†††‽‧䵓䤧ਠ⁵牬††††††㴠⑵牬ਠ⁶慬楤䕸楴䍯摥猠㴠䀨〬″〱〬‱㘴ㄩਠ⁳楬敮瑁牧猠††㴠✯煵楥琠⽱渠⽮潲敳瑡牴✊†獯晴睡牥乡浥†‽‧䙵瑵牥浡牫⁓祳瑥浉湦漪✊†捨散歳畭†††‽․捨散歳畭ਠ⁣桥捫獵浔祰攠†㴠④桥捫獵浔祰攊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

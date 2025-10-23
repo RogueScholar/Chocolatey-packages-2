@@ -1,16 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$packageSearch = 'SciTE Text Editor'
-$installerType = 'msi'
-$silentArgs = '/quiet /qn /norestart'
-$validExitCodes = @(0)
-
-Get-ItemProperty -Path @( 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                          'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
-                          'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' ) `
-                 -ErrorAction:SilentlyContinue `
-| Where-Object   { $_.DisplayName -like "$packageSearch*" } `
-| ForEach-Object { Uninstall-ChocolateyPackage -PackageName "$packageName" `
-                                               -FileType "$installerType" `
-                                               -SilentArgs "$($_.PSChildName) $silentArgs" `
-                                               -ValidExitCodes $validExitCodes }
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰慣歡来乡浥‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑰慣歡来卥慲捨‽‧卣楔䔠呥硴⁅摩瑯爧ਤ楮獴慬汥牔祰攠㴠❭獩✊⑳楬敮瑁牧猠㴠✯煵楥琠⽱渠⽮潲敳瑡牴✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ䝥琭䥴敭偲潰敲瑹‭偡瑨⁀⠠❈䭌䴺屓潦瑷慲敜坯眶㐳㉎潤敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਠ††††††††††††‧䡋䱍㩜卯晴睡牥屍楣牯獯晴屗楮摯睳屃畲牥湴噥牳楯湜啮楮獴慬汜⨧Ⰺ†††††††††††††❈䭃唺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✠⤠怊††††††††‭䕲牯牁捴楯渺卩汥湴汹䍯湴楮略⁠੼⁗桥牥ⵏ扪散琠†笠⑟⹄楳灬慹乡浥‭汩步•⑰慣歡来卥慲捨⨢⁽⁠੼⁆潲䕡捨ⵏ扪散琠笠啮楮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††††††††††††‭卩汥湴䅲杳•␨⑟⹐千桩汤乡浥⤠⑳楬敮瑁牧猢⁠ਠ†††††††††††††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠紊

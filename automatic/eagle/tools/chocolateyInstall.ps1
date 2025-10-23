@@ -1,14 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$installerType = 'EXE'
-$url64 = '{{DownloadUrlx64}}'
-$checksum64 = '{{Checksumx64}}'
-$checksumType64 = 'sha256'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                             -InstallerType "$installerType" `
-                             -Url64bit "$url64" `
-                             -Checksum64 "$checksum64" `
-                             -ChecksumType64 "$checksumType64" `
-                             -SilentArgs "$silentArgs"
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ楮獴慬汥牔祰攠㴠❅塅✊⑵牬㘴‽‧筻䑯睮汯慤啲汸㘴絽✊④桥捫獵洶㐠㴠❻筃桥捫獵浸㘴絽✊④桥捫獵浔祰收㐠㴠❳桡㈵㘧ਤ獩汥湴䅲杳‽‧⽖䕒奓䥌䕎吠⽓啐偒䕓卍升䉏塅匠⽎佒䕓呁剔 卐ⴧਊ䥮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊††††††††††††††‭䥮獴慬汥牔祰攠∤楮獴慬汥牔祰攢⁠ਠ††††††††††††††ⵕ牬㘴扩琠∤畲氶㐢⁠ਠ††††††††††††††ⵃ桥捫獵洶㐠∤捨散歳畭㘴∠怊††††††††††††††‭䍨散歳畭呹灥㘴•④桥捫獵浔祰收㐢⁠ਠ††††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∊

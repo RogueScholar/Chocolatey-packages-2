@@ -1,16 +1,1 @@
-﻿$packageName = $env:ChocolateyPackageName
-$packageSearch = "Pulover's Macro Creator*"
-$fileType = 'exe'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-$validExitCodes = @(0)
-
-Get-ItemProperty -Path @('HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
-				   'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
-				   'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*') `
-		       -ErrorAction:SilentlyContinue `
-| Where-Object   {$_.DisplayName -like $packageSearch} `
-| ForEach-Object {Uninstall-ChocolateyPackage -PackageName "$packageName" `
-								    -FileType "$fileType" `
-								    -SilentArgs "$($silentArgs)" `
-								    -File "$($_.UninstallString.Replace('"',''))" `
-								    -ValidExitCodes $validExitCodes}
+뼤灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ灡捫慧敓敡牣栠㴠≐畬潶敲❳⁍慣牯⁃牥慴潲⨢ਤ晩汥呹灥‽‧數攧ਤ獩汥湴䅲杳‽‧⽖䕒奓䥌䕎吠⽓啐偒䕓卍升䉏塅匠⽎佒䕓呁剔 卐ⴧਤ癡汩摅硩瑃潤敳‽⁀⠰⤊ੇ整ⵉ瑥浐牯灥牴礠ⵐ慴栠䀨❈䭌䴺屓潦瑷慲敜坯眶㐳㉎潤敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਉउठ†❈䭌䴺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✬ਉउठ†❈䭃唺屓潦瑷慲敜䵩捲潳潦瑜坩湤潷獜䍵牲敮瑖敲獩潮展湩湳瑡汬尪✩⁠ਉठ†††ⵅ牲潲䅣瑩潮㩓楬敮瑬祃潮瑩湵攠怊簠坨敲攭佢橥捴†⁻⑟⹄楳灬慹乡浥‭汩步․灡捫慧敓敡牣桽⁠੼⁆潲䕡捨ⵏ扪散琠筕湩湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਉउउउठ†‭䙩汥呹灥•⑦楬敔祰攢⁠ਉउउउठ†‭卩汥湴䅲杳•␨⑳楬敮瑁牧猩∠怊उउउउ††ⵆ楬攠∤⠤弮啮楮獴慬汓瑲楮朮剥灬慣攨✢✬✧⤩∠怊उउउउ††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥獽

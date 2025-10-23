@@ -1,10 +1,1 @@
-﻿$packageName  = $env:ChocolateyPackageName
-
-$p = Get-Process -Name "DS4Windows" -ea 0
-if (!$p) {
-    "$packageName is not running"
-    return
-}
-
-"$packageName is running, trying to gracefully shut it down before upgrade/uninstall"
-Stop-Process -InputObject $p -Force
+뼤灡捫慧敎慭攠‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊ਤ瀠㴠䝥琭偲潣敳猠ⵎ慭攠≄匴坩湤潷猢‭敡‰੩映⠡⑰⤠笊††∤灡捫慧敎慭攠楳⁮潴⁲畮湩湧∊††牥瑵牮੽ਊ∤灡捫慧敎慭攠楳⁲畮湩湧Ⱐ瑲祩湧⁴漠杲慣敦畬汹⁳桵琠楴⁤潷渠扥景牥⁵灧牡摥⽵湩湳瑡汬∊却潰ⵐ牯捥獳‭䥮灵瑏扪散琠⑰‭䙯牣攊

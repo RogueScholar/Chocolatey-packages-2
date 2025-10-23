@@ -1,15 +1,1 @@
-﻿$url32          = 'https://github.com/syvaidya/openstego/releases/download/openstego-0.8.6/Setup-OpenStego-0.8.6.exe'
-$checksum32     = '80cfa3fe262219ce5e68d255477042e1473aa3ae97552d7bad8e895c95b44a73'
-$checksumType32 = 'sha256'
-
-$packageArgs = @{
-    packageName            = $env:ChocolateyPackageName
-    fileType               = 'EXE'
-    url                    = $url32
-    checksum               = $checksum32
-    checksumType           = $checksumType32
-    silentArgs             = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /ALLUSERS'
-    validExitCodes         = @(0)
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤畲氳㈠††††‽‧桴瑰猺⼯杩瑨畢⹣潭⽳祶慩摹愯潰敮獴敧漯牥汥慳敳⽤潷湬潡搯潰敮獴敧漭〮㠮㘯卥瑵瀭佰敮却敧漭〮㠮㘮數攧ਤ捨散歳畭㌲††‽‧㠰捦愳晥㈶㈲ㄹ捥㕥㘸搲㔵㐷㜰㐲攱㐷㍡愳慥㤷㔵㉤㝢慤㡥㠹㕣㤵戴㑡㜳✊④桥捫獵浔祰攳㈠㴠❳桡㈵㘧ਊ⑰慣歡来䅲杳‽⁀笊††灡捫慧敎慭攠†††††‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊††晩汥呹灥†††††††‽‧䕘䔧ਠ†⁵牬††††††††††㴠⑵牬㌲ਠ†⁣桥捫獵洠†††††††㴠④桥捫獵洳㈊††捨散歳畭呹灥†††††‽․捨散歳畭呹灥㌲ਠ†⁳楬敮瑁牧猠††††††㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭 䅌䱕卅剓✊††癡汩摅硩瑃潤敳††††‽⁀⠰⤊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

@@ -1,16 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$file32         = "$(Join-Path $toolsDir -ChildPath 'mzcacheview.zip')"
-
-$unzipArgs = @{
-    PackageName     = $env:ChocolateyPackageName
-    FileFullPath    = $file32
-    Destination     = $toolsDir
-}
-
-Get-ChocolateyUnzip @unzipArgs
-
-$installFile    = (get-childitem -Filter "*.exe" -Recurse).FullName
-
-Set-Content -Path ("$installFile.gui") `
-            -Value $null
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑴潯汳䑩爠†††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ晩汥㌲††††‽•␨䩯楮ⵐ慴栠⑴潯汳䑩爠ⵃ桩汤偡瑨‧浺捡捨敶楥眮穩瀧⤢ਊ⑵湺楰䅲杳‽⁀笊††偡捫慧敎慭攠††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁆楬敆畬汐慴栠†‽․晩汥㌲ਠ†⁄敳瑩湡瑩潮††‽․瑯潬獄楲੽ਊ䝥琭䍨潣潬慴敹啮穩瀠䁵湺楰䅲杳ਊ⑩湳瑡汬䙩汥††㴠⡧整ⵣ桩汤楴敭‭䙩汴敲•⨮數攢‭剥捵牳攩⹆畬汎慭攊੓整ⵃ潮瑥湴‭偡瑨 ∤楮獴慬汆楬攮杵椢⤠怊††††††ⵖ慬略․湵汬

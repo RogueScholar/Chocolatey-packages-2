@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 $packageName    = $env:ChocolateyPackageName
 $toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url            = 'https://github.com/duplicati/duplicati/releases/download/v2.2.0.0_stable_2025-10-23/duplicati-2.2.0.0_stable_2025-10-23-win-x64-gui.zip'

@@ -1,4 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-Remove-Item "$(Get-ToolsLocation)\rstray" -Recurse -Force -ea 0
-
-Uninstall-BinFile "rstray" "$(Get-ToolsLocation)\rstray\rstray.exe"
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧੒敭潶攭䥴敭•␨䝥琭呯潬獌潣慴楯温屲獴牡礢‭剥捵牳攠ⵆ潲捥‭敡‰ਊ啮楮獴慬氭䉩湆楬攠≲獴牡礢•␨䝥琭呯潬獌潣慴楯温屲獴牡祜牳瑲慹⹥硥∊

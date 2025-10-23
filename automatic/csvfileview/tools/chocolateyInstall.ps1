@@ -1,16 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = '$env:ChocolateyPackageName'
-$url = 'https://www.nirsoft.net/utils/csvfileview.zip'
-$checksum = 'FC97C437245C66D1DD3F9016EBFF4F992F50436262137B1D95631817C0E11884'
-$checksumType = 'sha256'
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$installFile = Join-Path $toolsDir "$($packageName).exe"
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
-
-Set-Content -Path ("$installFile.gui") `
-            -Value $null
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠✤敮瘺䍨潣潬慴敹偡捫慧敎慭攧ਤ畲氠㴠❨瑴灳㨯⽷睷⹮楲獯晴⹮整⽵瑩汳⽣獶晩汥癩敷⹺楰✊④桥捫獵洠㴠❆䌹㝃㐳㜲㐵䌶㙄ㅄ䐳䘹〱㙅䉆䘴䘹㤲䘵〴㌶㈶㈱㌷䈱䐹㔶㌱㠱㝃ぅㄱ㠸㐧ਤ捨散歳畭呹灥‽‧獨愲㔶✊⑴潯汳䑩爠㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ楮獴慬汆楬攠㴠䩯楮ⵐ慴栠⑴潯汳䑩爠∤⠤灡捫慧敎慭攩⹥硥∊੉湳瑡汬ⵃ桯捯污瑥祚楰偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊††††††††††††††‭啲氠∤畲氢⁠ਠ††††††††††††††ⵕ湺楰䱯捡瑩潮•⑴潯汳䑩爢⁠ਠ††††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊††††††††††††††‭䍨散歳畭呹灥•④桥捫獵浔祰攢ਊ卥琭䍯湴敮琠ⵐ慴栠⠢⑩湳瑡汬䙩汥⹧畩∩⁠ਠ†††††‭噡汵攠⑮畬氊

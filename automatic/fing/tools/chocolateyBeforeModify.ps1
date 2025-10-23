@@ -1,11 +1,1 @@
-$ErrorActionPreference = 'Stop'; # stop on all errors	$uninstaller = $(./Get-InstalledApps.ps1 -NameRegex Fing).UninstallString.split('"')[1]
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  softwareName  = 'Fing'  #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
-  fileType      = 'EXE' #only one of these: MSI or EXE (ignore MSU for now)
-
-  silentArgs    = "/allusers /S"
-  validExitCodes= @(0, 3010, 1605, 1614, 1641) # https://msdn.microsoft.com/en-us/library/aa376931(v=vs.85).aspx
-}
-
-Uninstall-ChocolateyPackage @packageArgs
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✻‣⁳瑯瀠潮⁡汬⁥牲潲猉⑵湩湳瑡汬敲‽․⠮⽇整ⵉ湳瑡汬敤䅰灳⹰猱‭乡浥剥来砠䙩湧⤮啮楮獴慬汓瑲楮朮獰汩琨✢✩嬱崊⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ⁳潦瑷慲敎慭攠‽‧䙩湧✠‣灡牴⁯爠慬氠潦⁴桥⁄楳灬慹⁎慭攠慳⁹潵⁳敥⁩琠楮⁐牯杲慭猠慮搠䙥慴畲敳⸠䥴⁳桯畬搠扥⁥湯畧栠瑯⁢攠畮楱略ਠ⁦楬敔祰攠††‽‧䕘䔧‣潮汹⁯湥⁯映瑨敳攺⁍卉⁯爠䕘䔠⡩杮潲攠䵓唠景爠湯眩ਊ†獩汥湴䅲杳††㴠∯慬汵獥牳 匢ਠ⁶慬楤䕸楴䍯摥猽⁀⠰Ⱐ㌰㄰Ⱐㄶ〵ⰠㄶㄴⰠㄶ㐱⤠⌠桴瑰猺⼯浳摮⹭楣牯獯晴⹣潭⽥渭畳⽬楢牡特⽡愳㜶㤳ㄨ瘽癳⸸㔩⹡獰砊紊੕湩湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

@@ -1,12 +1,1 @@
-﻿$packageName = $env:ChocolateyPackageName
-$installerType = 'exe'
-$silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-$toolsPath = Split-Path $MyInvocation.MyCommand.Definition
-$File = Get-Item $toolsPath\*.exe
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -File "$File" `
-                          -ValidExitCodes $validExitCodes
+뼤灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ楮獴慬汥牔祰攠㴠❥硥✊⑳楬敮瑁牧猠㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊⑴潯汳偡瑨‽⁓灬楴ⵐ慴栠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮ਤ䙩汥‽⁇整ⵉ瑥洠⑴潯汳偡瑨尪⹥硥ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵆ楬攠∤䙩汥∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猊

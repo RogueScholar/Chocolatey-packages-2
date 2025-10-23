@@ -1,8 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName    = 'tdarr-updater'
-
-Remove-Item "$env:ProgramFiles\Tdarr" -Recurse -ErrorAction SilentlyContinue | Out-Null
-Remove-Item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Tdarr" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item "$env:Public\Desktop\Tdarr_Updater.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item "$env:Public\Desktop\Tdarr_Server.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item "$env:Public\Desktop\Tdarr_Node.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠†‽‧瑤慲爭異摡瑥爧ਊ剥浯癥ⵉ瑥洠∤敮瘺偲潧牡浆楬敳屔摡牲∠ⵒ散畲獥‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略⁼⁏畴ⵎ畬氊剥浯癥ⵉ瑥洠∤敮瘺偲潧牡浄慴慜䵩捲潳潦瑜坩湤潷獜却慲琠䵥湵屐牯杲慭獜呤慲爢‭剥捵牳攠ⵆ潲捥‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略⁼⁏畴ⵎ畬氊剥浯癥ⵉ瑥洠∤敮瘺偵扬楣屄敳歴潰屔摡牲录灤慴敲⹬湫∠ⵆ潲捥‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略⁼⁏畴ⵎ畬氊剥浯癥ⵉ瑥洠∤敮瘺偵扬楣屄敳歴潰屔摡牲当敲癥爮汮欢‭䙯牣攠ⵅ牲潲䅣瑩潮⁓楬敮瑬祃潮瑩湵攠簠併琭乵汬੒敭潶攭䥴敭•⑥湶㩐畢汩捜䑥獫瑯灜呤慲牟乯摥⹬湫∠ⵆ潲捥‭䕲牯牁捴楯渠卩汥湴汹䍯湴楮略⁼⁏畴ⵎ畬氊

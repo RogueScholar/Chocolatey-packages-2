@@ -1,34 +1,1 @@
-$ErrorActionPreference = 'Stop'
-import-module au
-
-$releases = "https://www.zimbra.com/zimbra-desktop-download/"
-
-function global:au_SearchReplace {
-    @{
-        'tools\chocolateyInstall.ps1' = @{
-            "(^[$]url32\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"
-            "(^[$]checksum32\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
-            "(^[$]checksumType\s*=\s*)('.*')" = "`$1'$($Latest.ChecksumType32)'"
-        }
-     }
-}
-
-function global:au_AfterUpdate($Package) {
-	Invoke-VirusTotalScan $Package
-}
-
-function global:au_GetLatest {
-	$release = ((Invoke-WebRequest -Uri $releases).Links | Where-Object {$_.href -match ".exe"}).href
-    $url32 = $release | Where-Object {$_ -match "exe$"}
-    $ChecksumType = ($release | Where-Object {$_ -match "sha"}).split('.')[-1]
-    $File = Join-Path $env:TEMP "chocolatey/zimbra-desktop.$($ChecksumType)"
-    Invoke-WebRequest -Uri ($release | Where-Object {$_ -match "sha"}) -OutFile $File
-    $Checksum = (Get-Content $File).Split(' ')[0]
-
-    $version=Get-Version $url32
-
-	$Latest = @{ URL32 = $url32; Version = $version; Checksum32 = $Checksum; ChecksumType32 = $ChecksumType }
-    return $Latest
-}
-
-update -ChecksumFor none
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊業灯牴⵭潤畬攠慵ਊ⑲敬敡獥猠㴠≨瑴灳㨯⽷睷⹺業扲愮捯洯穩浢牡ⵤ敳歴潰ⵤ潷湬潡搯∊੦畮捴楯渠杬潢慬㩡畟卥慲捨剥灬慣攠笊††䁻ਠ†††‧瑯潬獜捨潣潬慴敹䥮獴慬氮灳ㄧ‽⁀笊††††††∨幛⑝畲氳㉜猪㵜猪⤨✮⨧⤢†††㴠≠␱✤⠤䱡瑥獴⹕剌㌲⤧∊††††††∨幛⑝捨散歳畭㌲屳⨽屳⨩⠧⸪✩∠㴠≠␱✤⠤䱡瑥獴⹃桥捫獵洳㈩✢ਠ†††††•⡞嬤嵣桥捫獵浔祰敜猪㵜猪⤨✮⨧⤢‽•怤ㄧ␨⑌慴敳琮䍨散歳畭呹灥㌲⤧∊††††紊††⁽੽ਊ晵湣瑩潮⁧汯扡氺慵彁晴敲啰摡瑥⠤偡捫慧攩⁻ਉ䥮癯步ⵖ楲畳呯瑡汓捡渠⑐慣歡来੽ਊ晵湣瑩潮⁧汯扡氺慵彇整䱡瑥獴⁻ਉ⑲敬敡獥‽ ⡉湶潫攭坥扒敱略獴‭啲椠⑲敬敡獥猩⹌楮歳⁼⁗桥牥ⵏ扪散琠笤弮桲敦‭浡瑣栠∮數攢紩⹨牥昊††⑵牬㌲‽․牥汥慳攠簠坨敲攭佢橥捴⁻⑟‭浡瑣栠≥硥␢紊††⑃桥捫獵浔祰攠㴠⠤牥汥慳攠簠坨敲攭佢橥捴⁻⑟‭浡瑣栠≳桡≽⤮獰汩琨✮✩嬭ㅝਠ†․䙩汥‽⁊潩渭偡瑨․敮瘺呅䵐•捨潣潬慴敹⽺業扲愭摥獫瑯瀮␨⑃桥捫獵浔祰攩∊††䥮癯步ⵗ敢剥煵敳琠ⵕ物 ⑲敬敡獥⁼⁗桥牥ⵏ扪散琠笤张⵭慴捨•獨愢紩‭併瑆楬攠⑆楬攊††⑃桥捫獵洠㴠⡇整ⵃ潮瑥湴․䙩汥⤮印汩琨✠✩嬰崊ਠ†․癥牳楯渽䝥琭噥牳楯渠⑵牬㌲ਊत䱡瑥獴‽⁀笠啒䰳㈠㴠⑵牬㌲㬠噥牳楯渠㴠⑶敲獩潮㬠䍨散歳畭㌲‽․䍨散歳畭㬠䍨散歳畭呹灥㌲‽․䍨散歳畭呹灥⁽ਠ†⁲整畲渠⑌慴敳琊紊ੵ灤慴攠ⵃ桥捫獵浆潲⁮潮攊

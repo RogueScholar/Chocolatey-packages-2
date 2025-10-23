@@ -1,13 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName    = $env:ChocolateyPackageName
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = 'http://www.chrysocome.net/downloads/dd-0.5.zip'
-$checksum       = '93bddcd8f24ab371e73ca08c7d9818b8a04c38953b32d01ee55ddcd97c583f59'
-$checksumType   = 'sha256'
-
-Install-ChocolateyZipPackage -PackageName $packageName `
-                -url $url `
-                -checksum $checksum `
-                -checksumType $checksumType `
-                -unzipLocation "$toolsDir" `
-                -specificFolder ""
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑴潯汳䑩爠†††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ畲氠†††††‽‧桴瑰㨯⽷睷⹣桲祳潣潭攮湥琯摯睮汯慤猯摤ⴰ⸵⹺楰✊④桥捫獵洠†††㴠✹㍢摤捤㡦㈴慢㌷ㅥ㜳捡〸挷搹㠱㡢㡡〴挳㠹㔳戳㉤〱敥㔵摤捤㤷挵㠳昵㤧ਤ捨散歳畭呹灥†‽‧獨愲㔶✊੉湳瑡汬ⵃ桯捯污瑥祚楰偡捫慧攠ⵐ慣歡来乡浥․灡捫慧敎慭攠怊††††††††⵵牬․畲氠怊††††††††ⵣ桥捫獵洠④桥捫獵洠怊††††††††ⵣ桥捫獵浔祰攠④桥捫獵浔祰攠怊††††††††⵵湺楰䱯捡瑩潮•⑴潯汳䑩爢⁠ਠ†††††††‭獰散楦楣䙯汤敲•∊

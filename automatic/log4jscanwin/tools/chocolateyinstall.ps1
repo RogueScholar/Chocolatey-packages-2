@@ -1,9 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$packageName = 'log4jscanwin'
-$toolsDir    = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$bits        = Get-ProcessorBits
-
-Get-ChocolateyUnzip -FileFullPath "$toolsDir\Log4jScanner.zip" -Destination $toolsDir
-if ($bits -eq 64){New-Item "$toolsDir\Log4jScanner\x86\Log4jScanner.exe.ignore" -type file -force | Out-Null}
-if ($bits -eq 32){New-Item "$toolsDir\Log4jScanner\x64\Log4jScanner.exe.ignore" -type file -force | Out-Null}
-Remove-Item "$toolsDir\*.zip" -EA SilentlyContinue | Out-Null
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰慣歡来乡浥‽‧汯朴橳捡湷楮✊⑴潯汳䑩爠†‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊③楴猠†††‽⁇整ⵐ牯捥獳潲䉩瑳ਊ䝥琭䍨潣潬慴敹啮穩瀠ⵆ楬敆畬汐慴栠∤瑯潬獄楲屌潧㑪卣慮湥爮穩瀢‭䑥獴楮慴楯渠⑴潯汳䑩爊楦 ③楴猠ⵥ焠㘴⥻乥眭䥴敭•⑴潯汳䑩牜䱯朴橓捡湮敲屸㠶屌潧㑪卣慮湥爮數攮楧湯牥∠⵴祰攠晩汥‭景牣攠簠併琭乵汬紊楦 ③楴猠ⵥ焠㌲⥻乥眭䥴敭•⑴潯汳䑩牜䱯朴橓捡湮敲屸㘴屌潧㑪卣慮湥爮數攮楧湯牥∠⵴祰攠晩汥‭景牣攠簠併琭乵汬紊剥浯癥ⵉ瑥洠∤瑯潬獄楲尪⹺楰∠ⵅ䄠卩汥湴汹䍯湴楮略⁼⁏畴ⵎ畬氊

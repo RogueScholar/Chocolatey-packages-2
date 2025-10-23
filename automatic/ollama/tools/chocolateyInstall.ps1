@@ -1,16 +1,1 @@
-﻿$ErrorActionPreference = 'Stop';
-$url            = 'https://github.com/ollama/ollama/releases/download/v0.12.6/OllamaSetup.exe'
-$checksum       = '8c13343b93f4df631626ba1d487c345c59e2edaf83057ab10fee694aea1763fb'
-$checksumType   = 'sha256'
-
-$packageArgs = @{
-    packageName            = $env:ChocolateyPackageName
-    fileType               = 'EXE'
-    url                    = $url
-    checksum               = $checksum
-    checksumType           = $checksumType
-    silentArgs             = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-    validExitCodes         = @(0)
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧㬊⑵牬††††††㴠❨瑴灳㨯⽧楴桵戮捯洯潬污浡⽯汬慭愯牥汥慳敳⽤潷湬潡搯瘰⸱㈮㘯佬污浡卥瑵瀮數攧ਤ捨散歳畭†††‽‧㡣ㄳ㌴㍢㤳昴摦㘳ㄶ㈶扡ㅤ㐸㝣㌴㕣㔹攲敤慦㠳〵㝡戱て敥㘹㑡敡ㄷ㘳晢✊④桥捫獵浔祰攠†㴠❳桡㈵㘧ਊ⑰慣歡来䅲杳‽⁀笊††灡捫慧敎慭攠†††††‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊††晩汥呹灥†††††††‽‧䕘䔧ਠ†⁵牬††††††††††㴠⑵牬ਠ†⁣桥捫獵洠†††††††㴠④桥捫獵洊††捨散歳畭呹灥†††††‽․捨散歳畭呹灥ਠ†⁳楬敮瑁牧猠††††††㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊††癡汩摅硩瑃潤敳††††‽⁀⠰⤊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

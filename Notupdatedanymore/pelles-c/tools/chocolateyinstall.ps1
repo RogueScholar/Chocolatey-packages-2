@@ -1,17 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$silentArgs     = '/S'
-
-$packageArgs = @{
-  packageName    = 'pelles-c'
-  softwareName   = 'Pelles C for Windows'
-  fileType       = 'EXE'
-  silentArgs     =  $silentArgs
-  file           = "$toolsDir\setup.exe"
-  validExitCodes = @(0, 3010, 1641)
-  }
-
-Install-ChocolateyInstallPackage @packageArgs
-
-Remove-Item $toolsDir\*.exe -Force | Out-Null
-Remove-Item $toolsDir\*.ignore -Force | Out-Null
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ瑯潬獄楲†††‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑳楬敮瑁牧猠††㴠✯匧ਊ⑰慣歡来䅲杳‽⁀笊†灡捫慧敎慭攠†‽‧灥汬敳ⵣ✊†獯晴睡牥乡浥†‽‧健汬敳⁃⁦潲⁗楮摯睳✊†晩汥呹灥†††‽‧䕘䔧ਠ⁳楬敮瑁牧猠††㴠․獩汥湴䅲杳ਠ⁦楬攠†††††㴠∤瑯潬獄楲屳整異⹥硥∊†癡汩摅硩瑃潤敳‽⁀⠰Ⱐ㌰㄰Ⱐㄶ㐱⤊†紊੉湳瑡汬ⵃ桯捯污瑥祉湳瑡汬偡捫慧攠䁰慣歡来䅲杳ਊ剥浯癥ⵉ瑥洠⑴潯汳䑩牜⨮數攠ⵆ潲捥⁼⁏畴ⵎ畬氊剥浯癥ⵉ瑥洠⑴潯汳䑩牜⨮楧湯牥‭䙯牣攠簠併琭乵汬

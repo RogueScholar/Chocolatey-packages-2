@@ -1,15 +1,1 @@
-﻿$packageName    = $env:ChocolateyPackageName
-$installerType  = 'exe'
-$silentArgs     = '-q'
-$url            = 'https://download.ej-technologies.com/install4j/install4j_windows-x64_11_0_5.exe'
-$checksum       = 'ce78720703ae04b13a555c79ea0deea0c6d390757466bd4a1d35f6e36d5c7733'
-$checksumType   = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum" `
-                          -ChecksumType "$checksumType"
+뼤灡捫慧敎慭攠†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑩湳瑡汬敲呹灥†㴠❥硥✊⑳楬敮瑁牧猠††㴠✭焧ਤ畲氠†††††‽‧桴瑰猺⼯摯睮汯慤⹥樭瑥捨湯汯杩敳⹣潭⽩湳瑡汬㑪⽩湳瑡汬㑪彷楮摯睳⵸㘴弱ㅟた㔮數攧ਤ捨散歳畭†††‽‧捥㜸㜲〷〳慥〴戱㍡㔵㕣㜹敡つ敥愰挶搳㤰㜵㜴㘶扤㑡ㅤ㌵昶攳㙤㕣㜷㌳✊④桥捫獵浔祰攠†㴠❳桡㈵㘧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵕ牬•⑵牬∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊†††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

@@ -1,11 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-
-$packageArgs = @{
-    PackageName     = $env:ChocolateyPackageName
-    FileType        = 'exe'
-    Url             = 'http://www.1space.dk/executor/ExecutorSetup.exe'
-    Checksum        = '01aadd7208f7715e43d2d9399b41e297ed9127bff6a715bd8b77f158d0076a5c'
-    ChecksumType    = 'sha256'
-    SilentArgs      = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-}
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਊ⑰慣歡来䅲杳‽⁀笊††偡捫慧敎慭攠††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁆楬敔祰攠†††‽‧數攧ਠ†⁕牬††††††‽‧桴瑰㨯⽷睷⸱獰慣攮摫⽥硥捵瑯爯䕸散畴潲卥瑵瀮數攧ਠ†⁃桥捫獵洠†††‽‧〱慡摤㜲〸昷㜱㕥㐳搲搹㌹㥢㐱攲㤷敤㤱㈷扦昶愷ㄵ扤㡢㜷昱㔸搰〷㙡㕣✊††䍨散歳畭呹灥††㴠❳桡㈵㘧ਠ†⁓楬敮瑁牧猠††‽‧⽖䕒奓䥌䕎吠⽓啐偒䕓卍升䉏塅匠⽎佒䕓呁剔 卐ⴧ੽੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

@@ -1,15 +1,1 @@
-﻿$packageName = $env:ChocolateyPackageName
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64 = 'https://bitcoincore.org/bin/bitcoin-core-30.0/bitcoin-30.0-win64.zip'
-$checksum64 = '3d6f3af2cbfbeaf1958d0ffd77e04da6b8b82f26bb67aaa9111247620d5c95db'
-$checksumType64 = 'sha256'
-
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -UnzipLocation "$toolsDir" `
-                             -Url64bit "$url64" `
-                             -Checksum64 "$checksum64" `
-                             -ChecksumType64 "$checksumType64"
-
-# create empty sidecar so shimgen.exe creates shim for GUI rather than console
-$guiExe = Get-ChildItem -Recurse -Path $toolsDir -Include "bitcoin-qt.exe"
-if ($guiExe) {Set-Content -Path $($guiExe.FullName+".gui") -Value $null}
+뼤灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ瑯潬獄楲‽•␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温∊⑵牬㘴‽‧桴瑰猺⼯扩瑣潩湣潲攮潲术扩港扩瑣潩渭捯牥ⴳ〮〯扩瑣潩渭㌰⸰⵷楮㘴⹺楰✊④桥捫獵洶㐠㴠✳搶昳慦㉣扦扥慦ㄹ㔸搰晦搷㝥〴摡㙢㡢㠲昲㙢戶㝡慡㤱ㄱ㈴㜶㈰搵挹㕤戧ਤ捨散歳畭呹灥㘴‽‧獨愲㔶✊੉湳瑡汬ⵃ桯捯污瑥祚楰偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊††††††††††††††‭啮穩灌潣慴楯渠∤瑯潬獄楲∠怊††††††††††††††‭啲氶㑢楴•⑵牬㘴∠怊††††††††††††††‭䍨散歳畭㘴•④桥捫獵洶㐢⁠ਠ††††††††††††††ⵃ桥捫獵浔祰收㐠∤捨散歳畭呹灥㘴∊ਣ⁣牥慴攠敭灴礠獩摥捡爠獯⁳桩浧敮⹥硥⁣牥慴敳⁳桩洠景爠䝕䤠牡瑨敲⁴桡渠捯湳潬攊⑧畩䕸攠㴠䝥琭䍨楬摉瑥洠ⵒ散畲獥‭偡瑨․瑯潬獄楲‭䥮捬畤攠≢楴捯楮⵱琮數攢੩映⠤杵楅硥⤠筓整ⵃ潮瑥湴‭偡瑨․⠤杵楅硥⹆畬汎慭攫∮杵椢⤠ⵖ慬略․湵汬紊

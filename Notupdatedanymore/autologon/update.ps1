@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 import-module au
 
 $releases = 'https://download.sysinternals.com/files/AutoLogon.zip'

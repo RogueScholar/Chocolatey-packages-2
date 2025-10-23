@@ -2,10 +2,10 @@
 REM Suprimer les anciens points de restauration
 vssadmin delete shadows /for=c: /oldest 2>&1 >nul
 
-REM Créer un point de restauration système
+REM Cr├⌐er un point de restauration syst├¿me
 Wmic.exe /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "Avant nettoyage des fichiers temporaires", 100, 12 
 
-REM Création la configuration SageRun:100 pour cleanmgr
+REM Cr├⌐ation la configuration SageRun:100 pour cleanmgr
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Active Setup Temp Folders" /v StateFlags0100 /d 2 /t REG_DWORD /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\BranchCache" /v StateFlags0100 /d 2 /t REG_DWORD /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Downloaded Program Files" /v StateFlags0100 /d 2 /t REG_DWORD /f

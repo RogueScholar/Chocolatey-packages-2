@@ -1,16 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$softwareName = "$packageName*"
-$installerType = 'exe'
-$silentArgs = '/S'
-$validExitCodes = @(0)
-
-[array]$key = Get-UninstallRegistryKey -SoftwareName $softwareName
-
-$key | ForEach-Object {
-  Uninstall-ChocolateyPackage -PackageName "$packageName" `
-                              -FileType "$installerType" `
-                              -SilentArgs "$($silentArgs)" `
-                              -File "$($_.UninstallString.Replace('"',''))" `
-                              -ValidExitCodes $validExitCodes
-}
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑰慣歡来乡浥‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊⑳潦瑷慲敎慭攠㴠∤灡捫慧敎慭攪∊⑩湳瑡汬敲呹灥‽‧數攧ਤ獩汥湴䅲杳‽‧⽓✊⑶慬楤䕸楴䍯摥猠㴠䀨〩ਊ孡牲慹崤步礠㴠䝥琭啮楮獴慬汒敧楳瑲祋敹‭卯晴睡牥乡浥․獯晴睡牥乡浥ਊ⑫敹⁼⁆潲䕡捨ⵏ扪散琠笊†啮楮獴慬氭䍨潣潬慴敹偡捫慧攠ⵐ慣歡来乡浥•⑰慣歡来乡浥∠怊†††††††††††††††ⵆ楬敔祰攠∤楮獴慬汥牔祰攢⁠ਠ††††††††††††††‭卩汥湴䅲杳•␨⑳楬敮瑁牧猩∠怊†††††††††††††††ⵆ楬攠∤⠤弮啮楮獴慬汓瑲楮朮剥灬慣攨✢✬✧⤩∠怊†††††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猊紊

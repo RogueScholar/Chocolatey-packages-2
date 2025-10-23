@@ -1,16 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = $env:ChocolateyPackageName
-$installerType = 'EXE'
-$url = 'https://dexpot.de/download/dexpot_1614_r2439.exe'
-$checksum = '1b87a1c31d721708a679673f098a73f77d01b9e5c5ab18709eac388746e6f46a'
-$checksumtype = 'sha256'
-$silentArgs = '/S'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                        -FileType "$installerType" `
-                        -SilentArgs "$silentArgs" `
-                        -Url "$url" `
-                        -ValidExitCodes $validExitCodes `
-                        -Checksum "$checksum" `
-                        -ChecksumType "$checksumType" `
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਤ楮獴慬汥牔祰攠㴠❅塅✊⑵牬‽‧桴瑰猺⼯摥硰潴⹤支摯睮汯慤⽤數灯瑟ㄶㄴ彲㈴㌹⹥硥✊④桥捫獵洠㴠✱戸㝡ㅣ㌱搷㈱㜰㡡㘷㤶㜳昰㤸愷㍦㜷搰ㅢ㥥㕣㕡戱㠷〹敡挳㠸㜴㙥㙦㐶愧ਤ捨散歳畭瑹灥‽‧獨愲㔶✊⑳楬敮瑁牧猠㴠✯匧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ†††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊††††††††††††ⵕ牬•⑵牬∠怊††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∠怊

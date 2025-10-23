@@ -1,16 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$url			= 'https://dba0rg1h0v09q.cloudfront.net/odrivesync.7398.exe'
-$checksum		= '7adaf87fbe74a98eff3fe11261601220020086fa9b835ea92723d760aea6db4c'
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  unzipLocation = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-  fileType      = 'exe'
-  url           = $url
-  silentArgs    = '/quiet'
-  validExitCodes= @(0,3010)
-  softwareName  = 'odrive*'
-  checksum      = $checksum
-  checksumType  = 'sha256'
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ畲氉उ㴠❨瑴灳㨯⽤扡ひ朱栰瘰㥱⹣汯畤晲潮琮湥琯潤物癥獹湣⸷㌹㠮數攧ਤ捨散歳畭उ㴠✷慤慦㠷晢攷㑡㤸敦昳晥ㄱ㈶ㄶ〱㈲〰㈰〸㙦愹戸㌵敡㤲㜲㍤㜶ち敡㙤戴挧ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥†‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊†畮穩灌潣慴楯渠㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਠ⁦楬敔祰攠††‽‧數攧ਠ⁵牬†††††‽․畲氊†獩汥湴䅲杳††㴠✯煵楥琧ਠ⁶慬楤䕸楴䍯摥猽⁀⠰ⰳ〱〩ਠ⁳潦瑷慲敎慭攠‽‧潤物癥⨧ਠ⁣桥捫獵洠††‽․捨散歳畭ਠ⁣桥捫獵浔祰攠‽‧獨愲㔶✊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

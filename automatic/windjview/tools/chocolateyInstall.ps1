@@ -1,16 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName = 'windjview'
-$installerType = 'exe'
-$silentArgs = '/S'
-$url = 'https://sourceforge.net/projects/windjview/files/WinDjView/2.1/WinDjView-2.1-Setup.exe/download'
-$checksum = '45963d6a84b06955e724e358594e9572d7eb2ce3e35a0bdbfdf57382af6a1f7f'
-$checksumType = 'sha256'
-$validExitCodes = @(0)
-
-Install-ChocolateyPackage -PackageName "$packageName" `
-                          -FileType "$installerType" `
-                          -SilentArgs "$silentArgs" `
-                          -Url "$url" `
-                          -ValidExitCodes $validExitCodes `
-                          -Checksum "$checksum" `
-                          -ChecksumType "$checksumType"
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠㴠❷楮摪癩敷✊⑩湳瑡汬敲呹灥‽‧數攧ਤ獩汥湴䅲杳‽‧⽓✊⑵牬‽‧桴瑰猺⼯獯畲捥景牧攮湥琯灲潪散瑳⽷楮摪癩敷⽦楬敳⽗楮䑪噩敷⼲⸱⽗楮䑪噩敷ⴲ⸱ⵓ整異⹥硥⽤潷湬潡搧ਤ捨散歳畭‽‧㐵㤶㍤㙡㠴戰㘹㔵攷㈴攳㔸㔹㑥㤵㜲搷敢㉣攳攳㕡ぢ摢晤昵㜳㠲慦㙡ㅦ㝦✊④桥捫獵浔祰攠㴠❳桡㈵㘧ਤ癡汩摅硩瑃潤敳‽⁀⠰⤊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来‭偡捫慧敎慭攠∤灡捫慧敎慭攢⁠ਠ††††††††††††‭䙩汥呹灥•⑩湳瑡汬敲呹灥∠怊†††††††††††††ⵓ楬敮瑁牧猠∤獩汥湴䅲杳∠怊†††††††††††††ⵕ牬•⑵牬∠怊†††††††††††††ⵖ慬楤䕸楴䍯摥猠⑶慬楤䕸楴䍯摥猠怊†††††††††††††ⵃ桥捫獵洠∤捨散歳畭∠怊†††††††††††††ⵃ桥捫獵浔祰攠∤捨散歳畭呹灥∊

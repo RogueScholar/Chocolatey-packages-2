@@ -1,15 +1,1 @@
-﻿$url32          = 'https://github.com/fernandreu/office-ribbonx-editor/releases/download/v1.9.0/OfficeRibbonXEditor-NETFramework-Installer.exe'
-$checksum32     = '97a3c53a2ee1e81fc58e3322c55331fac228dfba7d64a26645558200da1a4970'
-$checksumType32 = 'sha256'
-
-$packageArgs = @{
-    packageName            = $env:ChocolateyPackageName
-    fileType               = 'EXE'
-    url                    = $url32
-    checksum               = $checksum32
-    checksumType           = $checksumType32
-    silentArgs             = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
-    validExitCodes         = @(0)
-}
-
-Install-ChocolateyPackage @packageArgs
+뼤畲氳㈠††††‽‧桴瑰猺⼯杩瑨畢⹣潭⽦敲湡湤牥甯潦晩捥⵲楢扯湸ⵥ摩瑯爯牥汥慳敳⽤潷湬潡搯瘱⸹⸰⽏晦楣敒楢扯湘䕤楴潲ⵎ䕔䙲慭敷潲欭䥮獴慬汥爮數攧ਤ捨散歳畭㌲††‽‧㤷愳挵㍡㉥攱攸ㅦ挵㡥㌳㈲挵㔳㌱晡挲㈸摦扡㝤㘴愲㘶㐵㔵㠲〰摡ㅡ㐹㜰✊④桥捫獵浔祰攳㈠㴠❳桡㈵㘧ਊ⑰慣歡来䅲杳‽⁀笊††灡捫慧敎慭攠†††††‽․敮瘺䍨潣潬慴敹偡捫慧敎慭攊††晩汥呹灥†††††††‽‧䕘䔧ਠ†⁵牬††††††††††㴠⑵牬㌲ਠ†⁣桥捫獵洠†††††††㴠④桥捫獵洳㈊††捨散歳畭呹灥†††††‽․捨散歳畭呹灥㌲ਠ†⁳楬敮瑁牧猠††††††㴠✯噅剙卉䱅乔 单偐剅卓䵓䝂佘䕓 乏剅協䅒吠⽓倭✊††癡汩摅硩瑃潤敳††††‽⁀⠰⤊紊੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

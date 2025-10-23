@@ -1,21 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$toolsDir       = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
-$packageName    = 'wordweb-free'
-$file            = (Get-ChildItem -Path $toolsDir -Filter "*.exe").FullName
-
-$packageArgs = @{
-  packageName    = $packageName
-  fileType       = 'EXE'
-  file           = $file
-  validExitCodes = @(0)
-  silentArgs     = '-s1'
-  softwareName   = 'WordWeb'
-}
-
-Install-ChocolateyInstallPackage @packageArgs
-Remove-Item $toolsDir\*.exe -force | Out-Null
-Remove-Item $toolsDir\*.ignore -force | Out-Null
-
-# UPDATE INSTRUCTIONS:
-# Update the binary with the latest version
-
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑴潯汳䑩爠†††㴠␨印汩琭偡瑨‭灡牥湴․䵹䥮癯捡瑩潮⹍祃潭浡湤⹄敦楮楴楯温ਤ灡捫慧敎慭攠†‽‧睯牤睥戭晲敥✊⑦楬攠†††††‽ 䝥琭䍨楬摉瑥洠ⵐ慴栠⑴潯汳䑩爠ⵆ楬瑥爠∪⹥硥∩⹆畬汎慭攊ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥††㴠⑰慣歡来乡浥ਠ⁦楬敔祰攠†††㴠❅塅✊†晩汥†††††‽․晩汥ਠ⁶慬楤䕸楴䍯摥猠㴠䀨〩ਠ⁳楬敮瑁牧猠††㴠✭猱✊†獯晴睡牥乡浥†‽‧坯牤坥戧੽ਊ䥮獴慬氭䍨潣潬慴敹䥮獴慬汐慣歡来⁀灡捫慧敁牧猊剥浯癥ⵉ瑥洠⑴潯汳䑩牜⨮數攠ⵦ潲捥⁼⁏畴ⵎ畬氊剥浯癥ⵉ瑥洠⑴潯汳䑩牜⨮楧湯牥‭景牣攠簠併琭乵汬ਊ⌠啐䑁呅⁉乓呒啃呉低区ਣ⁕灤慴攠瑨攠扩湡特⁷楴栠瑨攠污瑥獴⁶敲獩潮ਊ

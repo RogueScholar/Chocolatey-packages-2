@@ -1,4 +1,1 @@
-# PSScriptAnalyzerSettings.psd1
-@{
-    ExcludeRules=@('PSAvoidGlobalVars','PSUseShouldProcessForStateChangingFunctions')
-}
+⌠偓卣物灴䅮慬祺敲卥瑴楮杳⹰獤ㄊ䁻ਠ†⁅硣汵摥創汥猽䀨❐十癯楤䝬潢慬噡牳✬❐单獥卨潵汤偲潣敳獆潲却慴敃桡湧楮杆畮捴楯湳✩੽

@@ -1,33 +1,1 @@
-$ErrorActionPreference = 'Stop'
-import-module chocolatey-AU
-
-$releases = 'https://thebrain.com/download'
-
-function global:au_SearchReplace {
-	@{
-		'tools/chocolateyInstall.ps1' = @{
-			"(^[$]url\s*=\s*)('.*')"      		= "`$1'$($Latest.URL32)'"
-			"(^[$]checksum\s*=\s*)('.*')" 		= "`$1'$($Latest.Checksum32)'"
-			"(^[$]checksumType\s*=\s*)('.*')" 	= "`$1'$($Latest.ChecksumType32)'"
-		}
-	}
-}
-
-function global:au_AfterUpdate($Package) {
-	Update-Metadata -key "releaseNotes" -value $Latest.ReleaseNotes
-	. ..\..\scripts\Invoke-VirusTotalScan.ps1
-	Invoke-VirusTotalScan $Package
-}
-
-function global:au_GetLatest {
-	$url32 = (((Invoke-WebRequest -Uri $releases -UseBasicParsing).Links | Where-Object {$_ -match 'DirectDownload'} | Where-Object {$_ -match "Download for Windows"} ).href)[0]
-	$ReleasesNotes = (((Invoke-WebRequest -Uri $releases -UseBasicParsing).Links | Where-Object {$_ -match 'Release notes'} ).href)
-	$url32 = Get-RedirectedUrl $url32
-
-	$version=($url32.Replace('%20', "-").split('-') | Where-Object {$_ -match "[0-9]"}).Replace('\.0$','')
-
-	$Latest = @{ URL32 = $url32; Version = $version; ReleaseNotes = $ReleasesNotes }
-	return $Latest
-}
-
-update -ChecksumFor 32 -NoCheckChocoVersion
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊業灯牴⵭潤畬攠捨潣潬慴敹ⵁ唊ਤ牥汥慳敳‽‧桴瑰猺⼯瑨敢牡楮⹣潭⽤潷湬潡搧ਊ晵湣瑩潮⁧汯扡氺慵当敡牣桒数污捥⁻ਉ䁻ਉध瑯潬猯捨潣潬慴敹䥮獴慬氮灳ㄧ‽⁀笊उढ⡞嬤嵵牬屳⨽屳⨩⠧⸪✩∠†† ऽ•怤ㄧ␨⑌慴敳琮啒䰳㈩✢ਉउ∨幛⑝捨散歳畭屳⨽屳⨩⠧⸪✩∠उ㴠≠␱✤⠤䱡瑥獴⹃桥捫獵洳㈩✢ਉउ∨幛⑝捨散歳畭呹灥屳⨽屳⨩⠧⸪✩∠ऽ•怤ㄧ␨⑌慴敳琮䍨散歳畭呹灥㌲⤧∊उ紊ॽ੽ਊ晵湣瑩潮⁧汯扡氺慵彁晴敲啰摡瑥⠤偡捫慧攩⁻ਉ啰摡瑥ⵍ整慤慴愠⵫敹•牥汥慳敎潴敳∠⵶慬略․䱡瑥獴⹒敬敡獥乯瑥猊म‮⹜⸮屳捲楰瑳屉湶潫攭噩牵獔潴慬卣慮⹰猱ਉ䥮癯步ⵖ楲畳呯瑡汓捡渠⑐慣歡来੽ਊ晵湣瑩潮⁧汯扡氺慵彇整䱡瑥獴⁻ਉ⑵牬㌲‽ ⠨䥮癯步ⵗ敢剥煵敳琠ⵕ物․牥汥慳敳‭啳敂慳楣偡牳楮朩⹌楮歳⁼⁗桥牥ⵏ扪散琠笤张⵭慴捨‧䑩牥捴䑯睮汯慤❽⁼⁗桥牥ⵏ扪散琠笤张⵭慴捨•䑯睮汯慤⁦潲⁗楮摯睳≽ ⹨牥昩嬰崊त剥汥慳敳乯瑥猠㴠⠨⡉湶潫攭坥扒敱略獴‭啲椠⑲敬敡獥猠ⵕ獥䉡獩捐慲獩湧⤮䱩湫猠簠坨敲攭佢橥捴⁻⑟‭浡瑣栠❒敬敡獥⁮潴敳❽ ⹨牥昩ਉ⑵牬㌲‽⁇整ⵒ敤楲散瑥摕牬․畲氳㈊ਉ⑶敲獩潮㴨⑵牬㌲⹒数污捥⠧┲〧Ⱐ∭∩⹳灬楴⠧ⴧ⤠簠坨敲攭佢橥捴⁻⑟‭浡瑣栠≛〭㥝≽⤮剥灬慣攨❜⸰␧Ⱗ✩ਊत䱡瑥獴‽⁀笠啒䰳㈠㴠⑵牬㌲㬠噥牳楯渠㴠⑶敲獩潮㬠剥汥慳敎潴敳‽․剥汥慳敳乯瑥猠紊ॲ整畲渠⑌慴敳琊紊ੵ灤慴攠ⵃ桥捫獵浆潲″㈠ⵎ潃桥捫䍨潣潖敲獩潮

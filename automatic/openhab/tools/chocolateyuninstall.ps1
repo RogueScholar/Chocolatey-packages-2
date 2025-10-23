@@ -1,5 +1,1 @@
-﻿$packageName  = 'openhab'
-$ShortcutName = 'openHAB'
-
-remove-item "$env:Public\Desktop\$ShortcutName.lnk" -Force -ErrorAction 'SilentlyContinue'
-remove-item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\$ShortcutName.lnk" -Force -ErrorAction 'SilentlyContinue'
+뼤灡捫慧敎慭攠‽‧潰敮桡戧ਤ卨潲瑣畴乡浥‽‧潰敮䡁䈧ਊ牥浯癥⵩瑥洠∤敮瘺偵扬楣屄敳歴潰尤卨潲瑣畴乡浥⹬湫∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧ੲ敭潶攭楴敭•⑥湶㩐牯杲慭䑡瑡屍楣牯獯晴屗楮摯睳屓瑡牴⁍敮畜偲潧牡浳尤卨潲瑣畴乡浥⹬湫∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧

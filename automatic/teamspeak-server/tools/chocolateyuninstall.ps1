@@ -1,7 +1,1 @@
-﻿$ErrorActionPreference = 'Stop'
-$packageName  = 'teamspeak-server'
-$shortcutName = 'TeamSpeak Server.lnk'
-
-remove-item "$env:Public\Desktop\$shortcutName" -Force -ErrorAction 'SilentlyContinue'
-remove-item "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\$shortcutName" -Force -ErrorAction 'SilentlyContinue'
-
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧ਤ灡捫慧敎慭攠‽‧瑥慭獰敡欭獥牶敲✊⑳桯牴捵瑎慭攠㴠❔敡浓灥慫⁓敲癥爮汮欧ਊ牥浯癥⵩瑥洠∤敮瘺偵扬楣屄敳歴潰尤獨潲瑣畴乡浥∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧ੲ敭潶攭楴敭•⑥湶㩐牯杲慭䑡瑡屍楣牯獯晴屗楮摯睳屓瑡牴⁍敮畜偲潧牡浳尤獨潲瑣畴乡浥∠ⵆ潲捥‭䕲牯牁捴楯渠❓楬敮瑬祃潮瑩湵攧ਊ

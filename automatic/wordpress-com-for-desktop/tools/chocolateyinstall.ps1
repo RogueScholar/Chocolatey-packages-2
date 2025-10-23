@@ -1,17 +1,1 @@
-﻿$ErrorActionPreference = 'Stop';
-
-$url32          = ''
-$checksum32     = ''
-$checksumType32 = ''
-
-$packageArgs = @{
-  packageName    = 'wordpress-com-for-desktop'
-  installerType  = 'exe'
-  url            = $url32
-  checksum       = $checksum32
-  checksumType   = $checksumType32
-  silentArgs     = '/S'
-  validExitCodes = @(0)
-  softwareName   = 'WordPress.com Desktop*'
-}
-Install-ChocolateyPackage @packageArgs
+뼤䕲牯牁捴楯湐牥晥牥湣攠㴠❓瑯瀧㬊ਤ畲氳㈠††††‽‧✊④桥捫獵洳㈠††㴠✧ਤ捨散歳畭呹灥㌲‽‧✊ਤ灡捫慧敁牧猠㴠䁻ਠ⁰慣歡来乡浥††㴠❷潲摰牥獳ⵣ潭ⵦ潲ⵤ敳歴潰✊†楮獴慬汥牔祰攠‽‧數攧ਠ⁵牬††††††㴠⑵牬㌲ਠ⁣桥捫獵洠†††㴠④桥捫獵洳㈊†捨散歳畭呹灥†‽․捨散歳畭呹灥㌲ਠ⁳楬敮瑁牧猠††㴠✯匧ਠ⁶慬楤䕸楴䍯摥猠㴠䀨〩ਠ⁳潦瑷慲敎慭攠†㴠❗潲摐牥獳⹣潭⁄敳歴潰⨧੽੉湳瑡汬ⵃ桯捯污瑥祐慣歡来⁀灡捫慧敁牧猊

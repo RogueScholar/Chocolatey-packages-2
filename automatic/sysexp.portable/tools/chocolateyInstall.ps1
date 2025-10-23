@@ -1,13 +1,1 @@
-$ErrorActionPreference = 'Stop'
-$toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$file32         = "$(Join-Path $toolsDir -ChildPath 'sysexp.zip')"
-$file64         = "$(Join-Path $toolsDir -ChildPath 'sysexp-x64.zip')"
-
-$unzipArgs = @{
-    PackageName     = $env:ChocolateyPackageName
-    FileFullPath    = $file32
-    FileFullPath64  = $file64
-    Destination     = $toolsDir
-}
-
-Get-ChocolateyUnzip @unzipArgs
+⑅牲潲䅣瑩潮偲敦敲敮捥‽‧却潰✊⑴潯汳䑩爠†††㴠∤⡓灬楴ⵐ慴栠⵰慲敮琠⑍祉湶潣慴楯渮䵹䍯浭慮搮䑥晩湩瑩潮⤢ਤ晩汥㌲††††‽•␨䩯楮ⵐ慴栠⑴潯汳䑩爠ⵃ桩汤偡瑨‧獹獥硰⹺楰✩∊⑦楬收㐠††††㴠∤⡊潩渭偡瑨․瑯潬獄楲‭䍨楬摐慴栠❳祳數瀭砶㐮穩瀧⤢ਊ⑵湺楰䅲杳‽⁀笊††偡捫慧敎慭攠††㴠⑥湶㩃桯捯污瑥祐慣歡来乡浥ਠ†⁆楬敆畬汐慴栠†‽․晩汥㌲ਠ†⁆楬敆畬汐慴栶㐠‽․晩汥㘴ਠ†⁄敳瑩湡瑩潮††‽․瑯潬獄楲੽ਊ䝥琭䍨潣潬慴敹啮穩瀠䁵湺楰䅲杳
