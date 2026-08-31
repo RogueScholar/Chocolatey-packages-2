@@ -14,6 +14,7 @@ function global:au_SearchReplace {
 }
 
 function global:au_AfterUpdate($Package) {
+	. ..\..\scripts\Invoke-VirusTotalScan.ps1
 	Invoke-VirusTotalScan $Package
 }
 
@@ -26,4 +27,4 @@ function global:au_GetLatest {
 	return $Latest
 }
 
-update -ChecksumFor 32 -NoCheckChocoVersion
+update -ChecksumFor 32

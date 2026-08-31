@@ -4,16 +4,22 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  contents: read
+
 jobs:
   CheckpackageRequest:
-    runs-on: windows-latest
+    runs-on: windows-2025
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v7.0.1
       - name: Get new package
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_ACTOR: ${{ github.event.issue.user.login }}
         run: |
           Import-Module "${{ github.workspace }}\scripts\new.psm1"
           Set-Location ${{ github.workspace }}
-          Find-nextissueGH -packageName "${{ github.event.issue.title }}" -actor "${{ github.event.issue.user.login }}"
+          Find-nextissueGH -packageName "$env:ISSUE_TITLE" -actor "$env:ISSUE_ACTOR"

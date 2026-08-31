@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one.-->
+<!--Do not remove this test for UTF-8: if "Omega" doesn't appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one.-->
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>sdelete</id>
     <title>SDelete</title>
-    <version>2.05.0.20231106</version>
+    <version>2.06</version>
     <authors>Mark Russinovich</authors>
     <owners>tunisiano</owners>
     <summary>Securely overwrite sensitive files and cleanse free space</summary>
@@ -46,13 +46,13 @@ __-z__  Zero free space (good for virtual disk optimization).
 ### Package-specific issue
 If this package isn't up-to-date for some days, [Create an issue](https://github.com/tunisiano187/Chocolatey-packages/issues/new/choose)
 
-Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@d15c4e19c709e7148588d4523ffc6dd3cd3c7e5e/icons/patreon.png)](https://www.patreon.com/tunisiano)
+Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@d15c4e19c709e7148588d4523ffc6dd3cd3c7e5e/icons/patreon.png)](https://www.patreon.com/bePatron?u=39585820)
 ]]></description>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/sdelete</packageSourceUrl>
     <projectUrl>https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete</projectUrl>
     <mailingListUrl>https://docs.microsoft.com/sysinternals/community</mailingListUrl>
     <tags>privacy security delete erase sysinternals cli</tags>
-    <copyright>© Mark Russinovich</copyright>
+    <copyright>(c) Mark Russinovich</copyright>
     <licenseUrl>https://docs.microsoft.com/en-us/legal/termsofuse</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>

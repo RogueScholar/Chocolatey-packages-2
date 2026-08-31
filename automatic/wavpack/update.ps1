@@ -20,14 +20,15 @@ function global:au_SearchReplace {
 function global:au_AfterUpdate($Package) {
   $Latest.LicenseUrl = (Get-GitHubLicense -OwnerName $Owner -RepositoryName $repo).html_url
   Update-Metadata -key "licenseUrl" -value $Latest.LicenseUrl
+	Import-Module ..\..\scripts\au_extensions.psm1
 	Invoke-VirusTotalScan $Package
 }
 
 function global:au_GetLatest {
 	$tags = Get-GitHubRelease -OwnerName $Owner -RepositoryName $repo -Latest
 	$urls = $tags.assets.browser_download_url | Where-Object {$_ -match "zip$"}
-  $url32 = $urls | Where-Object {$_ -match 'x86'}
-  $url64 = $urls | Where-Object {$_ -match 'x64'}
+  $url32 = $urls | Where-Object {$_ -match 'x86'} | Where-Object {$_ -notmatch 'winXP'}
+  $url64 = $urls | Where-Object {$_ -match 'x64'} | Where-Object {$_ -notmatch 'winXP'}
 
 	[version]$version = $tags.tag_name.Replace('v','').trim()
 	Update-Metadata -key "releaseNotes" -value $tags.html_url

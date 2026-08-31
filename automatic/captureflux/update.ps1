@@ -5,7 +5,7 @@ $releases = 'http://paul.glagla.free.fr/captureflux_en.htm'
 
 function global:au_SearchReplace {
 	@{
-		'tools/chocolateyInstall.ps1' = @{
+		'tools/chocolateyinstall.ps1' = @{
 			"(^[$]url\s*=\s*)('.*')"      		= "`$1'$($Latest.URL32)'"
 			"(^[$]checksum\s*=\s*)('.*')" 		= "`$1'$($Latest.Checksum32)'"
 			"(^[$]checksumType\s*=\s*)('.*')" 	= "`$1'$($Latest.ChecksumType32)'"
@@ -13,20 +13,34 @@ function global:au_SearchReplace {
 	}
 }
 
+function global:au_BeforeUpdate {
+	. ..\..\scripts\Get-FileVersion.ps1
+	$FileVersion = Get-FileVersion $Latest.URL32
+	$Latest.Checksum32 = $FileVersion.Checksum
+	$Latest.ChecksumType32 = $FileVersion.checksumType
+}
+
 function global:au_AfterUpdate($Package) {
+	Import-Module ..\..\scripts\au_extensions.psm1
 	Invoke-VirusTotalScan $Package
 }
 
 function global:au_GetLatest {
 	$page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url32 = "https://paulglagla.com/$($page.Links.href | Where-Object {$_ -match "zip$"} | Select-Object -First 1)"
+
+	# Prefer the absolute paulglagla.com link if present on the page; fall back to constructing from relative link
+	$url32 = $page.Links.href | Where-Object { $_ -match 'https://paulglagla\.com.*captureflux.*\.zip$' } | Select-Object -First 1
+	if (-not $url32) {
+		$relLink = $page.Links.href | Where-Object { $_ -match 'captureflux.*\.zip$' } | Select-Object -First 1
+		$url32 = "https://paulglagla.com/$relLink"
+	}
+
 	$regexPattern = '(\d+(\.\d+)*)</b>'
 	$versionMatch = $page.Content | Select-String -Pattern $regexPattern -AllMatches
 	$version = $versionMatch.Matches[0].Groups[1].Value
 
-
-	$Latest = @{ URL32 = $url32; Version = $version; Checksum32 = $checksum; ChecksumType32 = $env:ChocolateyChecksumType }
+	$Latest = @{ URL32 = $url32; Version = $version; Checksum32 = ''; ChecksumType32 = 'sha256' }
 	return $Latest
 }
 
-update -ChecksumFor none -NoCheckChocoVersion
+update -ChecksumFor none

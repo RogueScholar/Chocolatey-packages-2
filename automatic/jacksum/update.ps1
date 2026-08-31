@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 import-module chocolatey-AU
 
-$releases = 'https://api.github.com/repos/jonelo/jacksum-fbi-windows/releases/latest'
+$releases = 'https://api.github.com/repos/jonelo/jacksum-for-windows/releases/latest'
 $Owner = $releases.Split('/') | Select-Object -Last 1 -Skip 3
 $repo = $releases.Split('/') | Select-Object -Last 1 -Skip 2
 
@@ -16,6 +16,7 @@ function global:au_SearchReplace {
 }
 
 function global:au_AfterUpdate($Package) {
+	. ..\..\scripts\Invoke-VirusTotalScan.ps1
 	Invoke-VirusTotalScan $Package
 }
 
@@ -33,4 +34,4 @@ function global:au_GetLatest {
 	return $Latest
 }
 
-update -NoCheckChocoVersion
+update

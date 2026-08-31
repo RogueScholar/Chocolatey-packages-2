@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>protonpass</id>
-    <version>1.32.0</version>
+    <version>1.39.1</version>
     <title>Proton Pass</title>
     <authors>Proton AG</authors>
     <owners>tunisiano</owners>
@@ -29,7 +29,7 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
 ]]></description>
     <summary>Proton Pass secures your passwords and identity with end-to-end encryption.</summary>
     <licenseUrl>https://raw.githubusercontent.com/protonpass/proton-pass-common/main/LICENSE</licenseUrl>
-    <copyright>Copyright © 2024 Proton AG</copyright>
+    <copyright>Copyright (c) 2024 Proton AG</copyright>
     <tags>proton pass password manager security</tags>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/protonpass</packageSourceUrl>
     <docsUrl>https://proton.me/support/pass</docsUrl>

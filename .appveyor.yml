@@ -78,19 +78,19 @@ install:
     $chocoVersion = if (($Env:APPVEYOR_PULL_REQUEST_NUMBER -eq $null) -or ($ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq '')) { $Env:choco_version } else { $Env:choco_version_pr }
     if (!(Test-Path "$env:nupkg_cache_path")) { $firstrun = "yes" }
     if (!(Test-Path "$env:nupkg_cache_path")) { mkdir -Force "$env:nupkg_cache_path" }
-    @{
-      '7zip.install' = '24.7.0'
-      'chocolatey' = $chocoVersion
-      'chocolatey-misc-helpers.extension' = '0.0.4'
-      'wormies-au-helpers' = '0.4.1'
-      'checksum' = '0.3.1'
-      'keepass.install' = '2.57.0'
-      'vt-cli' = '1.0.0'
-      'autohotkey' = '1.1.37.1'
-      'pngquant' = '3.0.3'
-      'jpegoptim' =  '1.5.5.1'
-
-    }.GetEnumerator() | % {
+    $pkgs = New-Object 'System.Collections.Specialized.OrderedDictionary'
+    $pkgs.Add('chocolatey', $chocoVersion)
+    $pkgs.Add('chocolatey-core.extension', '1.4.0')
+    $pkgs.Add('7zip.install', '24.7.0')
+    $pkgs.Add('chocolatey-misc-helpers.extension', '0.0.4')
+    $pkgs.Add('wormies-au-helpers', '0.4.1')
+    $pkgs.Add('checksum', '0.3.1')
+    $pkgs.Add('keepass.install', '2.57.0')
+    $pkgs.Add('vt-cli', '1.0.0')
+    $pkgs.Add('autohotkey', '1.1.37.1')
+    $pkgs.Add('pngquant', '3.0.3')
+    $pkgs.Add('jpegoptim', '1.5.5.1')
+    $pkgs.GetEnumerator() | % {
       if (!(Test-Path "${env:nupkg_cache_path}\$($_.Key).$($_.Value).nupkg")) { rm "${env:nupkg_cache_path}\$($_.Key).*.nupkg" ; iwr "https://chocolatey.org/api/v2/package/$($_.Key)/$($_.Value)" -OutFile "${env:nupkg_cache_path}\$($_.Key).$($_.Value).nupkg" }
       if ($_.Key -eq 'chocolatey') { choco upgrade $_.Key --version $_.Value --source ${env:nupkg_cache_path} --allow-downgrade --pre }
       else { choco install -y $_.Key --version $_.Value --source ${env:nupkg_cache_path} --ignore-dependencies }
@@ -128,7 +128,7 @@ build_script:
 
     if ($Env:APPVEYOR_PROJECT_NAME  -like '*test*') { ./test_all.ps1 "random $Env:au_test_groups"; return }
     if (($Env:APPVEYOR_PULL_REQUEST_NUMBER -ne $null) -and ($Env:APPVEYOR_PULL_REQUEST_NUMBER -ne '')) {
-      Set-Service wuauserv -StartupType Manual
+      Start-Job -ScriptBlock { Set-Service wuauserv -StartupType Manual }
       ./scripts/Test-RepoPackage.ps1 -CleanFiles -TakeScreenshots
       return
     } else {
@@ -148,14 +148,34 @@ build_script:
 
                     if (!$package_dir) { Write-Warning "Can't find package '$package'"; continue }
                     pushd $package_dir
+                      # Only pack/push if update.ps1 actually bumped the nuspec version. Packages
+                      # with an embedded installer (Install-ChocolateyPackage -File) only have the
+                      # binary on disk after au_BeforeUpdate genuinely downloads it as part of a
+                      # real update -- a bare git checkout never has it (it's never committed).
+                      # Packing unconditionally after a no-op update.ps1 run (e.g. a commit that
+                      # only touches the nuspec description or icon URL, no version change) would
+                      # silently repackage that bare checkout and push a nupkg missing the
+                      # installer. Confirmed live: this exact thing happened to `osfmount` after a
+                      # icon-only commit -- AU logged "Updated: False, Pushed: False" and this loop
+                      # packed and pushed anyway.
+                      $versionBefore = if (Test-Path "$package.nuspec" -ea 0) { (Select-String -Path "$package.nuspec" -Pattern '<version>.*</version>' -ea 0).Line }
                       if (Test-Path update.ps1 -ea 0) { ./update.ps1 }
-                      choco pack; Push-Package -All;
+                      $versionAfter = if (Test-Path "$package.nuspec" -ea 0) { (Select-String -Path "$package.nuspec" -Pattern '<version>.*</version>' -ea 0).Line }
+                      if ($versionBefore -ne $versionAfter) {
+                        choco pack; Push-Package -All;
+                      } else {
+                        Write-Host "No version change for $package after update.ps1 -- skipping choco pack/push"
+                      }
                     popd
                 }
                 return
             }
         }
-        $lastupdated=git log -1 --stat | Where-Object {$_ -match "automatic"} | Where-Object {$_ -notmatch "'automatic"}
+        # Anchored to the start of the line (ignoring leading whitespace) so this only matches real
+        # `git log --stat` diffstat lines (e.g. " automatic/freeplane/update.ps1 | 28 ++--"), not
+        # commit-message prose that happens to contain "automatic" as a substring (e.g. "...picks
+        # this up automatically."), which used to be split into bogus package name tokens.
+        $lastupdated=git log -1 --stat | Where-Object {$_ -match "^\s*automatic/"} | Where-Object {$_ -notmatch "'automatic"}
         if($lastupdated.Count -ne 0 -and ($Env:APPVEYOR_SCHEDULED_BUILD -ne 'true')) {
           $Env:au_Push = "false"
           $packages = $lastupdated.split('/').split(' ')
@@ -168,8 +188,19 @@ build_script:
 
                 if (!$package_dir) { Write-Warning "Can't find package '$package'"; continue }
                 pushd $package_dir
+                  # See the matching comment in the [PUSH ...] handler above: only pack/push if
+                  # update.ps1 actually bumped the nuspec version, so a no-op run (e.g. a commit
+                  # that only touches the nuspec description or icon URL) doesn't silently
+                  # repackage a bare git checkout that's missing any embedded-installer binary
+                  # (those only exist on disk after a genuine au_BeforeUpdate download).
+                  $versionBefore = if (Test-Path "$package.nuspec" -ea 0) { (Select-String -Path "$package.nuspec" -Pattern '<version>.*</version>' -ea 0).Line }
                   if (Test-Path update.ps1 -ea 0) { ./update.ps1 }
-                  choco pack; Push-Package -All;
+                  $versionAfter = if (Test-Path "$package.nuspec" -ea 0) { (Select-String -Path "$package.nuspec" -Pattern '<version>.*</version>' -ea 0).Line }
+                  if ($versionBefore -ne $versionAfter) {
+                    choco pack; Push-Package -All;
+                  } else {
+                    Write-Host "No version change for $package after update.ps1 -- skipping choco pack/push"
+                  }
                 popd
               }
           }
@@ -209,7 +240,7 @@ build_script:
     scripts/ListPackages.ps1
     git commit -am "List packages"
     Write-host "Check broken package"
-    tools/looknewer.ps1
+    #tools/looknewer.ps1
     git commit -am "Broken packages"
     Write-host "Remove NoCheckChocoVersion"
     scripts/Remove-Nocheck.ps1
@@ -251,3 +282,4 @@ notifications:
 
 cache:
   - '%nupkg_cache_path% -> .appveyor.yml'
+

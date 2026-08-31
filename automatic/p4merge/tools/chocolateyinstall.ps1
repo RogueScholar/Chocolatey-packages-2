@@ -3,7 +3,7 @@
 $packageName      = $env:ChocolateyPackageName
 $toolsDir         = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $file             = Join-Path $toolsDir '/p4vinst64.exe'
-$checksum         = 'C5B4242A3A45F7638B6A88D0BD877B2320096457122A8F46616CFD2C88988DF7'
+$checksum         = '80C592BD948FFE22799D005302ECA50DD5780E80F7C08F3B54436C3867C9B64D'
 $checksumType     = 'sha256'
 
 $packageArgs = @{

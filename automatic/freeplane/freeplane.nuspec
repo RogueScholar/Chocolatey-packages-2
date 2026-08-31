@@ -3,8 +3,8 @@
   <metadata>
     <id>freeplane</id>
     <title>Freeplane</title>
-    <version>1.12.11</version>
-    <authors>Dimitry Polivaev,Volker Börchers</authors>
+    <version>0.0</version>
+    <authors>Dimitry Polivaev,Volker Borchers</authors>
     <owners>tunisiano</owners>
     <licenseUrl>https://github.com/freeplane/freeplane/blob/1.11.x/license.txt</licenseUrl>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/freeplane</packageSourceUrl>

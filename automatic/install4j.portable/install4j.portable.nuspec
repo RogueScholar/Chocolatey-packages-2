@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>install4j.portable</id>
-    <version>11.0.5</version>
+    <version>13.1</version>
     <title>install4j (Portable)</title>
     <authors>Dr Ingo Kegel</authors>
     <owners>tunisiano</owners>
@@ -43,7 +43,7 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
 
 #### Package
 * Automatically built and uploaded by [tunisiano](https://chocolatey.org/profiles/tunisiano)</releaseNotes>
-    <copyright>© 2001 ej-technologies GmbH</copyright>
+    <copyright>(c) 2001 ej-technologies GmbH</copyright>
     <tags>trial java installation builder</tags>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/install4j.portable</packageSourceUrl>
     <docsUrl>http://resources.ej-technologies.com/install4j/help/doc/</docsUrl>

@@ -1,7 +1,7 @@
 ﻿$packageName    = $env:ChocolateyPackageName
 $toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = 'https://github.com/bcpierce00/unison/releases/download/v2.53.5/unison-2.53.5-windows-x86_64.zip'
-$checksum       = '20ac71059a2497ce71b1ab5eb72ac0fb6910526d4c9885fe2aa85dec2edd0850'
+$url            = 'https://github.com/bcpierce00/unison/releases/download/v2.54.0/unison-2.54.0-windows-x86_64.zip'
+$checksum       = '8e0c9070824dc7e3f207d54c8afdec1af55ac26af2740d0d5d7b6e00c44d5fab'
 $checksumType   = 'sha256'
 
 Install-ChocolateyZipPackage -PackageName "$packageName" `

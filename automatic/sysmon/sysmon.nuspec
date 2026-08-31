@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one.-->
+<!--Do not remove this test for UTF-8: if "Omega" doesn't appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one.-->
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>sysmon</id>
     <title>Sysmon</title>
-    <version>15.15</version>
+    <version>15.21</version>
     <authors>Mark Russinovich</authors>
     <owners>tunisiano</owners>
     <summary>Monitors and reports key system activity via the Windows event log</summary>
@@ -14,14 +14,14 @@ Monitors and reports key system activity via the Windows event log.
 ### Package-specific issue
 If this package isn't up-to-date for some days, [Create an issue](https://github.com/tunisiano187/Chocolatey-packages/issues/new/choose)
 
-Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@d15c4e19c709e7148588d4523ffc6dd3cd3c7e5e/icons/patreon.png)](https://www.patreon.com/tunisiano)
+Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@d15c4e19c709e7148588d4523ffc6dd3cd3c7e5e/icons/patreon.png)](https://www.patreon.com/bePatron?u=39585820)
 ]]></description>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/sysmon</packageSourceUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@0ad762a6859829c753d21159e92a9aee0302aa1b/icons/sysmon.png</iconUrl>
     <projectUrl>http://technet.microsoft.com/sysinternals/dn798348</projectUrl>
     <mailingListUrl>http://forum.sysinternals.com/</mailingListUrl>
     <tags>freeware eventlog monitor tools sysinternals</tags>
-    <copyright>© Mark Russinovich</copyright>
+    <copyright>(c) Mark Russinovich</copyright>
     <licenseUrl>https://technet.microsoft.com/en-us/sysinternals/bb469936</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>

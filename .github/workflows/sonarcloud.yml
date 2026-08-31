@@ -1,0 +1,29 @@
+﻿# .github/workflows/sonarqube.yml
+name: SonarQube Analysis
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+permissions:
+  contents: read
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7.0.1
+      with:
+        fetch-depth: 0  # Historique complet pour Quality Gates
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarqube-scan-action@v8
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      with:
+        args: >
+          -Dsonar.projectKey=tunisiano187_Chocolatey-packages
+          -Dsonar.organization=tunisiano187
+          -Dsonar.sources=.

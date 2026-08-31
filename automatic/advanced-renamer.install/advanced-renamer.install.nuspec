@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>advanced-renamer.install</id>
-    <version>4.18.1</version>
+    <version>4.24</version>
     <title>Advanced Renamer (Install)</title>
     <authors>Kim Jensen</authors>
     <owners>tunisiano</owners>
     <licenseUrl>https://www.advancedrenamer.com/user_guide/license</licenseUrl>
     <projectUrl>https://www.advancedrenamer.com/</projectUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@e677f9c61645ae9820397c8c820442f0e5123cce/icons/advanced-renamer.install.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@ec9d9d257434bfdf394bdeff539776388f665b87/icons/advanced-renamer.install.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[## Advanced Renamer (Install)
 

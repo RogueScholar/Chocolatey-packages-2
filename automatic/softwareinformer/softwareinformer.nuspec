@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one.-->
+<!--Do not remove this test for UTF-8: if "Omega" doesn't appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one.-->
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>softwareinformer</id>
     <title>Software Informer</title>
-    <version>1.6.1417</version>
+    <version>1.5.1365.0</version>
     <authors>Informer Technologies, Inc</authors>
     <owners>tunisiano</owners>
     <summary>Get the up-to-date information about the software you actually use</summary>

@@ -1,7 +1,7 @@
 ﻿$packageName = 'mweather.install'
 $installerType = 'exe'
 $url = 'https://www.nirsoft.net/utils/mweather_setup.exe'
-$checksum = '0c7f944ef1458ae1b73b8ef049e10e8a4b6d15b8b8d4c879511656ae5623f74c'
+$checksum = 'f9d9bc24d7d1ea1950286e360bcb118a54d6ad065bfc71a090b88ea23036690e'
 $checksumType = 'sha256'
 $silentArgs = '/S'
 $validExitCodes = @(0)

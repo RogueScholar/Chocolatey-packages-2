@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>pwgen</id>
-    <version>3.5.7</version>
+    <version>3.6.0</version>
     <title>PWGen</title>
     <authors>Christian Thoeing</authors>
     <owners>tunisiano</owners>
@@ -33,13 +33,13 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
 #### Package
 * Automatically built and uploaded by [tunisiano](https://chocolatey.org/profiles/tunisiano)
 * Package not up-to-date after a few days ? [Create an issue](https://github.com/tunisiano187/Chocolatey-packages/issues/new/choose)</releaseNotes>
-    <copyright>© Christian Thoeing</copyright>
+    <copyright>(c) Christian Thoeing</copyright>
     <tags>security</tags>
     <projectSourceUrl>https://sourceforge.net/projects/pwgen-win/files/PWGen/2.9.0/</projectSourceUrl>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/pwgen</packageSourceUrl>
     <bugTrackerUrl>https://sourceforge.net/p/pwgen-win/bugs/</bugTrackerUrl>
     <dependencies>
-      <dependency id="pwgen.install" version="[3.5.7]" />
+      <dependency id="pwgen.install" version="[3.6.0]" />
     </dependencies>
   </metadata>
   <files>

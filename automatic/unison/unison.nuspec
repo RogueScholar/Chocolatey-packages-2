@@ -3,7 +3,7 @@
   <metadata>
     <id>unison</id>
     <title>Unison</title>
-    <version>2.53.7</version>
+    <version>2.54.0</version>
     <authors>Benjamin C. Pierce</authors>
     <owners>tunisiano</owners>
     <summary>File-synchronization tool for OSX, Unix, and Windows</summary>
@@ -37,13 +37,13 @@ where it differs:
 ### Package-specific issue
 If this package isn't up-to-date for some days, [Create an issue](https://github.com/tunisiano187/Chocolatey-packages/issues/new/choose)
 
-Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@d15c4e19c709e7148588d4523ffc6dd3cd3c7e5e/icons/patreon.png)](https://www.patreon.com/tunisiano)
+Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@d15c4e19c709e7148588d4523ffc6dd3cd3c7e5e/icons/patreon.png)](https://www.patreon.com/bePatron?u=39585820)
 ]]></description>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/unison</packageSourceUrl>
     <projectUrl>http://www.cis.upenn.edu/~bcpierce/unison/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/tunisiano187/Chocolatey-packages@7669873dfdadf3571b9955c92e66cbf15b39f8bb/icons/unison.png</iconUrl>
     <tags>backup sync gtk</tags>
-    <copyright>© 1998 Benjamin C. Pierce, 2014 Alan Schmitt</copyright>
+    <copyright>(c) 1998 Benjamin C. Pierce, 2014 Alan Schmitt</copyright>
     <licenseUrl>https://www.gnu.org/licenses/gpl-2.0.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>#### Software

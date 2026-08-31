@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>searchmyfiles</id>
-    <version>3.35</version>
+    <version>3.36</version>
     <title>SearchMyFiles</title>
     <authors>Nir Sofer</authors>
     <owners>tunisiano</owners>
@@ -28,7 +28,7 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
     <summary>Alternative to Windows Search For Files + Duplicates Search</summary>
     <releaseNotes>#### Package
 * Automatically built and uploaded by [tunisiano](https://chocolatey.org/profiles/tunisiano)</releaseNotes>
-    <copyright>© 2009 NirSoft</copyright>
+    <copyright>(c) 2009 NirSoft</copyright>
     <tags>files folders wildcard duplicate</tags>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/searchmyfiles</packageSourceUrl>
   </metadata>

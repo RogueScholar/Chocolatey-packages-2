@@ -1,8 +1,8 @@
 ﻿$packageName    = $env:ChocolateyPackageName
 $installerType  = 'exe'
 $silentArgs     = '-q -overwrite'
-$url            = 'https://updater.thebrain.com/files/TheBrain%2014.0.112.0%20Installer.exe'
-$checksum       = '7e59532b2526bbc08794246cc4b63f607e3e09c450eaf2d5e0bc9da3cf793ae9'
+$url            = 'https://updater.thebrain.com/files/TheBrain%2014.0.116.0%20Installer.exe'
+$checksum       = '852e8b7db7948117d453b478d29fde2fc63a24dc2d1ebcdb0d072e8c32d7fa6f'
 $checksumType   = 'sha256'
 $validExitCodes = @(0)
 

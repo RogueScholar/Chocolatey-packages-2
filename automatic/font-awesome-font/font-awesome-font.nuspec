@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>font-awesome-font</id>
-    <version>7.1.0</version>
+    <version>7.3.1</version>
     <title>Font Awesome (Font) (Install)</title>
     <authors>Dave Gandy</authors>
     <owners>tunisiano</owners>
@@ -60,7 +60,7 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
 ]]></description>
     <summary>Font Awesome - The iconic font and CSS framework</summary>
     <releaseNotes>https://fontawesome.com/changelog/latest</releaseNotes>
-    <copyright>© Fonticons, Inc.</copyright>
+    <copyright>(c) Fonticons, Inc.</copyright>
     <tags>font awesome otf opentype binary</tags>
     <projectSourceUrl>https://github.com/FortAwesome/Font-Awesome</projectSourceUrl>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/font-awesome-font</packageSourceUrl>

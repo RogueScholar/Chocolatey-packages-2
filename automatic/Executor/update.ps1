@@ -2,8 +2,8 @@ $ErrorActionPreference = 'Stop'
 import-module chocolatey-AU
 Import-Module ..\..\scripts\au_extensions.psm1
 
-$base     = 'http://www.1space.dk/executor'
-$releases = "$base/downloadlinks.html"
+$base     = 'https://executor.dk'
+$releases = "$base/download"
 
 function global:au_BeforeUpdate {
   $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32
@@ -24,11 +24,24 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
-	$downloadPage = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url32      = $downloadPage.links | where-object href -match 'E.+\.exe' | select-object -expand href | foreach-object { $base +  '/' + $_ } | Select-Object -First 1
+	$downloadPage = Invoke-WebRequest -Uri $releases -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+	$url32 = $downloadPage.links | where-object { $_.href -match '^ExecutorSetup\.exe$' } | select-object -expand href | foreach-object { "$base/$_" } | Select-Object -First 1
 
-	[XML]$feed	= $((Invoke-WebRequest -Uri 'http://www.1space.dk/executor/rssfeed.xml' -UseBasicParsing)).Content
-	$version 	= $feed.rss.channel.item[0].title.split(' ')[-1].trim()
+	if (-not $url32) {
+		throw "Could not find EXE download link"
+	}
+
+	$feedResponse = Invoke-WebRequest -Uri 'https://executor.dk/rssfeed.xml' -UseBasicParsing
+	if (-not $feedResponse) {
+		throw "Could not fetch RSS feed"
+	}
+
+	[XML]$feed = $feedResponse.Content
+	if (-not $feed.rss.channel.item[0]) {
+		throw "Could not parse RSS feed"
+	}
+
+	$version = $feed.rss.channel.item[0].title.split(' ')[-1].trim()
 
 	return @{
 		Url32 	= $url32
@@ -36,4 +49,4 @@ function global:au_GetLatest {
 	}
 }
 
-update -ChecksumFor 32 -NoCheckUrl -NoCheckChocoVersion
+update -ChecksumFor 32 -NoCheckUrl

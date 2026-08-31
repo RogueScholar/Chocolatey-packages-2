@@ -1,11 +1,11 @@
 ﻿$ErrorActionPreference = 'Stop'
 $packageName    = 'ntlite-free'
 $toolsDir       = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url            = 'https://downloads.ntlite.com/files/NTLite_setup_x86.exe'
-$checksum       = 'c988f651e001e9a6cc23710e70aeb795062f74ed081c88aeb81bbedfeb254acd'
+$url            = 'https://downloads.ntlite.com/files/NTLite_setup_x86_legacy.exe'
+$checksum       = 'b58329389f5d3f8a23e13d703b8ccad6eef2d79e346bc33e922f69dbe87eca10'
 $checksumType   = 'sha256'
 $url64          = 'https://downloads.ntlite.com/files/NTLite_setup_x64.exe'
-$checksum64     = '00e43f16589ab548ade9909a4580b0280cac16794ded60e68457e74913d41131'
+$checksum64     = 'ccb27bca6b0bc118e36f502406a2cd06874b19f5458dcaef8fb87ca16f4133df'
 $checksumType64 = 'sha256'
 
 $packageArgs = @{

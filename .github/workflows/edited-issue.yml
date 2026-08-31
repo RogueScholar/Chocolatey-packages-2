@@ -4,16 +4,25 @@ on:
   issues:
     types: [edited]
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   validation:
-    if: ${{ github.event.issue.state == 'open' }}
-    runs-on: windows-latest
+    if: ${{ github.event.issue.state == 'open' && (contains(github.event.issue.title, 'exclude') || contains(github.event.issue.title, 'remove') || contains(github.event.issue.title, 'block')) }}
+    runs-on: windows-2025
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v7.0.1
       - name: Check exception
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.event.repository.full_name }}
+          ACTOR: ${{ github.event.issue.user.login }}
         run: |
           Import-Module "${{ github.workspace }}\scripts\edit.psm1"
-          Block-package -title "${{ github.event.issue.title }}" -issueNumber ${{ github.event.issue.number }} -repository "${{ github.event.repository.full_name }}" -actor "${{ github.event.issue.user.login }}"
+          Block-package -title "$env:ISSUE_TITLE" -issueNumber $env:ISSUE_NUMBER -repository "$env:REPOSITORY" -actor "$env:ACTOR"

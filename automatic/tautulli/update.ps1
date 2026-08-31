@@ -16,6 +16,11 @@ function global:au_SearchReplace {
     }
 }
 
+function global:au_AfterUpdate($Package) {
+	. ..\..\scripts\Invoke-VirusTotalScan.ps1
+	Invoke-VirusTotalScan $Package
+}
+
 function global:au_GetLatest {
     $tags = Get-GitHubRelease -OwnerName $Owner -RepositoryName $repo -Latest
     $url = $tags.assets.browser_download_url | Where-Object {$_ -match ".exe$"}
@@ -29,4 +34,4 @@ function global:au_GetLatest {
     return @{ URL32 = $url; Version = $version }
 }
 
-update-package -ChecksumFor none -NoCheckChocoVersion
+update-package -ChecksumFor 32

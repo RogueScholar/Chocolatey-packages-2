@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>tautulli</id>
-    <version>2.14.0</version>
+    <version>2.18.1</version>
     <title>Tautulli for Plex</title>
     <authors>JonnyWong16, WilliamComartin</authors>
     <owners>tunisiano</owners>
@@ -57,7 +57,7 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
 ]]></description>
     <summary>Tautulli - Monitor your Plex Media Server</summary>
     <releaseNotes>https://github.com/Tautulli/Tautulli/releases</releaseNotes>
-    <copyright>Copyright © | JonnyWong16 / WilliamComartin</copyright>
+    <copyright>Copyright (c) | JonnyWong16 / WilliamComartin</copyright>
     <tags>tautulli plexpy plex pms python portable foss cross-platform binary</tags>
     <projectSourceUrl>https://github.com/Tautulli/Tautulli</projectSourceUrl>
     <packageSourceUrl>https://github.com/tunisiano187/Chocolatey-packages/tree/master/automatic/tautulli</packageSourceUrl>
@@ -65,7 +65,6 @@ Support the package maintainer and [![Patreon](https://cdn.jsdelivr.net/gh/tunis
     <mailingListUrl>https://forums.plex.tv/discussion/307821/tautulli-monitor-your-plex-media-server</mailingListUrl>
   </metadata>
   <files>
-    <file src="legal\**" target="legal" />
     <file src="tools\**" target="tools" />
   </files>
 </package>

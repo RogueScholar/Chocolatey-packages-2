@@ -1,0 +1,121 @@
+name: Daily GitHub Issues Surveillance
+
+on:
+  schedule:
+    # Run daily at 08:30 Europe/Brussels time (UTC+2, or UTC+1 during DST)
+    # 08:30 Europe/Brussels = 06:30 UTC (standard time) or 07:30 UTC (daylight time)
+    - cron: '30 6 * * *'  # 06:30 UTC
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  surveillance:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.14'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run daily surveillance
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Starting daily GitHub surveillance..."
+          echo "Current time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "Repository: ${{ github.repository }}"
+
+          # Run the enhanced surveillance script
+          python3 enhanced_surveillance.py
+
+          echo "Daily surveillance completed"
+
+      - name: Commit and push surveillance report
+        run: |
+          if [ -f "Daily-GitHub-Surveillance-Report.md" ] && [ -s "Daily-GitHub-Surveillance-Report.md" ]; then
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+
+            git add "Daily-GitHub-Surveillance-Report.md"
+
+            if git diff --staged --quiet; then
+              echo "No changes to commit"
+            else
+              REPORT_DATE="$(date '+%Y-%m-%d')"
+              REPORT_TIME="$(date '+%Y-%m-%d %H:%M:%S UTC')"
+              git commit \
+                --author="GitHub Action <action@github.com>" \
+                -m "${REPORT_DATE}: Daily GitHub surveillance report" \
+                -m "Automatic surveillance report generated at ${REPORT_TIME}." \
+                -m "Co-authored-by: Paperclip <noreply@paperclip.ing>"
+              # Rebase onto latest remote to avoid rejection when other commits landed
+              git pull --rebase origin "$GITHUB_REF_NAME"
+              git push origin "$GITHUB_REF_NAME"
+              echo "Report committed and pushed"
+            fi
+          else
+            echo "No surveillance report generated"
+          fi
+
+      - name: Create issue for critical findings
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f "Daily-GitHub-Surveillance-Report.md" ]; then
+            if grep -q "🔴 critical" "Daily-GitHub-Surveillance-Report.md"; then
+              echo "Critical issues detected, creating GitHub issue..."
+
+              CRITICAL_ISSUES=$(grep "🔴 critical" "Daily-GitHub-Surveillance-Report.md" | head -n 5)
+              REPORT_DATE="$(date '+%Y-%m-%d')"
+              RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              REPORT_URL="../../blob/${{ github.sha }}/Daily-GitHub-Surveillance-Report.md"
+
+              printf '## 🚨 Rapport de Surveillance Quotidien - Critiques Détectées\n\nDes **issues critiques** ont été détectées lors de la surveillance quotidienne du repository ${{ github.repository }}.\n\n### 🔴 Issues Critiques (échantillon)\n\n%s\n\n### 🔗 Liens Utiles\n- Rapport complet: [Daily-GitHub-Surveillance-Report.md](%s)\n- Workflow: [GitHub Actions Run](%s)\n\n---\n*Généré automatiquement par GitHub Actions daily surveillance workflow*\n' \
+                "$CRITICAL_ISSUES" "$REPORT_URL" "$RUN_URL" > /tmp/critical-issue-body.md
+
+              gh issue create \
+                --title "🚨 Surveillance Quotidienne - Critiques $(date '+%Y-%m-%d')" \
+                --body-file /tmp/critical-issue-body.md \
+                --label "bug" \
+                --assignee tunisiano187
+            fi
+          fi
+
+      - name: Comment on main surveillance issue
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f "Daily-GitHub-Surveillance-Report.md" ]; then
+            TOTAL_ISSUES=$(grep -o "Total issues: [0-9]*" "Daily-GitHub-Surveillance-Report.md" | cut -d: -f2 | tr -d ' ')
+            REPORT_DATE="$(date '+%Y-%m-%d')"
+            RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            REPORT_URL="../../blob/${{ github.sha }}/Daily-GitHub-Surveillance-Report.md"
+
+            if grep -q "🔴 critical" Daily-GitHub-Surveillance-Report.md; then
+              STATUS="🔴 Critiques détectées"
+            else
+              STATUS="✅ OK"
+            fi
+
+            printf '## 📊 Rapport de Surveillance Quotidien %s\n- **Total issues**: %s\n- **Statut**: %s\n\n[Rapport complet](%s) | [Workflow](%s)\n' \
+              "$REPORT_DATE" "$TOTAL_ISSUES" "$STATUS" "$REPORT_URL" "$RUN_URL" \
+              | gh issue comment 3998 --body-file -
+          fi
